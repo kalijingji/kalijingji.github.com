@@ -168,45 +168,43 @@
             <p>var a = 1;
             <p>var b = function {
             <p>return a;
-};
-function c {
-var a = 2;
-return b;
-}
-console.log(c()); //1
-以上两个代码段相同。函数b是在函数c外部声明的。所以它的作用域绑定在函数外层，内部函数a不会到函数c体内取值，所以返回的是1，而不是2。
-很容易犯错的一点是，如果函数A调用函数B，却没考虑到函数B不会引用函数A的内部变量。
-var b = function { 
-console.log(a); 
-};
-function c(f) {
-var a = 1; 
-f; 
-}
-c(b); //Uncaught ReferenceError: a is not defined
-var b = function {
-return a;
-};
-function c(f) {
-var a = 1;
-return f;
-}
-console.log(c(b)); //Uncaught ReferenceError: a is not defined
-上面代码将函数b作为参数，传入函数c。但是，函数b是在函数c体外声明的，作用域绑定外层，因此找不到函数c的内部变量a，导致报错。
-同样的，函数体内部声明的变量，作用域绑定在函数体内部。
-function fun() {
-var a = 1; 
-function rascal {
-console.log(a); 
-}
-return rascal;
-} 
-var a = 2;
-var f = fun;
-f(); //1
-上面代码中，函数fun内部声明了rascal变量。rascal作用域绑定在fun上。当我们在fun外部取出rascal执行时，变量a指向的是fun内部的a，而不是fun外部的a。这里涉及到函数另外一个重要的知识点，即在一个函数内部定义另外一个函数，也就是闭包的概念。
-总之，函数执行时所在的作用域，是定义时的作用域，而不是调用时所在的作用域。-->
-
+            <p>};
+            <p>function c {
+            <p>var a = 2;
+            <p>return b;
+            <p>}
+            <p>console.log(c()); //1
+            <p>以上两个代码段相同。函数b是在函数c外部声明的。所以它的作用域绑定在函数外层，内部函数a不会到函数c体内取值，所以返回的是1，而不是2。
+            <p>很容易犯错的一点是，如果函数A调用函数B，却没考虑到函数B不会引用函数A的内部变量。
+            <p>var b = function { 
+            <p>console.log(a); 
+            <p>};
+            <p>function c(f) {
+            <p>var a = 1; 
+            <p>f; 
+            <p>}
+            <p>c(b); //Uncaught ReferenceError: a is not defined
+            <p>var b = function {
+            <p>return a;
+            <p>};
+            <p>function c(f) {
+            <p>var a = 1;
+            <p>return f;
+            <p>}
+            <p>console.log(c(b)); //Uncaught ReferenceError: a is not defined
+            <p>上面代码将函数b作为参数，传入函数c。但是，函数b是在函数c体外声明的，作用域绑定外层，因此找不到函数c的内部变量a，导致报错。
+            <p>同样的，函数体内部声明的变量，作用域绑定在函数体内部。
+            <p>function fun() {
+            <p>var a = 1; 
+            <p>function rascal {
+            <p>console.log(a); 
+            <p>}
+            <p>return rascal;
+            <p>} 
+            <p>var a = 2;
+            <p>var f = fun;
+            <p>f(); //1
+            <p>上面代码中，函数fun内部声明了rascal变量。rascal作用域绑定在fun上。当我们在fun外部取出rascal执行时，变量a指向的是fun内部的a，而不是fun外部的a。这里涉及到函数另外一个重要的知识点，即在一个函数内部定义另外一个函数，也就是闭包的概念。
+            <p>总之，函数执行时所在的作用域，是定义时的作用域，而不是调用时所在的作用域。-->
 	</body>
 </html>
-
