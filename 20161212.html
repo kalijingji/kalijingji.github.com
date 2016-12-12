@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{width: 800px;height:128px;margin: auto;}
+			*{margin:0;padding: 0;}
+			#nav{width: 1200px;margin: auto;background: #ddd;}
+			pre{background: #aaa;}
+			h1{color: red;}
+        	h2{color: green;}
+		   </style> 
+	</head>
+
+	<body>
+		<div id="nav">
+		<h1>事件流</h1>
+		<h2>节点事件</h2>
+		<pre>&ltp onclick="alert('点我有惊喜')">我是p&lt/p> </pre>
+		<h2>HTML DOM on事件</h2>
+		<pre>
+			&ltp id="pp">我是p2&lt/p>
+	             &ltscript type="text/javascript">
+	             var  pp =	document.getElementById("pp");
+	             pp.onclick=function (){
+	  	         alert("点我没惊喜")   
+	                     }
+	        &lt/script>
+		</pre>
+		<h2>HTML DOM W3C 标准事件 监听</h2>
+		<pre>
+       	          &ltp id="pp">我是p2&lt/p>
+       	          &ltscript type="text/javascript">
+       	          pp.addEventListener("click",clickHandler);//通过父容器可以监听里面的所有子容器
+	              function clickHandler(){
+	  	          alert("双十二了");
+	  	          }
+	  	          &lt/script>
+       </pre>
+		<h1>获取键盘所对应的数字代码</h1>
+		<pre>
+       	          &ltbody>
+		          &ltinput type="text" name="ipuTxt" id="ipt" value="" />
+		          &ltscript type="text/javascript">
+			      var ipt = document.getElementById("ipt");
+			      ipt.focus();
+			      ipt.onkeydown = function(e){
+				  console.log(e.keyCode);
+				
+			         }
+		         &lt/script>
+	             &lt/body>
+       </pre>
+       <h1>点击获取短信验证码</h1>
+       <pre>
+       	         &ltbody>
+		         &ltbutton id="btn">获取手机验证码&lt/button>
+		         &ltscript type="text/javascript">
+			     var btn = document.getElementById("btn");
+			     var t = 59;
+			     btn.addEventListener("click",move,false);
+			     var time;
+                 function move(){
+          	            clearInterval(time);
+				        btn.innerHTML = t +"秒获取验证码";
+				        btn.disabled = true;
+                        time=window.setInterval(move1,1000);
+			         }
+                 function move1(){
+          	
+          	     btn.innerHTML = t +"秒获取验证码";
+          	         if(t<=0){
+          		       t = 59;  
+          		          if(time){clearInterval(time)}//检测定时器是否存在
+          	              btn.disabled = false;
+          	              btn.innerHTML = "获取手机验证码";
+          	               }
+          	           t--;
+                         }
+		         &lt/script>
+	             &lt/body>
+       </pre>
+       <h1>开关</h1>
+       <pre>
+       	             &ltp id="pp">点击我加载 </p>	
+                     &ltimg id="img" width="800px">
+                     &ltscript type="text/javascript">
+ 	                 var pp=document.getElementById('pp');
+ 	                 var img=document.getElementById('img');
+ 	                 var b = true;
+ 	                 pp.addEventListener("click",function () {
+ 		                 if (b==true) {
+ 			             img.setAttribute("src","1.png");
+ 		                 } else {
+                        img.setAttribute("src","");
+ 		                  }
+ 		                 b = !b;
+ 	                    },false)//false 代表冒泡  .true代表捕获流
+                      &lt/script> 
+       </pre>
+       <h1>图片随鼠标移动</h1>
+       <pre>
+       	            &ltimg  src="1.png" id="img1" width="50px" style="position: absolute;">
+                    &ltscript type="text/javascript">
+                    var box = document.getElementById("box"); 
+ 	                var img1=document.getElementById("img1");
+ 	                window.addEventListener("mousemove",function (e){ img1.style.top=e.clientY+"px";
+ 		            img1.style.left=e.clientX+"px";
+ 	                },false);
+ 	                &lt/script>
+       </pre>
+       <h1>时间与图片之间的变化</h1>
+       <pre>
+       	             &ltbody>
+		             &ltdiv id="box">
+			         &ltimg src=""/>
+			         &ltimg src=""/>
+			         &ltimg src=""/>
+			         &ltimg src=""/>
+			         &ltimg src=""/>
+			         &ltimg src=""/>
+			         &ltimg src=""/>
+			         &ltimg src=""/>
+			         &ltimg src=""/>
+		             &lt/div>
+		             &ltscript type="text/javascript">
+		             var arr = ["0.png","1.png","2.png","3.png","4.png","5.png","6.png","7.png","8.png","9.png","dot.png"]
+			         var img = document.getElementsByTagName('img');
+                     setInterval(function move() {
+            	     var ssa = new Date();
+            	     var Hours = ssa.getHours();
+                     var Minutes = ssa.getMinutes();
+                     var Seconds = ssa.getSeconds();
+            	     img[0].src = arr[parseInt(Hours/10)];//向下取整  Math.ceil//向上取整
+            	     img[1].src = arr[Hours%10];//求余
+            	     img[2].src = arr[10];
+            	     img[3].src = arr[parseInt(Minutes/10)];
+            	     img[4].src = arr[Minutes%10];
+            	     img[5].src = arr[10];
+            	     img[6].src = arr[parseInt(Seconds/10)];
+            	     img[7].src = arr[Seconds%10];
+                     },1000)
+		             &lt/script>
+       </pre>
+       <h2>实例</h2>
+       <div id="box">
+			<img src=""/>
+			<img src=""/>
+			<img src=""/>
+			<img src=""/>
+			<img src=""/>
+			<img src=""/>
+			<img src=""/>
+			<img src=""/>
+			<img src=""/>
+		</div>
+</div>
+		<script type="text/javascript">
+		     var arr = ["http://image18.poco.cn/mypoco/myphoto/20161212/19/18473332420161212193941033_640.jpg?96x128_130","http://image18.poco.cn/mypoco/myphoto/20161212/19/1847333242016121219400102_640.jpg?96x128_130","http://image18.poco.cn/mypoco/myphoto/20161212/19/18473332420161212194026057_640.jpg?96x128_130","http://image18.poco.cn/mypoco/myphoto/20161212/19/18473332420161212194102048_640.jpg?96x128_130","http://image18.poco.cn/mypoco/myphoto/20161212/19/18473332420161212194218086_640.jpg?96x128_130","http://image18.poco.cn/mypoco/myphoto/20161212/19/18473332420161212194300047_640.jpg?96x128_130","http://image18.poco.cn/mypoco/myphoto/20161212/19/18473332420161212194435045_640.jpg?96x128_130","http://image18.poco.cn/mypoco/myphoto/20161212/19/18473332420161212194543096_640.jpg?96x128_130","http://image18.poco.cn/mypoco/myphoto/20161212/19/18473332420161212194559027_640.jpg?96x128_130","http://image18.poco.cn/mypoco/myphoto/20161212/19/18473332420161212194614055_640.jpg?96x128_130","http://image18.poco.cn/mypoco/myphoto/20161212/19/18473332420161212194641077_640.jpg?50x128_130"];
+			 var img = document.getElementsByTagName('img');
+            setInterval(function move() {
+            	var ssa = new Date();
+            	var Hours = ssa.getHours();
+                var Minutes = ssa.getMinutes();
+                var Seconds = ssa.getSeconds();
+            	img[0].src = arr[parseInt(Hours/10)];//向下取整  Math.ceil//向上取整
+            	img[1].src = arr[Hours%10];//求余
+            	img[2].src = arr[10];
+            	img[3].src = arr[parseInt(Minutes/10)];
+            	img[4].src = arr[Minutes%10];
+            	img[5].src = arr[10];
+            	img[6].src = arr[parseInt(Seconds/10)];
+            	img[7].src = arr[Seconds%10];
+            },1000)
+		</script>
+		
+	</body>
+
+</html>
