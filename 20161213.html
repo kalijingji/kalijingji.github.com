@@ -64,8 +64,8 @@
 			 var tr=tb.insertRow();
 			   for(var i = 0;i<numtd;i++){
 				var td=tr.insertCell();
-				var m=7*j+i;
-				if(m>zhou&&m<=Day1){
+				var m=7*j+i-zhou;
+				if(m>0&&m<=Day1){
 					td.innerText=m;
 				}
 				else{
