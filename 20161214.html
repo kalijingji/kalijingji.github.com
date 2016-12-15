@@ -74,6 +74,149 @@
     save() 保存当前环境的状态 
     restore() 返回之前保存过的路径状态和属性 
     </pre>
+	<h2>实例</h2>
+	<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="1000" height="1000" style="border:1px solid #c3c3c3;margin-top: 100px;;">
+		</canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById("canvas");
+			var ctx = canvas.getContext("2d");
+			ctx.beginPath();
+			ctx.lineWidth = 10;
+			ctx.strokeStyle = "black";
+			ctx.moveTo(200,400);
+		    ctx.bezierCurveTo(100,300,300,100,500,150) 		   
+			ctx.stroke();                             //左脸
+			
+			ctx.beginPath();
+			ctx.moveTo(500,150);
+		    ctx.bezierCurveTo(500,150,780,250,650,400) 
+		    ctx.stroke();      //右脸
+		    
+		    ctx.beginPath();
+			ctx.moveTo(250,210);
+		    ctx.bezierCurveTo(250,150,300,100,400,145) 
+		    ctx.stroke();       //左耳朵
+		    
+		    ctx.beginPath();
+			ctx.moveTo(500,150);
+		    ctx.bezierCurveTo(550,170,600,90,650,245) 
+		    ctx.stroke();         //右耳朵
+		    
+		    ctx.beginPath();
+			ctx.moveTo(290,180);
+		    ctx.bezierCurveTo(310,170,330,180,350,200) 
+		    ctx.stroke();       //左眉毛
+		    
+		    ctx.beginPath();
+			ctx.moveTo(450,200);
+		    ctx.bezierCurveTo(500,170,530,190,550,200) 
+		    ctx.stroke();        //右眉毛
+		    
+		    ctx.beginPath();
+			ctx.moveTo(400,365);
+		    ctx.bezierCurveTo(410,380,430,390,480,365) 
+		    ctx.stroke();   //右胡须
+		    
+		    ctx.beginPath();
+			ctx.moveTo(400,365);
+		    ctx.bezierCurveTo(380,380,360,390,320,360) 
+		    ctx.stroke();  //左胡须
+		    
+		    ctx.beginPath();
+		    ctx.fillStyle = "black"
+			ctx.arc(300,300,50,0,2*Math.PI);
+			ctx.fill ()	;    //左眼
+			
+			ctx.beginPath();
+		    ctx.fillStyle = "black"
+			ctx.arc(510,300,60,0,2*Math.PI);
+			ctx.fill ()	;   //右眼
+			
+			ctx.beginPath();
+		    ctx.fillStyle = "black"
+			ctx.arc(400,350,20,0,2*Math.PI);
+			ctx.fill ()	;   //鼻子
+			
+			ctx.beginPath();
+		    ctx.fillStyle = "#fff"
+			ctx.arc(320,280,10,0,2*Math.PI);
+			ctx.fill ()	;   //左眼白
+			
+			ctx.beginPath();
+		    ctx.fillStyle = "#fff"
+			ctx.arc(530,280,10,0,2*Math.PI);
+			ctx.fill ()	;  //右眼白
+			
+			ctx.beginPath();
+			ctx.moveTo(200,400);
+		    ctx.bezierCurveTo(300,500,500,500,650,400) 
+		    ctx.stroke();
+		    
+		    ctx.moveTo(200,300);
+			ctx.lineTo(150,290);
+			ctx.stroke(); 
+			
+			ctx.moveTo(200,320);
+			ctx.lineTo(150,320);
+			ctx.stroke(); 
+			
+			ctx.moveTo(200,340);
+			ctx.lineTo(150,350);
+			ctx.stroke(); 
+			
+			 ctx.moveTo(710,300);
+			ctx.lineTo(650,310);
+			ctx.stroke(); 
+			
+			ctx.moveTo(710,330);
+			ctx.lineTo(650,330);
+			ctx.stroke(); 
+			
+			ctx.moveTo(710,360);
+			ctx.lineTo(650,350);
+			ctx.stroke(); 
+			
+			ctx.moveTo(300,260);
+			ctx.lineTo(270,250);
+			ctx.stroke();
+			
+			ctx.moveTo(500,260);
+			ctx.lineTo(560,250);
+			ctx.stroke();
+			
+			ctx.moveTo(365,400);
+			ctx.lineTo(435,400);
+			ctx.stroke();
+			
+			ctx.beginPath();
+			ctx.moveTo(370,400);
+		    ctx.bezierCurveTo(380,450,410,450,430,400) 
+		    ctx.stroke();
+		    
+//		    ctx.beginPath();
+//		    ctx.fillStyle = "red"
+//			ctx.arc(401,405,20,0,1*Math.PI);
+//			ctx.fill ()	; 
+			
+//			 ctx.beginPath();
+//		    ctx.fillStyle = "pink"
+//			ctx.arc(280,400,30,0,2*Math.PI);
+//			ctx.fill ()	; 
+//			
+//			ctx.beginPath();
+//		    ctx.fillStyle = "pink"
+//			ctx.arc(550,400,40,0,2*Math.PI);
+//			ctx.fill ()	; 
+		</script>	
+	</body>
+</html>
  </div>
 </body>
 </html>
