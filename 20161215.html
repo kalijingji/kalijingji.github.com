@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#nav{width: 1000px;margin: auto;}
+			*{margin:0;padding: 0;}
+			pre{background: #aaa;border:1px solid #000;}
+			h1{color: red;text-align: center;}
+        	h2{color: green;}
+		</style>
+	</head>
+	<body>
+		<div id="nav">
+		<h1>画布进阶</h1>
+		<h2>requestAnimationFrame做进度条</h2>
+		<h3>js代码</h3>
+		<pre>
+			var box = document.getElementById("box");
+			var si = 0;
+			function intime(){
+				box.style.width = si+"px";
+				box.innerHTML = si+"%";
+				si++;
+				if(si<=100){
+					requestAnimationFrame(intime)
+				}
+			}
+			requestAnimationFrame(intime)//调用函数
+		</pre>
+		<br />
+		<div id="box" style="background: red;width: 100px;height: 15px;">0%</div>		
+		<script type="text/javascript">
+			var box = document.getElementById("box");
+			var si = 0;
+//			function intime(){
+//				box.style.width = si+"px";
+//				box.innerHTML = si+"%";
+//				si++;
+//				if(si<=100){
+//					requestAnimationFrame(intime)
+//				}
+//			}
+//			requestAnimationFrame(intime)
+			
+			requestAnimationFrame(function intime(){
+				box.style.width = si+"px";
+				box.innerHTML = si+"%";
+				si++;
+				if(si<=100){
+					requestAnimationFrame(intime)
+				}
+			})
+		</script>
+		<h2>canvas图片旋转</h2>
+		<h3>代码如下</h3>
+		<pre>
+			&ltinput type="button" name="" id="" value="左" />
+		&ltinput type="button" name="" id="" value="右" />
+		&ltcanvas id="myCanvas" width="650" height="650" style="border:1px solid #c3c3c3;">
+              &lt/canvas>
+
+           &ltscript type="text/javascript">
+            var c=document.getElementById("myCanvas");
+            var cxt=c.getContext("2d");
+            var x = c.width/2;
+            var y = c.height/2;
+                         
+            var img=new Image()
+            img.src="http://image18.poco.cn/mypoco/myphoto/20161215/19/18473332420161215191135096_640.jpg?482x643_120"
+            img.onload = function() {
+				cxt.drawImage(img, 100, 0);
+			}
+
+            function move(){            	
+            	 cxt.clearRect(0,0,c.width,c.height);
+            	 cxt.translate(x,y);
+            	 cxt.rotate(-90* Math.PI / 180);
+            	 cxt.translate(-x,-y);
+            	 cxt.drawImage(img,100,0);
+            }
+            
+           function move1(){ 
+            	 cxt.clearRect(0,0,c.width,c.height);//清除画布
+            	 cxt.translate(x,y);//将绘图原点移到画布中点
+            	 cxt.rotate(90* Math.PI / 180);
+            	 cxt.translate(-x,-y);//将画布原点移动
+            	 cxt.drawImage(img,100,0);//绘制图像
+            }
+           
+      var inp = document.getElementsByTagName("input");
+        inp[1].onclick = function (){
+                move();
+        }
+        inp[0].onclick = function (){
+                move1();
+        }
+     &lt/script>
+		</pre>
+		<input type="button" name="" id="" value="左" />
+		<input type="button" name="" id="" value="右" />
+		<canvas id="myCanvas" width="650" height="650" style="border:1px solid #c3c3c3;">
+        Your browser does not support the canvas element.
+        </canvas>
+
+		<script type="text/javascript">
+           var c=document.getElementById("myCanvas");
+            var cxt=c.getContext("2d");
+            var x = c.width/2;
+            var y = c.height/2;
+                         
+            var img=new Image()
+            img.src="http://image18.poco.cn/mypoco/myphoto/20161215/19/18473332420161215191135096_640.jpg?482x643_120"
+            img.onload = function() {
+				cxt.drawImage(img, 100, 0);
+			}
+
+            function move(){            	
+            	 cxt.clearRect(0,0,c.width,c.height);
+            	 cxt.translate(x,y);
+            	 cxt.rotate(-90* Math.PI / 180);
+            	 cxt.translate(-x,-y);
+            	 cxt.drawImage(img,100,0);
+            }
+            
+           function move1(){ 
+            	 cxt.clearRect(0,0,c.width,c.height);//清除画布
+            	 cxt.translate(x,y);//将绘图原点移到画布中点
+            	 cxt.rotate(90* Math.PI / 180);
+            	 cxt.translate(-x,-y);//将画布原点移动
+            	 cxt.drawImage(img,100,0);//绘制图像
+            }
+           
+      var inp = document.getElementsByTagName("input");
+        inp[1].onclick = function (){
+                move();
+        }
+        inp[0].onclick = function (){
+                move1();
+        }
+     </script>
+     <h2>SVG画图</h2>
+     <h3>代码如下</h3>
+     <pre>
+     	&ltsvg width="400px" height="400px" version="1.1" xmlns="http://www.w3.org/2000/svg">//设置svg画布大小
+        &ltcircle cx="200" cy="200" r="100" stroke="black"stroke-width="2" fill="red"/>//cx和cy代表圆心坐标,r为半径,stroke边框半径,fill为填充颜色
+        &ltpolygon points="150,50 120,140 170,110"style="fill:#cccccc;stroke:#000000;stroke-width:1"/>//第一个坐标是最上面的三角形角的坐标,第二个坐标
+                      是左边角的坐标,第三个坐标是右边角的坐标
+        &ltpolygon points="260,50 280,140 230,110"style="fill:#cccccc;stroke:#000000;stroke-width:1"/>
+        &ltpolygon points="200,200 190,230 210,230"style="fill:#cccccc;stroke:#000000;stroke-width:1"/>
+        &ltcircle cx="160" cy="170" r="20" stroke="black"stroke-width="2" fill="#fff"/>
+        &ltcircle cx="160" cy="170" r="5" stroke="black"stroke-width="2" fill="black"/>
+        &ltcircle cx="240" cy="170" r="20" stroke="black"stroke-width="2" fill="#fff"/>
+        &ltcircle cx="240" cy="170" r="5" stroke="black"stroke-width="2" fill="black"/>
+        &ltellipse cx="200" cy="250" rx="50" ry="10"style="fill:rgb(200,100,50);stroke:rgb(0,0,100);stroke-width:2"/>//rx为椭圆的横半径,ry为椭圆的竖半径 
+        &lt/svg>
+     </pre>
+     <svg width="400px" height="400px" version="1.1" xmlns="http://www.w3.org/2000/svg" >
+        <circle cx="200" cy="200" r="100" stroke="black"stroke-width="2" fill="red"/>
+        <polygon points="150,50 120,140 170,110"style="fill:#cccccc;stroke:#000000;stroke-width:1"/>
+        <polygon points="260,50 280,140 230,110"style="fill:#cccccc;stroke:#000000;stroke-width:1"/>
+        <polygon points="200,200 190,230 210,230"style="fill:#cccccc;stroke:#000000;stroke-width:1"/>
+        <circle cx="160" cy="170" r="20" stroke="black"stroke-width="2" fill="#fff"/>
+        <circle cx="160" cy="170" r="5" stroke="black"stroke-width="2" fill="black"/>
+        <circle cx="240" cy="170" r="20" stroke="black"stroke-width="2" fill="#fff"/>
+        <circle cx="240" cy="170" r="5" stroke="black"stroke-width="2" fill="black"/>
+        <ellipse cx="200" cy="250" rx="50" ry="10"style="fill:rgb(200,100,50);stroke:rgb(0,0,100);stroke-width:2"/>
+		</svg>
+		</div>
+	</body>
+</html>
