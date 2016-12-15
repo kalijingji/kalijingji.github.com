@@ -56,17 +56,15 @@
 		<h2>canvas图片旋转</h2>
 		<h3>代码如下</h3>
 		<pre>
-			&ltinput type="button" name="" id="" value="左" />
-		&ltinput type="button" name="" id="" value="右" />
-		&ltcanvas id="myCanvas" width="650" height="650" style="border:1px solid #c3c3c3;">
-              &lt/canvas>
-
-           &ltscript type="text/javascript">
+	    &ltinput type="button" name="" id="" value="左" />
+	    &ltinput type="button" name="" id="" value="右" />
+	    &ltcanvas id="myCanvas" width="650" height="650" style="border:1px solid #c3c3c3;">
+            &lt/canvas>
+            &ltscript type="text/javascript">
             var c=document.getElementById("myCanvas");
             var cxt=c.getContext("2d");
             var x = c.width/2;
-            var y = c.height/2;
-                         
+            var y = c.height/2;                         
             var img=new Image()
             img.src="http://image18.poco.cn/mypoco/myphoto/20161215/19/18473332420161215191135096_640.jpg?482x643_120"
             img.onload = function() {
