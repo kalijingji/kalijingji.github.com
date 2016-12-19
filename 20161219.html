@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#nav{width: 1200px;margin: auto;}
+			*{margin:0;padding: 0;}
+			pre{background: #aaa;border:1px solid #000;}
+			h1{color: red;text-align: center;}
+        	h2{color: green;}
+		</style>
+	</head>
+	<body>
+		<div id="nav">
+		<h1>闭包</h1>
+		<h2>全局指向Globai--BOM--Browser Object Model</h2>
+		<pre>
+			var num = 10;
+			function fool() {
+				this.num = 1;
+			}
+			alert(num);//this 指向全局,指向window,所以弹出10
+			fool();
+			alert(num);//如果调用后,函数在全局中调用,弹出1;
+		</pre>
+		<h2>对象</h2>
+		<pre>
+			this 指向对象
+			var obj = {};
+			obj.num = 5;
+			obj.f = function (){
+				alert(this.num)//此时this指代obj,所以obj.num弹出5;
+			}
+			obj.f();
+		</pre>
+		<h2>函数返回指向</h2>
+		<pre>
+			var num = 1;
+		function foo(){
+			return function (){
+				return this.num;
+			}
+		}
+		var f = foo();
+		console.log(f());
+		</pre>
+		<p>第一次弹出的函数为</p>
+		<pre>
+			function (){
+				return this.num;
+			}
+		</pre>
+		<p>第二次弹出this.num,此时this指代window,所以弹出1</p>
+		<h2>apply()方法</h2>
+		<pre>
+		改变函数内部this指向对象;
+		var o ={num:100}
+		var num = 10;
+		var obj = {};
+		obj.num = 1;
+		obj.f=function(){
+			alert(this.num);
+		}
+		obj.f();//弹出1
+		obj.f.apply();//如果第一个参数为空,函数内部this指向window
+		obj.f.apply(o);//此时this指向o;
+		</pre>
+		<h2>this指向谁?</h2>
+		<pre>
+		var say = "hello world!"
+		var obj = {};
+		obj.say = "hello object!";
+		obj.foo = function (){
+			return function(){
+				return this.say;
+			}
+		}
+		alert(obj.foo()());
+		//等同
+		var f = obj.foo();
+		alert(f());
+		</pre>
+		<p>第一次弹出的函数为</p>
+		<pre>
+			function (){
+				return this.say;
+			}
+		</pre>
+		<p>第二次弹出this.say,此时this指代window,所以弹出hello world!</p>
+		<pre>
+		var say = "hello world!"
+		var obj = {};
+		obj.say = "hello object!";
+		obj.foo = function (){
+			var that = this;
+			return function(){
+				return that.say;
+		}
+		}
+		alert(obj.foo()());
+         //等同
+		var f = obj.foo();
+		alert(f());	
+		</pre>
+		<p>在函数调用时this指的是obj,并且赋值给that,所以that.say=obj.say,所以弹出:hello object!</p>
+		<h2>如何给空数组里添加内容</h2>
+		<pre>
+			给数组o里面添加内容
+            var o = {};
+            var arr = [1,2,3];
+            o.push = Array.prototype.push;
+            o.push("nihao");
+            o.push("nice to meet you");
+		</pre>
+		<p>此时数组o={"nihao","nice to meet you"}</p>
+		</div>
+	</body>
+</html>
