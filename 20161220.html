@@ -70,6 +70,148 @@
 				}
 			}, 30)
 		</script>
+			<h1>视屏</h1>
+		<h2>布局</h2>
+		<pre>
+		&lt;video width="800" height="500" src="files/婚礼现场.webm" id="videos"> //视屏显示框架
+		&lt;/video>
+		&lt;br />
+		&lt;div id="jin">
+			&lt;input type="button" name="" value="播放" id="playbtn">//停止/播放按钮
+			&lt;div id="zongtime">//视屏播放时间总长度显示条
+				&lt;div id="nowtime">&lt;/div> //现在播放进度显示条
+				&lt;div id="huan">&lt;/div> //缓冲进度显示条
+			&lt;/div>
+		&lt;/div>
+		&lt;button id="next">next&lt;/button>  //下一部按钮
+		&lt;button id="random">列表播放&lt;/button> //循环/随机/列表播放按钮
+		&lt;div id="listnum">&lt;/div>//列表显示div
+		</pre>
+		<h2>找到所有需要的元素</h2>
+		<pre>
+			var videos = document.getElementById("videos");
+			var playbtn = document.getElementById("playbtn");
+			var now = document.getElementById("nowtime");
+			var zong = document.getElementById("zongtime");
+			var next = document.getElementById("next");
+			var random = document.getElementById("random");
+			var listnum = document.getElementById("listnum");
+			var Linum = document.getElementsByTagName("li");
+			var arr=["files/movie.ogg","files/婚礼现场.webm","files/movie.ogg"];//创建视屏地址数组
+		</pre>
+		<h2>点击播放/暂停按钮进度条变化</h2>
+		<pre>
+			playbtn.addEventListener("click", Btn);
+			function Btn() {
+				clearInterval(Time);
+				if(playbtn.value == "播放") {
+					videos.play();
+					playbtn.value = "暂停";
+				} else {
+					videos.pause();
+					playbtn.value = "播放";
+				}
+				var Time = setInterval(function() {
+					var    tRange=videos.buffered;
+					var    tBuffed=tRange.end(tRange.length-1);
+					var    buffPro=tBuffed/videos.duration*700;
+					now.style.width = parseInt(videos.currentTime)/videos.duration*700 + "px";
+					huan.style.width = buffPro + "px";
+				}, 300)
+			}
+		</pre>
+		<h2>鼠标拖动进度条跟着移动,视屏跟着变化</h2>
+		<pre>
+			function NBa(){
+			var b=false;
+			zong.addEventListener("mousedown",function(event){
+				if(event.clientX<800){
+					now.style.width=event.clientX-80+"px";
+				}
+				b=true;
+			});
+			zong.addEventListener("mousemove",function(event){
+				if(b==true){
+					if(event.clientX &lt;800){
+					now.style.width=event.clientX-80+"px";
+					videos.currentTime = (event.clientX-80)/720*videos.duration;
+				}
+				}
+			});
+			window.addEventListener("mouseup",function(event){
+				if(b==true){
+					if(event.clientX<800){
+					now.style.width=event.clientX-80+"px";
+					
+				}
+				}
+				b=false;
+			});
+			}
+			NBa()
+		</pre>
+		<h2>创建播放列表,点击按钮,播放相应视屏</h2>
+		<pre>
+			var str = "";
+				str+="&lt;ul>"
+				for(var i=0;i&lt;arr.length;i++){
+					str+="&lt;li>"+arr[i].split("/")[1].split(".")[0]+"&lt;/li>"
+				}
+				str+="&lt;/ul>";
+				listnum.innerHTML=str;
+				
+				for(var j = 0; j&lt;Linum.length;j++){
+				    Linum[j].aa=j;
+					Linum[j].onclick=function (){
+						videos.src=arr[this.aa];
+						n=this.aa
+						now.currentTime = 0;
+				        videos.buffered = 0;
+				        playbtn.value = "播放";
+				        playbtn.addEventListener("click", Btn);
+				        
+					}
+				}
+		</pre>
+		<h2>创建正常/随机/循环的点击切换按钮</h2>
+		<pre>
+			var g=0;	
+			random.addEventListener("click",function(){		
+				g++;
+				if(g==1){
+					random.innerHTML="随机播放";
+				};
+				if(g==2){
+					random.innerHTML="视屏循环";
+				};
+				if(g==3){
+					random.innerHTML="列表播放";
+					g = 0;
+				}
+				
+			})
+		</pre>
+		<h2>点击next按钮根据正常/随机/循环按钮来执行相应方法</h2>
+		<pre>
+			var n=0;
+			next.addEventListener("click",move);
+			function move(){
+				if(random.innerHTML=="列表播放"){
+					n++;
+				}else if(random.innerHTML=="随机播放")	{
+					n=Math.floor(Math.random()*arr.length);
+				}else{
+					n=n;
+				}
+				videos.src=arr[n];
+				now.currentTime = 0 ;
+				videos.buffered = 0;
+				playbtn.value = "播放";
+				playbtn.addEventListener("click", Btn);
+				if(n==2){
+					n=0;
+				}
+		</pre>
 			</div>
 	</body>
 
