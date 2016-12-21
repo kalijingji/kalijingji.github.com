@@ -4,10 +4,13 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<style type="text/css">
-			*{font-family: "微软雅黑";}
+	       *{font-family: "微软雅黑";background: lightgoldenrodyellow;}
+		#box{width: 1200px;height:100%;margin: auto;}
+		h2{color: red;}
 		</style>
 	</head>
 	<body>
+		<div id="box">
 	    <h2>1.1函数声明</h2>
            <p>函数就是一段可以反复调用的代码块。函数声明由三部分组成：函数名，函数参数，函数体。整体的构造是function命令后面是函数名，函数名后面是一对圆括号，里面是传入函数的参数。函数体放在大括号里面。当函数体没有使用return关键字返回函数时，函数调用时返回默认的undefined；如果有使用return语句，则返回指定内容。函数最后不用加上冒号。</p>
             <p>function fun(){}</p>    
@@ -206,5 +209,6 @@
             <p>f(); //1
             <p>上面代码中，函数fun内部声明了rascal变量。rascal作用域绑定在fun上。当我们在fun外部取出rascal执行时，变量a指向的是fun内部的a，而不是fun外部的a。这里涉及到函数另外一个重要的知识点，即在一个函数内部定义另外一个函数，也就是闭包的概念。
             <p>总之，函数执行时所在的作用域，是定义时的作用域，而不是调用时所在的作用域。-->
+	</div>
 	</body>
 </html>
