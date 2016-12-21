@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="750px" height="600px"></canvas>
+	   <script type="text/javascript" charset="utf-8">
+     window.onload = init;
+window.onmousemove=mouseMove;
+window.onkeydown = keyDown;
+var myCanvas,cW,cH,st;
+var bg, board;
+var boardX,boardY,boardW,boardH;
+var ball,ballX,ballY;
+boardX = 350;
+boardY = 500;
+boardW = 150;
+boardH = 20;
+
+ballX = 350;
+ballY = 350;
+
+var vx,vy;
+vx = 8;
+vy = 4;
+
+cW = 750;
+cH = 600;
+
+var bricks=[];
+var imgW,imgH;
+imgW = 150;
+imgH = 50;
+function init() {
+	//trace("游戏初始化完毕");              
+	myCanvas = document.getElementById("myCanvas");
+	cW = myCanvas.width;
+	cH = myCanvas.height;
+	cxt = myCanvas.getContext("2d");
+	bg = addImg("http://image18.poco.cn/mypoco/myphoto/20161221/16/1847333242016122116343405_640.jpg?1000x800_130"); //背景
+	ball = addImg("http://image18.poco.cn/mypoco/myphoto/20161221/16/18473332420161221163413043_640.jpg?50x50_130"); //球
+	board = addImg("http://image18.poco.cn/mypoco/myphoto/20161221/16/18473332420161221163505043_640.jpg?150x20_130"); //挡板
+	createBrick();
+    st = setInterval(updateCanvas, 1000 / 60);
+
+}
+//生成砖块
+function createBrick(){
+	for (var i = 0;i<4;i++) {
+		for(var j=0 ;j<4;j++){
+//			var str = Math.floor(Math.random()*6);
+			var item = addImg("http://image18.poco.cn/mypoco/myphoto/20161221/16/18473332420161221163352082_640.jpg?150x50_130");
+			var x = i*(imgW+50);
+			var y = j*(imgH+5)+30;
+			var obj = {item:item,x:x,y:y}
+			bricks.push(obj);
+		}	
+	}
+}
+//碰撞检测 
+function testObjectHit(x1,y1,w,h,x2,y2){
+	if(x2>x1 && y2>y1 && x2<x1+w && y2<y1+h){
+		return true;
+	}else{
+		return false;
+	}
+}
+//判断球与挡板的碰撞
+function ballBoardHit(){
+	var b = testObjectHit(boardX, boardY,boardW, boardH,ballX+25,ballY+50);
+	if(b){
+		vy*=-1;
+	}
+}
+
+
+//鼠标移动
+function mouseMove(e){
+	boardX = e.clientX-boardW/2;
+}
+ function keyDown(e){
+ 	if(e.keyCode == 37){
+ 		boardX -= 5    
+ 	}
+ 	if(e.keyCode == 39){
+ 		boardX += 5
+ 	}
+ }
+ 
+//刷新画布
+function updateCanvas() {
+	cxt.clearRect(0, 0, cW, cH);
+	cxt.drawImage(bg, 0, 0);
+	cxt.drawImage(ball, ballX, ballY);	
+	cxt.drawImage(board,boardX, boardY);
+	ballMove();
+	ballBoardHit();	
+	drawBricks();
+	ballBricksHit()
+}
+
+
+//绘制砖块
+function drawBricks(){
+	var l = bricks.length;
+	for(var i = 0;i<l ;i++){
+		var item = bricks[i];
+		cxt.drawImage(item.item,item.x,item.y);
+	}
+}
+
+//砖块与球碰撞消失
+function ballBricksHit(){
+	var l = bricks.length;
+	for(var i = 0;i<l ;i++){
+		var item = bricks[i].item;
+		var b = testObjectHit(bricks[i].x,bricks[i].y,item.width,item.height,ballX,ballY);
+		if(b){
+			bricks.splice(i,1);
+			vy*=-1;
+		}
+	}
+}
+
+
+
+//球移动
+function ballMove(){
+    ballX += vx;
+    ballY += vy;
+	if(ballX>=cW - ball.width){
+		vx *=- 1;;
+	}else if(ballX<=0){
+		vx *= -1;
+	}
+	if(ballY>=cH - ball.width){
+//       console.log("game over!")
+	}else if(ballY<=0){
+		vy *= -1;
+	}
+
+}
+
+
+//生成图片
+function addImg(_src) {
+	var img = new Image();
+	img.src = _src;
+	return img;
+
+}
+
+function trace(msg) {
+	console.log(msg);
+}
+     </script>
+	</body>
+</html>
