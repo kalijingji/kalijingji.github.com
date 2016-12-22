@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			table{background: red;}
+			td{background: #fff;}
+		</style>
+	</head>
+
+	<body>
+		<button id="Btn">点我</button>
+		<table id="calTb"></table>
+		<div id="div">显示内容</div>
+		<input type="file" name="" id="" value="" />
+		<script type="text/javascript">
+		var btn = document.getElementById("Btn");
+		var div = document.getElementById("div");
+		var calTb = document.getElementById("calTb");
+		var xhr = new XMLHttpRequest(); //核心对象
+						if(xhr){
+							
+						}else{
+							xhr = newActiveXobject("Microsoft.XMLHTTP");//做兼容
+						}
+			xhr.open("GET", "name.json"); //打开路径 
+			xhr.send(null);
+			
+			xhr.onreadystatechange = function (msg){//判断接收状态
+					if(xhr.readyState == 4){  //代表就收数据成功
+						if(xhr.status == 200){  //服务器返回状态					
+							}
+							}
+						}
+			xhr.onerror = function(error){
+							console.log(error);//当服务器返回错误所执行的函数
+						}
+			
+		btn.onclick = function (){
+			calTb.innerHTML = "";
+			showDate();
+		}
+//		function showDate(){
+//			var arr = JSON.parse(xhr.response);//JSON.parse格式化数据   把JSON里的数组内容翻译成js语言并赋值给arr
+//			var l = arr.length;
+//			var str ="<table border='1'>";
+//			for(var i = 0;i<l;i++){			
+//				var o = arr[i];
+//				var s = "姓名:"+o.name+"   "+"性别:"+o.sex+"   "+"年龄:"+o.age+"   "+"电话:"+o.phoneNumber+"   "+"大学:"+o.university;
+//				str+="<tr><td>"+s+"</td></tr>"
+//			}
+//			str+="</table>";
+//			div.innerHTML = str;
+//		}
+//		
+				
+		function showDate(){
+			var arr = JSON.parse(xhr.response);//JSON.parse格式化数据   把JSON里的数组内容翻译成js语言并赋值给arr
+			var l = arr.length;
+			for(var j = 0;j<l;j++){				
+			var tr = calTb.insertRow();
+			for(var i in arr[j]){	
+				var td = tr.insertCell();
+			    td.innerText = arr[j][i];
+			}			
+		}			
+		}					
+//			xhr.onload = function(msg) {
+//				document.getElementById("div").innerHTML = xhr.response;
+//			}
+		</script>
+	</body>
+
+</html>
