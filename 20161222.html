@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{padding: 0;margin: 0;font-family: "微软雅黑";background: lightgoldenrodyellow;}
+			h1{width: auto;height: 100px;line-height: 100px;text-align: center;color: red;}
+			h3{width: auto;height: 60px;line-height: 60px;color: green;}
+			pre{background:lightyellow;border: 2px solid grey;border-radius: 10px;margin-top: 30px;margin-bottom: 30px;padding: 5px;}
+            #box{width: 1000px;margin: auto;}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+		<h1>AJAX初识</h1>
+		<h3>1.ajax简介</h3>
+	 	<p>AJAX = 异步 JavaScript 和 XML。</p>
+        <p>AJAX 是一种用于创建快速动态网页的技术。</p>
+        <p>通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。</p>
+        <h3>2.XHR创建对象</h3>
+        <p>XMLHttpRequest 用于在后台与服务器交换数据。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。</p>
+        <p>创建 XMLHttpRequest 对象的语法：</p>
+        <pre>
+        	var xmlhttp = new XMLHttpRequest();
+        </pre>
+		<h3>基本格式</h2>
+		<pre>
+			var xhr = new XMLHttpRequest(); //核心对象
+					if(xhr){
+							
+					}else{
+						xhr = newActiveXobject("Microsoft.XMLHTTP");//做兼容
+					}
+			xhr.open("GET", "ajax/ajax.txt"); //打开路径 
+			xhr.send(null);			
+			xhr.onreadystatechange = function (msg){//判断接收状态
+					if(xhr.readyState == 4){  //代表就收数据成功
+						if(xhr.status == 200){  //服务器返回状态					
+							}
+							}
+						}
+			arr = xhr.response  获取ajax里的内容并赋值给arr
+			arr1 = JSON.parse(xhr.response);//JSON.parse格式化数据   把JSON里内容翻译成js语言并赋值给arr1
+			
+			xhr.onerror = function(error){//当服务器返回错误所执行的函数
+				console.log(error);
+					}
+		</pre>
+		<h3>实例</h3>
+		<pre>
+		&lt;style type="text/css">
+		  table{background: red;}
+		  td{background: #fff;}
+		&lt;/style>
+	    &lt;/head>
+
+	    &lt;body>
+		&lt;button id="Btn">点我&lt;/button>
+		&lt;table id="calTb">&lt;/table>
+		&lt;div id="div">显示内容&lt;/div>
+		&lt;input type="file" name="" id="" value="" />
+		&lt;script type="text/javascript">
+		var btn = document.getElementById("Btn");
+		var div = document.getElementById("div");
+		var calTb = document.getElementById("calTb");
+		var xhr = new XMLHttpRequest(); //核心对象
+						if(xhr){
+							
+						}else{
+							xhr = newActiveXobject("Microsoft.XMLHTTP");//做兼容
+						}
+			xhr.open("GET", "数据.json"); //打开路径 
+			xhr.send(null);
+			
+			xhr.onreadystatechange = function (msg){//判断接收状态
+					if(xhr.readyState == 4){  //代表就收数据成功
+						if(xhr.status == 200){  //服务器返回状态					
+							}
+							}
+						}
+			xhr.onerror = function(error){
+							console.log(error);//当服务器返回错误所执行的函数
+						}
+			
+		 btn.onclick = function (){
+			calTb.innerHTML = "";
+			showDate();
+		}
+		</pre>
+		<h3>字符串拼接方式</h3>
+		<pre>
+	function showDate(){
+	var arr = JSON.parse(xhr.response);//JSON.parse格式化数据   把JSON里的数组内容翻译成js语言并赋值给arr
+	var l = arr.length;
+	var str ="&lt;table border='1'>";
+	for(var i = 0;i&lt;l;i++){			
+	var o = arr[i];
+	var s = "姓名:"+o.name+"   "+"性别:"+o.sex+"   "+"年龄:"+o.age+"   "+"电话:"+o.phoneNumber+"   "+"大学:"+o.university;
+	str+="&lt;tr>&lt;td>"+s+"&lt;/td>&lt;/tr>"
+		}
+	str+="&lt;/table>";
+	div.innerHTML = str;
+		 }
+		</pre>
+		<h3>插入行插入列的方式</h3>
+		<pre>
+			function showDate(){
+			var arr = JSON.parse(xhr.response);//JSON.parse格式化数据   把JSON里的数组内容翻译成js语言并赋值给arr
+			var l = arr.length;
+			for(var j = 0;j&lt;l;j++){				
+			var tr = calTb.insertRow();
+			for(var i in arr[j]){	
+				var td = tr.insertCell();
+			    td.innerText = arr[j][i];
+			}			
+		}			
+		}	
+		</pre>
+		<h3><a href="ajax.html">ajax实例</a></h3>
+		</div>
+	</body>
+</html>
