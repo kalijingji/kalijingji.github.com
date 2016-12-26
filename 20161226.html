@@ -1,32 +1,69 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
 		<style type="text/css">
-			*{padding: 0;margin: 0;font-family: "微软雅黑";background: lightgoldenrodyellow;}
-			h1{width: auto;height: 100px;line-height: 100px;text-align: center;color: red;}
-			h3{width: auto;height: 60px;line-height: 60px;color: green;}
-			pre{background:lightyellow;border: 2px solid grey;border-radius: 10px;margin-top: 30px;margin-bottom: 30px;padding: 5px;}
-            #box{width: 1000px;margin: auto;}
-			li{
+			* {
+				padding: 0;
+				margin: 0;
+				font-family: "微软雅黑";
+				background: lightgoldenrodyellow;
+			}
+			
+			h1 {
+				width: auto;
+				height: 100px;
+				line-height: 100px;
+				text-align: center;
+				color: red;
+			}
+			
+			h3 {
+				width: auto;
+				height: 60px;
+				line-height: 60px;
+				color: green;
+			}
+			
+			pre {
+				background: lightyellow;
+				border: 2px solid grey;
+				border-radius: 10px;
+				margin-top: 30px;
+				margin-bottom: 30px;
+				padding: 5px;
+			}
+			
+			#box {
+				width: 1000px;
+				margin: auto;
+			}
+			
+			li {
 				list-style: none;
 				height: 50px;
 				width: 50px;
 				border: 1px solid red;
 				text-align: center;
 			}
-			span{
+			
+			span {
 				border: 1px solid green;
 				cursor: pointer;
 			}
-			.cssClass{background: red;}
+			
+			.cssClass {
+				background: red;
+			}
 		</style>
 	</head>
+
 	<body>
 		<div id="box">
 			<h1>jquery常用选择器</h1>
-		<pre>
+			<pre>
 			&lthead>
 		&ltmeta charset="UTF-8">
 		&lttitle>&lt/title>
@@ -103,61 +140,178 @@
 	 &lt/script>
 	&lt/body>
 		</pre>
-		<ul>
-			<li id="li1">id选择器</li>
-			<li class="li2">class选择器</li>
-		</ul>
-		
-		<input type="text" value="ip1" name="ip1"/>
-		<input type="date" value="ip2" name="ip2"/>
-		<input type="text" value="ip3" name="ip3"/>
-		<br />
-		<p></p>
-	 <span id="id">id选择器</span>
-	 <span id="btn">class选择器</span>
-	 <span id="btn1">标签选择器</span>
-	 <span id="btn2">统配选择器</span>
-	 <span id="btn3">群组选择器</span>
-	 <span id="btn4">后代选择器</span>
-	 <span id="btn5">过滤选择器</span>
-	 <span id="btn6">属性选择器</span>
-	 <script src="jquery-3.1.1.min.js"></script>
-	 <script type="text/javascript">
-	 	$(document).ready(function(){
-	 		//id选择器
-	 		$("#id").click(function(){
-	 			$("#li1").toggleClass("cssClass");		
-	 		})
-	 		//clsaa选择器
-	 		$("#btn").click(function(){
-	 			$(".li2").toggleClass("cssClass");
-	 		})
-	 		//标签选择器
-	 		$("#btn1").click(function(){
-	 			$("li").toggleClass("cssClass");
-	 		})
-	 		//通配选择器
-	 		$("#btn2").click(function(){
-	 			$("*").toggleClass("cssClass");
-	 		})
-	 		//群组选择器
-	 		$("#btn3").click(function(){
-	 			$("ul,span").toggleClass("cssClass");
-	 		})
-	 		//后代选择器
-	 		$("#btn4").click(function(){
-	 			$("ul>li").toggleClass("cssClass");
-	 		})
-	 		//过滤选择器
-	 		$("#btn5").click(function(){
-	 			$("ul li:first").toggleClass("cssClass");
-	 		})
-	 		//属性选择器
-	 		$("#btn6").click(function(){
-	 			$("input[name=ip1]").toggleClass("cssClass");
-	 		})
-	 	})
-	 </script>
-	 </div>
+			<ul>
+				<li id="li1">id选择器</li>
+				<li class="li2">class选择器</li>
+			</ul>
+
+			<input type="text" value="ip1" name="ip1" />
+			<input type="date" value="ip2" name="ip2" />
+			<input type="text" value="ip3" name="ip3" />
+			<br />
+			<p></p>
+			<span id="id">id选择器</span>
+			<span id="btn">class选择器</span>
+			<span id="btn1">标签选择器</span>
+			<span id="btn2">统配选择器</span>
+			<span id="btn3">群组选择器</span>
+			<span id="btn4">后代选择器</span>
+			<span id="btn5">过滤选择器</span>
+			<span id="btn6">属性选择器</span>
+			<script src="jquery/jquery-3.1.1.min.js"></script>
+			<script type="text/javascript">
+				$(document).ready(function() {
+					//id选择器
+					$("#id").click(function() {
+							$("#li1").toggleClass("cssClass");
+						})
+						//clsaa选择器
+					$("#btn").click(function() {
+							$(".li2").toggleClass("cssClass");
+						})
+						//标签选择器
+					$("#btn1").click(function() {
+							$("li").toggleClass("cssClass");
+						})
+						//通配选择器
+					$("#btn2").click(function() {
+							$("*").toggleClass("cssClass");
+						})
+						//群组选择器
+					$("#btn3").click(function() {
+							$("ul,span").toggleClass("cssClass");
+						})
+						//后代选择器
+					$("#btn4").click(function() {
+							$("ul>li").toggleClass("cssClass");
+						})
+						//过滤选择器
+					$("#btn5").click(function() {
+							$("ul li:first").toggleClass("cssClass");
+						})
+						//属性选择器
+					$("#btn6").click(function() {
+						$("input[name=ip1]").toggleClass("cssClass");
+					})
+				})
+			</script>
+			<pre>
+	&lt;title>JQuery 事件&lt;/title>
+    &lt;script src="jquery/jquery-3.1.1.min.js">&lt;/script>
+    &lt;style>
+        body{
+            height:3000px;
+        }
+           
+        }
+        span{
+            cursor: pointer;
+             border:1px solid chartreuse;
+        }
+        .class1{
+            background-color: blue;
+        }
+    &lt;/style>
+    &lt;/head>
+    &lt;body>
+    &lt;span>浏览器窗口的大小改变了：&lt;/span>&lt;span id="span">0&lt;/span>
+
+    &lt;br>
+
+    &lt;span id="click1">快点点我&lt;/span>
+
+    &lt;br>
+
+    &lt;input type="text" id="inpt" value="我是值">
+
+
+    &lt;br>
+    &lt;br>
+
+    &lt;input type="text" id="inpt1" placeholder="输入一">
+    &lt;input type="text" id="inpt2" placeholder="输入二keydown">
+    &lt;input type="text" id="inpt3" placeholder="输入三keyup">
+    &lt;input type="text" id="inpt4" placeholder="输入四keypress">
+
+
+    &lt;br>
+    &lt;br>
+
+    &lt;span id="sp1">on方法&lt;/span>
+
+    &lt;br>
+    &lt;br>
+    &lt;span id="sp2">bind方法&lt;/span>
+    &lt;br>
+    &lt;br>
+    &lt;span id="sp3">trigger方法&lt;/span>
+    &lt;br>
+    &lt;br>
+    &lt;span id="sp4">live方法&lt;/span>
+    &lt;br>
+    &lt;br>
+    &lt;div id="ds">
+    &lt;span>live替代方法演示&lt;/span>
+    &lt;/div>
+    &lt;script>
+
+    $(window).resize(function () {
+        $("#span").text(parseInt($("#span").text()) + 1);
+    });
+
+
+    $(window).scroll(function () {
+        $("#span").text(parseInt($("#span").text()) + 1);
+    });
+
+
+    $(function () {
+        $("#click1").click(function () {
+            $("#click1").toggleClass("class1");
+        });
+
+        $("#click1").hover(function () {
+            $("#click1").toggleClass("class1",true);
+        },function () {
+            $("#click1").toggleClass("class1",false);
+        });
+
+        $("#inpt").focus(function () {
+            $("#inpt").toggleClass("class1",true);
+        });
+        $("#inpt").blur(function () {
+            $("#inpt").toggleClass("class1",false);
+        });
+
+        $("#inpt2").keydown(function () {
+            $("#inpt2").toggleClass("class1");
+        });
+        $("#inpt3").keyup(function () {
+            $("#inpt3").toggleClass("class1");
+        });
+        $("#inpt4").keypress(function () {
+            $("#inpt4").toggleClass("class1");
+        });
+
+
+
+        $("#sp1").on("click",function () {
+            $("#sp1").toggleClass("class1");
+        });
+        $("#sp2").bind("click",function () {
+            $("#sp2").toggleClass("class1");
+        });
+        $("#sp3").click(function () {
+            alert("我要触发trigger事件了");
+            $("#sp1").trigger("click");
+        });
+        $("#sp4").click(function () {
+            $("#ds").append('<span onclick="alert(123)";>我是来代替live的</span>');
+        });
+    });
+     &lt;/script>
+	 </pre>
+		</div>
 	</body>
+
 </html>
