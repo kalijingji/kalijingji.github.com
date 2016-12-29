@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style type="text/css">
+			table{border-collapse: collapse;}
+			tr{height: 50px;}
+			h1,p{text-align: center;}
+			input,select,textarea{border: 0;}
+			table{margin: auto;}
+			.Rad{height: 50px;width: 182px;}
+			.er{height: 50px;width: 260px;}
+			
+		</style>
+	</head>
+	<body>
+		<h1>禾米科技免费培训申请表</h1>
+		<p>方式一.在线填写(如果信息提交失败或者您使用的是IE10版本以下的浏览器请选择方式二)</p>
+		<form action="" method="post">
+			<table border="1" cellspacing="" cellpadding="">
+				<tr><th colspan="6">个人信息及联系方式</th></tr>
+				<tr>
+					<td>*姓名</td>
+					<td><input type="text" / class="Rad" id="myname"></td>
+					<td>*性别</td>
+					<td>
+						<select class="Rad" id="sex">
+						<option>男</option>
+						<option>女</option>
+					</select>
+					</td>					
+					<td>*出生年月</td>
+					<td>
+						<input type="month" name="" id="birthday" value=""   style="width: 180px;" >
+					</td>	
+				</tr>
+				<tr>
+					<td>*手机号码</td>
+					<td><input type="text" / class="Rad" id="mynumber"></td>
+					<td>*政治面貌</td>
+					<td >
+					<select class="Rad" id="member">
+						<option>团员</option>
+						<option>党员</option>
+						<option>群众</option>
+					</select>
+					</td>	
+					<td>*QQ</td>
+					<td><input type="text" / class="Rad" id="qq"></td>
+				</tr>
+				<tr>
+					<td>*学院</td>
+					<td><input type="text" / class="Rad" id="college"></td>
+					<td>*系</td>
+					<td><input type="text" / class="Rad" id="tie"></td>
+					<td>*专业</td>
+					<td><input type="text" / class="Rad" id="major"></td>
+				</tr>
+				<tr>
+					<td colspan="6">家庭联系方式</td>
+				</tr>
+				<tr>
+					<td >*父亲姓名</td>
+					<td colspan="2"><input type="text" /class="er" id="fathername"></td>
+					<td>*父亲电话</td>
+					<td colspan="2"><input type="text" / class="er" id="fathernumber"></td>
+				</tr>
+				<tr>
+					<td>*母亲姓名</td>
+					<td colspan="2"><input type="text" / class="er" id="mothername"></td>
+					<td>*母亲电话</td>
+					<td colspan="2"><input type="text" / class="er" id="mothernumber"></td>
+				</tr>
+				<tr>
+					<td>*家庭住址</td>
+					<td colspan="5"><input type="text" / style="height: 50px;width: 720px;" id="famliy"></td>
+				</tr>
+				<tr>
+					<td>*信息来源</td>
+					<td colspan="5">
+					<input type="radio" name="sd" value="熟人介绍">1.熟人介绍
+					<input type="radio" name="sd" value="杂志">2.杂志
+					<input type="radio" name="sd" value="媒体广告">3.媒体广告
+					<input type="radio" name="sd" value="其他">4.其他
+					</td>
+				</tr>
+				<tr><td  colspan="6">个人能力与自我评价(说明自己所学的专业知识与能力,获奖情况以及自己的优点与兴趣爱好)</td></tr>
+				<tr>
+					<td>*专业能力描述</td>
+					<td colspan="5"><textarea style="height: 80px;width: 720px;" id="majorMemo"></textarea></td>
+				</tr>
+				<tr>
+					<td>*自我评价描述</td>
+					<td colspan="5"><textarea style="height: 80px;width: 720px;" id="evaluate"></textarea></td>
+				</tr>
+			</table>
+			<input type="button" name="" id="btn" value="提交" style="margin: auto ;" >
+		</form>
+		
+
+		<script src="jquery-3.1.1.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#btn").click(function(){			
+					if($("#myname").val().length<2 || $("#myname").val().length>20){
+					alert("输入名字不合法");
+					return false;
+				}
+					if($("#birthday").val() == ""){
+					alert("出生年月不能为空")
+				}
+					var Num = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+					if(!Num.test($("#mynumber").val())){
+					alert("手机号码格式不合法");
+					return false;
+				} 				
+				if($("#qq").val().length<6 || $("#qq").val().length>12){
+					alert("QQ号码不合法");
+					return false;
+				}  
+				if($("#college").val().length<2){
+					alert("学院不合法");
+					return false;
+				}
+				if($("#tie").val().length<2){
+					alert("系不合法");
+					return false;
+				}
+				if($("#major").val().length<2){
+					alert("专业不合法");
+					return false;
+				}
+				if($("#fathername").val().length<2 || $("#fathername").val().length>20){
+					alert("父亲输入名字不合法");
+					return false;
+				} 
+				if(!Num.test($("#fathernumber").val())){
+					alert("手机号码格式不合法");
+					return false;
+				}
+				if($("#mothername").val().length<2 || $("#mothername").val().length>20){
+					alert("母亲输入名字不合法");
+					return false;
+				}
+				if(!Num.test($("#mothernumber").val())){
+					alert("手机号码格式不合法");
+					return false;
+				}
+				if($("#famliy").val().length<2){
+					alert("家庭地址不合法");
+					return false;
+				}
+				if(!$("input:checked").val()){
+					alert("请填写信息来源");
+				}
+				if($("#majorMemo").val().length>200){
+					alert("专业能力描述小于200字");
+					return false;
+				}
+				if($("#evaluate").val().length>200){
+					alert("自我描述小于200字");
+					return false;
+				}
+				var _url = "http://www.hemijiaoyu.com/service/addApply";
+				var _date = {};
+				_date.name = $("#myname").val();
+				_date.sex = $("#sex").val();
+				var birthday = $("#birthday").val();
+				var birthday1 = birthday.split("-");
+				var bir =birthday1[0]+birthday1[1]
+				_date.birthday = bir;
+				_date.mobile = $("#mynumber").val();
+				_date.political = $("#member").val();
+				_date.college = $("#college").val();
+				_date.qq = $("#qq").val();
+				_date.faculty = $("#tie").val();
+				_date.major = $("#major").val();
+				_date.fatherName = $("#fathername").val();
+				_date.fatherMobile = $("#fathernumber").val();
+				_date.matherName = $("#mothername").val();
+				_date.matherMobile = $("#mothernumber").val();
+				_date.homeAddress = $("#famliy").val();
+				_date.source = $("input:checked").val();
+				_date.majorMemo = $("#majorMemo").val();
+				_date.selfMemo = $("#evaluate").val();
+				$.ajax({
+					url:_url,
+					data:_date,
+					dataType: "text",
+					type:"post",
+					success: function(msg) {
+								console.log(msg);
+				  },error: function(error) {
+								console.log("fail");
+							}
+				})
+				})								
+			})
+		</script>
+		
+        
+       
+	</body>
+</html>
