@@ -5,55 +5,99 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<style type="text/css">
-			*{padding: 0;margin: 0;}
-		    table{text-align: center; width: auto;}
-		    tr{display: block;border-top: 1px solid black;}
-		    tr:hover{background: gray;}
-		    thead{background: gray;}
-		    h1,h2{text-align: center;}
-		    td,th{width:200px;height: 30px; }
-             #Hide{width: 90%;height: 90%;background: #fff;margin: auto;position:relative;top:5%;border: 1px solid #000; }
-             #hide{width: 100%;height: 100%;background: rgba(100,100,100,0.8);position:fixed;top:0px;display: none;}
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			table {
+				text-align: center;
+				width: auto;
+			}
+			
+			tr {
+				display: block;
+				border-top: 1px solid black;
+			}
+			
+			tr:hover {
+				background: gray;
+			}
+			
+			thead {
+				background: gray;
+			}
+			
+			h1,
+			h2 {
+				text-align: center;
+			}
+			
+			td,
+			th {
+				width: 200px;
+				height: 30px;
+			}
+			
+			#Hide {
+				width: 90%;
+				height: 90%;
+				background: #fff;
+				margin: auto;
+				position: relative;
+				top: 5%;
+				border: 1px solid #000;
+			}
+			
+			#hide {
+				width: 100%;
+				height: 100%;
+				background: rgba(100, 100, 100, 0.8);
+				position: fixed;
+				top: 0px;
+				display: none;
+			}
 		</style>
 	</head>
 
 	<body>
 		<div id="box">
-		姓名:<input type="text" name="" id="te" value="" />
-		电话:<input type="text" name="" id="mobile" value="" />
-		学院:<input type="text" name="" id="college" value="" />
-		<button id="btn">click</button>
-		<div id="div"></div>
+			姓名:<input type="text" name="" id="te" value="" /> 电话:
+			<input type="text" name="" id="mobile" value="" /> 学院:
+			<input type="text" name="" id="college" value="" />
+			<button id="btn">click</button>
+			<div id="div"></div>
 		</div>
 		<div id="hide">
 			<h1>禾米科技免费培训申请表</h1>
 			<div id="Hide">
-				<h2>详细信息</h2><h3 style="position: absolute;right: 0;top:0;">X</h3>
-				姓名:&nbsp;&nbsp;<input type="text" id="inname" value="" />
-				性别:&nbsp;&nbsp;<input type="text" id="insex" value="" />
-				出生年月:<input type="text" id="inbirsthday" value="" />
-				<br />
-				手机号码:<input type="text" id="innumber" value="" />
-				政治面貌:<input type="text" id="inpolitics" value="" />
-				QQ:&nbsp;&nbsp;&nbsp;<input type="text" id="inqq" value="" />
-				<br />
-				学院:&nbsp;&nbsp;<input type="text" id="incollege" value="" />
-				系:&nbsp;&nbsp;&nbsp;<input type="text" id="intie" value="" />
-				专业:&nbsp;&nbsp;<input type="text" id="inmajor" value="" />
-				<br />
-				父亲姓名:<input type="text" id="infather" value="" />
-				父亲电话:<input type="text" id="infathernumber" value="" />
-				<br />
-				母亲姓名:<input type="text" id="inmother" value="" />
-				母亲电话:<input type="text" id="inmothernumber" value="" />
-				<br />
-				家庭住址:<input type="text" id="inaddress" value="" />
-				<br />
-				信息来源:<input type="text" id="inmessage" value="" />
-				<br />
-				专业能力描述:<input type="text" id="incapacity" value="" />
-				<br />
-				自我评级描述:<input type="text" id="inevaluate" value="" />
+				<h2>详细信息</h2>
+				<h3 style="position: absolute;right: 0;top:0;">X</h3> 姓名:&nbsp;&nbsp;
+				<input type="text" id="inname" value="" /> 性别:&nbsp;&nbsp;
+				<input type="text" id="insex" value="" /> 出生年月:
+				<input type="text" id="inbirsthday" value="" />
+				<br /> 手机号码:
+				<input type="text" id="innumber" value="" /> 政治面貌:
+				<input type="text" id="inpolitics" value="" /> QQ:&nbsp;&nbsp;&nbsp;
+				<input type="text" id="inqq" value="" />
+				<br /> 学院:&nbsp;&nbsp;
+				<input type="text" id="incollege" value="" /> 系:&nbsp;&nbsp;&nbsp;
+				<input type="text" id="intie" value="" /> 专业:&nbsp;&nbsp;
+				<input type="text" id="inmajor" value="" />
+				<br /> 父亲姓名:
+				<input type="text" id="infather" value="" /> 父亲电话:
+				<input type="text" id="infathernumber" value="" />
+				<br /> 母亲姓名:
+				<input type="text" id="inmother" value="" /> 母亲电话:
+				<input type="text" id="inmothernumber" value="" />
+				<br /> 家庭住址:
+				<input type="text" id="inaddress" value="" />
+				<br /> 信息来源:
+				<input type="text" id="inmessage" value="" />
+				<br /> 专业能力描述:
+				<input type="text" id="incapacity" value="" />
+				<br /> 自我评级描述:
+				<input type="text" id="inevaluate" value="" />
 			</div>
 		</div>
 		<script src="jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
@@ -62,15 +106,15 @@
 				$(function() {
 					$("#btn").click(function() {
 						var _data = {};
-						_data.pageNum = 1;//页数
-						_data.pageSize = 20;//一页显示多少个
+						_data.pageNum = 1; //查询页数
+						_data.pageSize = 20; //一页显示多少个
 						var $name = $("#te").val();
 						var $mobile = $("#mobile").val();
-						if($name != ""){
+						if($name != "") {
 							_data.name = $name;
-						}else if($mobile != ""){
+						} else if($mobile != "") {
 							_data.mobile = $mobile;
-						}	
+						}
 						$.ajax({
 							type: "GET",
 							url: "http://www.hemijiaoyu.com/service/searchApply",
@@ -80,24 +124,24 @@
 								console.log(msg);
 								var arr = msg.list;
 								var str = "<table><thead><th>姓名</th><th>性别</th><th>出生年月</th><th>手机号码</th><th>政治面貌</th><th>QQ</th><th>学院</th><th>系</th><th>专业</th><th>申请时间</th></thead>"
-								for (var i = 0 ;i<arr.length;i++) {
-									str+="<tr id="+i+">";
+								for(var i = 0; i < arr.length; i++) {
+									str += "<tr id=" + i + ">";
 									var obj = arr[i];
-                                        str+="<td>"+obj.name+"</td>"
-                                        str+="<td>"+obj.sex+"</td>"
-                                        str+="<td>"+obj.birthday+"</td>"
-                                        str+="<td>"+obj.mobile+"</td>"
-                                        str+="<td>"+obj.political+"</td>"
-                                        str+="<td>"+obj.qq+"</td>"
-                                        str+="<td>"+obj.college+"</td>"
-                                        str+="<td>"+obj.faculty+"</td>"
-                                        str+="<td>"+obj.major+"</td>"
-                                        str+="<td>"+obj.createTime+"</td>"
-									str+="</tr>";
+									str += "<td>" + obj.name + "</td>"
+									str += "<td>" + obj.sex + "</td>"
+									str += "<td>" + obj.birthday + "</td>"
+									str += "<td>" + obj.mobile + "</td>"
+									str += "<td>" + obj.political + "</td>"
+									str += "<td>" + obj.qq + "</td>"
+									str += "<td>" + obj.college + "</td>"
+									str += "<td>" + obj.faculty + "</td>"
+									str += "<td>" + obj.major + "</td>"
+									str += "<td>" + obj.createTime + "</td>"
+									str += "</tr>";
 								}
-								str+="</table>";
+								str += "</table>";
 								$("#div").html(str);
-								$("tr").dblclick(function(e){
+								$("tr").dblclick(function(e) {
 									var _tr = arr[e.currentTarget.id];
 									$("#inname").val(_tr.name);
 									$("#insex").val(_tr.sex);
@@ -115,10 +159,10 @@
 									$("#inaddress").val(_tr.homeAddress);
 									$("#inmessage").val(_tr.source);
 									$("#incapacity").val(_tr.majorMemo);
-									$("#inevaluate").val(_tr.selfMemo);									
-									$("#hide").fadeIn(500)									
+									$("#inevaluate").val(_tr.selfMemo);
+									$("#hide").fadeIn(500)
 								})
-								$("h3").click(function(){
+								$("h3").click(function() {
 									$("#hide").fadeOut(500);
 								})
 							},
@@ -134,4 +178,4 @@
 		</script>
 	</body>
 
-<html>
+	<html>
