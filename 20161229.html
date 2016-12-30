@@ -59,6 +59,15 @@
 		<div id="box">
 		<h1>AJAX后台提交数据</h1>
 		<p>在此文实例中提交的数据可在这里<a href="form.html">查询</a></p>
+	        <pre>
+			参数说明: 　　
+                        type:请求方式，“POST”或者“GET”,默认为“GET”。 　　
+                        url:发送请求的地址。 　　
+                        data:要向服务器传递的数据，已key:value的形式书写（id:1）。GET请求会附加到url后面。 　　
+                        async:默认true,为异步请求，设置为false,则为同步请求。 　　
+                        dataType:预期服务器返回的数据类型,可以不指定。有xml、html、text等。 　　
+                        在开发中，使用以上参数已可以满足基本需求。 　　
+                        如果需要向服务器传递中文参数，可将参数写在url后面，用encodeURI编码就可以了</pre>
 		<pre>
 	    &lt;!DOCTYPE html>
         &lt;html>
