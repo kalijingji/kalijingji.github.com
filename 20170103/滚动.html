@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		 #box{width: 1200px;height: 2000px;margin: auto;float: left;}
+		 img{width: 100px;height: 500px;}
+		 #left{position: absolute;left: 0;}
+		 #right{position: absolute; right:0;}
+		</style>
+	</head>
+	<body>
+		<div id="left"><img src="img/1.jpg"/></div>
+		<div id="box">	
+		</div>
+		<div id="right"><img src="img/2.jpg"/></div>
+		<script src="jquery/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$(window).scroll(function(){
+					var tp = $(document).scrollTop();
+					$("#left,#right").stop().animate({"top":tp},300)
+				})
+			})
+		</script>
+	</body>
+</html>

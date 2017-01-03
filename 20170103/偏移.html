@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#red{width: 800px;height: 300px;background: red;margin: auto;}
+			#pink{width: 800px;height: 300px;background: pink;margin: auto;}
+			#yellow{width: 800px;height: 300px;background: yellow;margin: auto;}
+			#green{width: 800px;height: 300px;background: green;margin: auto;}
+			#log{width: 550px;height: 0;position: fixed;right: 50%;}
+			#log_1{width: 80px;height: 480px;float: left;/*display: none;*/}
+			ul li{list-style: none;width: 80px;height: 80px;
+			background: lightgoldenrodyellow;text-align: center;
+			line-height: 80px;border:1px solid #aaa;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="log">
+			<div id="log_1">
+			<ul>
+				<li>导航</li>
+				<li>红色</li>
+				<li>粉色</li>
+				<li>黄色</li>
+				<li>绿色</li>
+				<li>回到顶部</li>
+			</ul>
+		</div>
+		</div>
+		
+		<div id="red" class="one"></div>
+		<div id="pink" class="one"></div>
+		<div id="yellow" class="one"></div>
+		<div id="green" class="one"></div>
+		<script src="jquery/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript">
+//			$(function(){
+//              $("#log").offset({top:300,left:400}).css({"display":"block"});
+//              $("#log li").click(function(){
+//              	$(".one").eq($(this).index()).scroll()
+//              })
+//			})
+		</script>
+	</body>
+</html>

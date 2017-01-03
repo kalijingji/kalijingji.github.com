@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.left{width: 300px;height: 200px;background: url(img/1.jpg);background-size: 100%;position: relative;}
+		    .nba{width: 300px;height: 50px;position: absolute;bottom:0;left:0;background:rgba(150,200,255,0.5);text-align: center;line-height: 50px;}
+		    .two{width: 0px;height: 200px;position: absolute;background:rgba(150,200,255,0.5);text-align: center;line-height: 200px;display: none;}
+		</style>
+	</head>
+	<body>
+		<div style="width: 800px;margin: auto;">
+		<div class="left">
+			<div class="two">工厂污染</div>
+			<div class="nba">哈哈</div>
+		</div>
+		<div  class="left">
+			<div class="two">工厂污染</div>
+			<div class="nba">哈哈</div>
+		</div>
+		</div>	
+		<script src="jquery/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$(".left").mouseenter(function(){
+					$(".two").eq($(this).index()).show().stop().animate({"width":300},300);
+					$(".nba").eq($(this).index()).show().stop().animate({"height":0},300).hide();
+				}).mouseleave(function(){
+					$(".two").eq($(this).index()).show().stop().animate({"width":0},300).hide();
+					$(".nba").eq($(this).index()).show().stop().animate({"height":50},300);
+				})
+			})
+		</script>
+	</body>
+</html>

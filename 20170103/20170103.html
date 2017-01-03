@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{padding: 0;margin: 0;font-family: "微软雅黑";background: lightgoldenrodyellow;}
+			h1{width: auto;height: 100px;line-height: 100px;text-align: center;color: red;}
+			h3{width: auto;height: 60px;line-height: 60px;color: green;}
+			pre{background:lightyellow;border: 2px solid grey;border-radius: 10px;margin-top: 30px;margin-bottom: 30px;padding: 5px;}
+            #box{width: 1000px;margin: auto;}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<h1>常用jquery实用动画</h1>
+			<h3>点击文字变化图片</h3>
+			<pre>
+		$(function(){
+		  $(".tab-item").mouseenter(function(){
+			$(this).addClass("active").siblings().removeClass("active");//siblings()选择除了所选中的以外的所有兄弟元素
+			$(".main").eq($(this).index()).addClass("selected").siblings().removeClass("selected");
+		})
+	    })
+			</pre>
+			<a href="in.html">实例</a>
+			<h3>图片轮播</h3>
+			<pre>
+		$(function(){
+		 var idx = 0;
+		 $(".wrap ol li").mouseenter(function(){
+			idx+=1;
+			$(this).addClass("active").siblings().removeClass("active");
+			$(".wrap ul li").eq($(this).index()).css({"left":650,"z-index":idx}).animate({"left":0},300)
+		})
+	    })
+			</pre>
+			<a href="轮播.html">实例</a>
+			<h3>手风琴</h3>
+			<pre>
+		 $(function () {
+            $(".wrap li").each(function (i,ele) {
+                $(this).css("background-image","url(img/" + (i + 1) +".jpg)");
+            }).mouseenter(function () {
+                $(this).stop().animate({
+                    "width":600
+                },300).siblings().stop().animate({
+                	"width":100 
+                },300)
+            }).mouseleave(function () {
+                $("li").stop().animate({
+                    "width":200
+                },300)
+            });
+          })
+			</pre>
+			<a href="手风琴.html">实例</a>
+			<h3>天猫小广告</h3>
+			<pre>
+		$(function(){
+		$("#left li").mouseenter(function(){
+			$(this).addClass()
+			$("#center li").eq($(this).index()).show().siblings("li").hide();
+		})
+		$("#right li").mouseenter(function(){
+			$("#center li").eq($(this).index()).show().siblings("li").hide();
+		})
+	    })
+			</pre>
+			<a href="广告.html">实例</a>
+			<h3>图片跟随鼠标滚动</h3>
+			<pre>
+		 $(function(){
+				$(window).scroll(function(){
+					var tp = $(document).scrollTop();
+					$("#left,#right").stop().animate({"top":tp},300)
+				})
+			})
+			</pre>
+			<a href="滚动.html">实例</a>
+			<h3>页面加载弹窗广告</h3>
+			<pre>
+		 $(document).ready(function(){
+				$("#log").slideDown().click(function(){
+					$(this).slideUp()
+				});
+			})
+			</pre>
+			<a href="页面加载广告.html">实例</a>
+			<h3>透明动画</h3>
+			<pre>
+		  $(function(){
+				$(".left").mouseenter(function(){
+					$(".two").eq($(this).index()).show().stop().animate({"width":300},300);
+					$(".nba").eq($(this).index()).show().stop().animate({"height":0},300).hide();
+				}).mouseleave(function(){
+					$(".two").eq($(this).index()).show().stop().animate({"width":0},300).hide();
+					$(".nba").eq($(this).index()).show().stop().animate({"height":50},300);
+				})
+			})
+			</pre>
+			<a href="透明动画.html">实例</a>
+		</div>
+	</body>
+</html>
