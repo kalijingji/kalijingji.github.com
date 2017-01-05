@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				margin: 0;
+				padding: 0;
+			}
+			#cube{
+				margin: 100px auto;
+				width: 400px;
+				height: 400px;
+				position: relative;
+				transform: rotateX(45deg) rotateY(45deg);
+				transition: all 5s linear;
+				transform-style: preserve-3d;	
+				/*animation: mymove 5s linear infinite;*/
+				perspective: 1000;/*透视3d效果*/
+
+			}
+			#front,#back,#left,#right,#top,#bottom{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				text-align: center;
+				line-height: 400px;
+				font-size: 30px;
+				top:0;
+				left: 0;
+			}
+			#left{
+				background: blue;
+				transform: rotateY(270deg) translateZ(200px);			
+			}
+			#right{
+				background: orange;
+				transform: rotateY(90deg) translateZ(200px);			
+			}
+			#top{
+				background: red;
+				transform: rotateX(90deg) translateZ(200px);			
+			}
+			#bottom{
+				background: green;
+				transform: rotateX(270deg) translateZ(200px);			
+			}
+			#front{
+				background: deeppink;
+				transform:  translateZ(200px);			
+			}
+			#back{
+				background: #20B2AA;
+				transform: translateZ(-200px);			
+			}
+			#cube:hover{
+				transform: rotateX(1140deg) rotateY(11140deg) rotateZ(600deg);
+			}
+			/*@keyframes mymove
+			{
+				0% {transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);}
+				100% {transform: rotateX(180deg) rotateY(180deg) rotateZ(180deg);}
+			}*/
+		</style>
+	</head>
+	<body>
+		<div id="cube">
+			<div id="front">前面</div>
+			<div id="back">后面</div>
+			<div id="left">左面</div>
+			<div id="right">右面</div>
+			<div id="top">上面</div>
+			<div id="bottom">下面</div>
+		</div>
+	</body>
+</html>

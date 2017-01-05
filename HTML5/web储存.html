@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+	</head>
+	<body>
+		<div id="div"></div>
+		<script type="text/javascript">
+		var storageObj = {
+		storageFun: function (){
+			 if (!window.localStorage) {   //判断是否支持localStorage
+				console.log("不支持");
+				return false;
+			} else{
+				return true;
+			}
+		},
+		Set: function (_item,value){//增加
+			window.localStorage.setItem(_item,value);
+		},
+		Get: function (_item){//查找
+			return window.localStorage.getItem(_item);
+		},
+		Clear:function(){//清除全部
+			window.localStorage.clear();
+		},
+		Remove:function(){//删除单个
+			window.localStorage.remove();
+		},
+		};
+		var arr = [{name:"李某某",age:1999,sex:"男"},{name:"赵某某",age:1989,sex:"女"}]
+		function transactionArr(_arr){
+			var arr = _arr;
+			var l = arr.length;
+			for(var i = 0;i<l;i++){
+				var item = arr[i];
+				for(var j in item){
+					storageObj.Set(j,item[j])
+				}
+			}
+		}
+		transactionArr(arr)
+//		storageObj.Set("name","方本领");
+//		var div = document.getElementById("div");
+//		div.innerText = storageObj.Get("name");
+		</script>
+	</body>
+</html>

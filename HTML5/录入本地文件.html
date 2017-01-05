@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="" method="post">
+			歌曲名:<input type="text" id="music">
+			<input type="button" value="提交"/ id="btn">
+		</form>
+		<script type="text/javascript">
+			var music = document.getElementById("music");
+			var btn = document.getElementById("btn");
+			var i = 1;
+			btn.onclick = function (){			
+			var name="music"+i;
+			var str = music.value;
+			i++;
+			Set(name,str);		
+			}			
+				function Set(name,_music){
+				window.localStorage.setItem(name,_music);
+			}
+		</script>
+	</body>
+</html>

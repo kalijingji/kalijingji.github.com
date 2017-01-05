@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{padding: 0;margin: 0;font-family: "微软雅黑";background: lightgoldenrodyellow;}
+			h1{width: auto;height: 100px;line-height: 100px;text-align: center;color: red;}
+			h3{width: auto;height: 60px;line-height: 60px;color: green;}
+			pre{background:lightyellow;border: 2px solid grey;border-radius: 10px;margin-top: 30px;margin-bottom: 30px;padding: 5px;}
+            #box{width: 1000px;margin: auto;}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<h1>web储存及CSS3实用动画</h1>
+			<h3>web存储</h3>
+			<pre>
+				var storageObj = {
+		 storageFun: function (){
+			 if (!window.localStorage) {   //判断是否支持localStorage
+				console.log("不支持");
+				return false;
+			} else{
+				return true;
+			}
+		},
+		Set: function (_item,value){//增加
+			window.localStorage.setItem(_item,value);
+		},
+		Get: function (_item){//查找
+			return window.localStorage.getItem(_item);
+		},
+		Clear:function(){//清除全部
+			window.localStorage.clear();
+		},
+		Remove:function(){//删除单个
+			window.localStorage.remove();
+		},
+		};
+			</pre>
+			<p><a href="../HTML5/web储存.html">实例(需要查看源代码localStorage)</a></p>
+			<h3>录入本地文件</h3>
+			<pre>
+				&lt;form action="" method="post">
+			歌曲名:&lt;input type="text" id="music">
+			&lt;input type="button" value="提交"/ id="btn">
+		&lt;/form>
+		&lt;script type="text/javascript">
+			var music = document.getElementById("music");
+			var btn = document.getElementById("btn");
+			var i = 1;
+			btn.onclick = function (){			
+			var name="music"+i;
+			var str = music.value;
+			i++;
+			Set(name,str);		
+			}			
+				function Set(name,_music){
+				window.localStorage.setItem(name,_music);
+			}
+		&lt;/script>
+			</pre>
+			<p><a href="../HTML5/录入本地文件.html">实例(需要查看源代码localStorage)</a></p>
+			<h3>CSS3鼠标移入变大</h3>
+			<p>div布局</p>
+			<pre>
+				&lt;div id="box">
+			&lt;div id="box_1">
+				&lt;h1>最美丽江&lt;/h1>
+			&lt;/div>
+			</pre>
+			<p>css布局</p>
+			<pre>
+				#box{
+				width: 300px;
+			    height: 300px;
+			    border: 5px solid green;
+			    border-radius: 300px;
+			    perspective: 1000px;
+			}
+			#box_1{
+				width: 250px;
+			    height: 250px;
+			    border: 5px solid lightseagreen;
+			    border-radius: 250px;
+			    margin: auto;
+			    background: lightseagreen;
+			    margin-top:20px;
+			    transition: all 1s linear;
+			    text-align: center;
+			    line-height: 220px;
+			    color: red;
+			}
+			#box_1:hover{
+				transform: translateZ(150px) ;
+			}
+			</pre>
+			<p><a href="../HTML5/css3矩阵.html">实例</a></p>
+			<h3>立方体</h3>
+			<p>div布局</p>
+			<pre>
+			&lt;div id="cube">
+			   &lt;div id="front">前面&lt;/div>
+			   &lt;div id="back">后面&lt;/div>
+			   &lt;div id="left">左面&lt;/div>
+			   &lt;div id="right">右面&lt;/div>
+			   &lt;div id="top">上面&lt;/div>
+			   &lt;div id="bottom">下面&lt;/div>
+			&lt;/div>
+			</pre>
+			<p>css布局</p>
+			<pre>
+				body{
+				margin: 0;
+				padding: 0;
+			}
+			#cube{
+				margin: 100px auto;
+				width: 400px;
+				height: 400px;
+				position: relative;
+				transform: rotateX(45deg) rotateY(45deg);
+				transition: all 5s linear;
+				transform-style: preserve-3d;	
+				perspective: 1000;/*透视3d效果*/
+
+			}
+			#front,#back,#left,#right,#top,#bottom{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				text-align: center;
+				line-height: 400px;
+				font-size: 30px;
+				top:0;
+				left: 0;
+			}
+			#left{
+				background: blue;
+				transform: rotateY(270deg) translateZ(200px);			
+			}
+			#right{
+				background: orange;
+				transform: rotateY(90deg) translateZ(200px);			
+			}
+			#top{
+				background: red;
+				transform: rotateX(90deg) translateZ(200px);			
+			}
+			#bottom{
+				background: green;
+				transform: rotateX(270deg) translateZ(200px);			
+			}
+			#front{
+				background: deeppink;
+				transform:  translateZ(200px);			
+			}
+			#back{
+				background: #20B2AA;
+				transform: translateZ(-200px);			
+			}
+			#cube:hover{
+				transform: rotateX(1140deg) rotateY(11140deg) rotateZ(600deg);
+			}
+			</pre>
+			<p><a href="../HTML5/立方体.html">实例</a></p>
+			<h3>弹弹弹</h3>
+			<p>div布局</p>
+			<pre>
+				&lt;div id="circle">弹&lt;/div>
+			</pre>
+			<p>css布局</p>
+			<pre>
+				#circle{
+				width: 300px;
+				height: 300px;
+				background: orangered;
+				color: #FFFFFF;
+				border-radius: 300px;
+				text-align: center;
+				line-height: 300px;
+				font-size: 50px;
+				margin: auto;
+			}
+			#circle:hover{
+				background: orange;				
+				animation: mymove 0.5s linear 2;
+			}
+			@keyframes mymove
+			{
+				0% { transform: rotateX(0deg) scale(1,1);}
+				50%{transform: rotateX(15deg) scale(1.2,0.6);}
+				100%{transform: rotateX(0deg) scale(1,1);}
+			}
+			</pre>
+			<p><a href="../HTML5/弹.html">实例</a></p>
+		</div>
+	</body>
+</html>
