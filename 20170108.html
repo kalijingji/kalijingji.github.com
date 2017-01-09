@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{padding: 0;margin: 0;font-family: "微软雅黑";background: lightgoldenrodyellow;}
+			h1{width: auto;height: 100px;line-height: 100px;text-align: center;color: red;}
+			h3{width: auto;height: 60px;line-height: 60px;color: green;}
+			pre{background:lightyellow;border: 2px solid grey;border-radius: 10px;margin-top: 30px;margin-bottom: 30px;padding: 5px;}
+            #box{width: 1000px;margin: auto;}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<h1>3d动画</h1>
+			<pre>
+      &lt;!DOCTYPE html>
+&lt;html>
+	&lt;head>
+		&lt;meta charset="UTF-8">
+		&lt;title>&lt;/title>
+		&lt;style type="text/css">
+			body{
+				margin: 0;
+				padding: 0;
+				background-size: cover;
+				
+			}
+			#box{
+				transform: rotateX(-15deg) rotateY(45deg);
+				transform-style: preserve-3d;
+			}
+			#cube{
+				margin: 100px auto;
+				width: 320px;
+				height: 400px;
+				position: relative;				
+				transition: all 20s linear;
+				transform-style: preserve-3d;	
+				perspective: 1000;/*透视3d效果*/
+				
+
+			}
+			#front_a,#front_b,#front_c,#front_d,#front_e,#front_f,#front_g,#front_h{
+				width: 320px;
+				height: 400px;
+				position: absolute;
+				top:0;
+				left: 0;
+			}
+			#front_a{
+				background: red;
+				transform: rotateY(0deg) translateZ(600px);			
+			}
+			#front_b{
+				background:blue;
+				transform: rotateY(45deg) translateZ(600px);			
+			}
+			#front_c{
+				background:pink;
+				transform: rotateY(90deg) translateZ(600px);			
+			}
+			#front_d{
+				background:green;
+				transform: rotateY(135deg) translateZ(600px);			
+			}
+			#front_e{
+				background: orange;
+				transform: rotateY(180deg) translateZ(600px);			
+			}
+			#front_f{
+				background: #000;
+				transform:rotateY(225deg) translateZ(600px);			
+			}
+			#front_g{
+				background:gold;
+				transform:rotateY(270deg) translateZ(600px);			
+			}
+			#front_h{
+				background:#aaa;
+				transform:rotateY(315deg) translateZ(600px);			
+			}
+			#cube:hover{
+				transform:  rotateY(1600deg);
+			}
+		&lt;/style>
+	&lt;/head>
+	&lt;body>
+		&lt;div id="box">
+			&lt;div id="cube">
+			&lt;div id="front_a">&lt;/div>
+			&lt;div id="front_b">&lt;/div>
+			&lt;div id="front_c">&lt;/div>
+			&lt;div id="front_d">&lt;/div>
+			&lt;div id="front_e">&lt;/div>
+			&lt;div id="front_f">&lt;/div>
+			&lt;div id="front_g">&lt;/div>
+			&lt;div id="front_h">&lt;/div>
+		&lt;/div>
+		&lt;/div>
+		
+	&lt;/body>
+&lt;/html>
+
+      </pre>
+		</div>
+	</body>
+</html>
