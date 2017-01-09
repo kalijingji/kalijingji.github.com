@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 441px;
+            height: 662px;
+            background-image: url("images/bg1.jpg");
+            background-repeat: repeat-y;
+            background-position-y:300px;
+            margin:0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        #box>img{
+            position: absolute;
+            left: 205.5px;
+            bottom: 100px;
+        }
+        .bullet{
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: red;
+            position: absolute;
+        }
+        .enemy{
+          position: absolute;
+          top: -45px;
+        }
+
+    </style>
+
+    <script>
+   //游戏背景
+    var box;
+   //玩家
+   var player;
+   //音乐
+   var bomb;
+        window.onload=function(){
+            //游戏背景
+            box = document.getElementById('box');
+            //玩家
+            player = document.getElementById('player');
+            //音乐
+            bomb = document.getElementsByTagName('audio')[0];
+            //背景移动
+            bgStart();
+            //玩家移动
+            playerStart();
+            //敌人出现
+            stratEnemy(3);//游戏开始三秒后,开始释放敌人
+        }
+     //敌人出现
+      function stratEnemy(time){
+          //time秒后释放敌人
+          setTimeout(function(){
+              var Enemy = document.createElement('img');
+                  Enemy.src = 'images/ememy1.png'
+                  Enemy.className = 'enemy';
+                  Enemy.style.left =  parseInt(Math.random()*441)-45+'px';//随机敌人出现的位置
+                  box.appendChild(Enemy);//添加敌人
+                  startEnemyAnim(Enemy,662,5);//敌人开始运动
+                  var S =  parseInt(Math.random()*3)+1;//下次敌人释放的时间
+                  stratEnemy(S);//释放敌人
+          },time*1000);
+
+      }
+
+
+     //玩家移动
+
+      function playerStart(){
+
+          document.onkeydown  =function(e){
+              e = e||window.event;
+              var code = e.keyCode;
+              switch(code){
+                  case 38: //上
+                      player.style.bottom =  getStyle(player,'bottom')+10+'px';
+                      break;
+                  case 40: //下
+                      player.style.bottom =  getStyle(player,'bottom')-10+'px';
+                      break;
+                  case 39: //右
+                      if( getStyle(player,'left')!=405) {
+                          player.style.left = getStyle(player, 'left') + 10 + 'px';
+                      }
+                      break;
+                  case 37: //左
+                      if( getStyle(player,'left')!=5){
+                            player.style.left =  getStyle(player,'left') - 10+'px';
+                          }
+                      break;
+                  case 81:
+                        sendBullet('blue');
+                      break;
+              }
+          }
+           }
+   //发射子弹
+   function sendBullet(color){
+     var div =  document.createElement('div');
+       div.className = 'bullet'
+       div.style.backgroundColor=color;
+       div.style.left = player.offsetLeft+11+'px';
+       div.style.top = player.offsetTop-8+'px';
+       box.appendChild(div);
+       //子弹运动
+       startBulletAnim(div,0,-10);
+   }
+   //运动
+   function startBulletAnim(obj,Target,speed){
+       obj.times = setInterval(function(){
+            var curr = obj.offsetTop;//获取当前的Top值
+           if(curr <= Target){//如果达到或超过目标值时停止运动,并清除该子弹。
+              clearInterval(obj.times);//清除定时器
+               box.removeChild(obj);//清除子弹
+           }else{//否则继续运动
+               obj.style.top  =  curr + speed +'px';
+               var EnemyList = box.getElementsByTagName('img');
+               for(var i = 1;i<EnemyList.length;i++){
+                   //当前对象
+                   var curr = EnemyList[i];
+                   if(curr.flag){//判断是否为死亡状态
+                       continue;
+                   }
+                 var flag =  ifRam(obj.offsetLeft,obj.offsetTop,obj.offsetWidth,obj.offsetHeight,curr.offsetLeft,curr.offsetTop,curr.offsetWidth,curr.offsetHeight);
+                   if(flag){
+                       bomb.play();
+                       clearInterval(obj.times);//清除子弹运动
+                       box.removeChild(obj);//删除子弹
+                       clearInterval(curr.times);//清除当前敌人运动
+                       EnemyList[i].src='images/bomb.png';//将敌人图片替换成爆炸状态
+                       EnemyList[i].flag = true;//为true代表死亡
+                       setTimeout(function(){//半秒后清除敌人
+                           box.removeChild(curr);
+                       },500);
+                       break;
+                   }
+
+               }
+
+
+           }
+       },50);
+   }
+
+   //运动
+   function startEnemyAnim(obj,Target,speed){
+       obj.times = setInterval(function(){
+           var curr = obj.offsetTop;//获取当前的Top值
+           if(curr >= Target){//如果达到或超过目标值时停止运动,并清除该子弹。
+               clearInterval(obj.times);//清除定时器
+               box.removeChild(obj);//清除子弹
+           }else{//否则继续运动
+               obj.style.top  =  curr + speed +'px';
+           }
+       },50);
+   }
+
+   /**
+    * 背景移动
+    */
+      function  bgStart(){
+
+          setInterval(function(){
+
+              box.style.backgroundPositionY = getStyle(box,'backgroundPositionY')+3+'px';
+
+          },50);
+
+      }
+
+
+        //取样式
+        function getStyle(obj,attr){
+            if(obj.currentStyle){//IE取样式
+                return parseInt(obj.currentStyle[attr]);
+            }else{
+                return parseInt(getComputedStyle(obj,false)[attr]);
+            }
+        }
+
+   /**
+    * 游戏碰撞检测工具类，用于矩形碰撞
+    * @author Administrator
+    *
+    */
+   /**
+    * 用于判断两个矩形是否相撞
+    * @param x1 第1个矩形左上角的X坐标
+    * @param y1 第1个矩形左上角的Y坐标
+    * @param w1 第1个矩形宽
+    * @param h1 第1个矩形高
+    * @param x2 第2个矩形左上角的X坐标
+    * @param y2 第2个矩形左上角的Y坐标
+    * @param w2 第2个矩形宽
+    * @param h2 第2个矩形高
+    * @return 返回boolean类型。返回true表示相撞了，返回false表示没有相撞。
+    */
+   function ifRam(x1,y1,w1,h1,x2,y2,w2,h2)
+   {
+       return !((x1 + w1 < x2) | (y1 + h1 < y2) | (x1 > x2 + w2) | (y1 > y2 + h2));
+   }
+
+
+
+    </script>
+</head>
+<body>
+
+  <div id="box">
+
+
+      <img src="images/player.png" id="player">
+  </div>
+
+<audio src="raw/bomb.mp3"></audio>
+</body>
+</html>

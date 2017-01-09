@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#box {
+				width: 441px;
+				height: 662px;
+				margin: auto;
+				background: url(img/bg1.jpg);
+				background-repeat: repeat-y;
+				/*background-position-y: 300px;*/
+				position: relative;
+			}
+			
+			#box img {
+				position: absolute;
+				left: 205.5px;
+				bottom: 100px;
+			}
+			
+			.bullet {
+				width: 8px;
+				height: 8px;
+				border-radius: 50%;
+				background: red;
+				position: absolute;
+			}
+			.plane{
+				width: 45px;
+				height: 54px;
+				background: url(img/ememy1.png);
+				position: absolute;
+			}
+		</style>
+
+		<script type="text/javascript">
+			var box; //游戏背景
+			var player;
+			var EnemyList;
+			 var ememy;
+			window.onload = function() {
+				box = document.getElementById("box");
+				player = document.getElementById("player");
+				EnemyList = box.getElementsByTagName('img');
+				ememy = box.getElementsByTagName('img')[0];
+					//背景移动
+				bgStart();
+				//玩家移动
+				playStart();
+				//敌机生成
+				hostilePlane()
+               
+			}
+
+			//背景移动
+			function bgStart() {
+				//alert(document.body.currentStyle.backgroundPositionY)
+				setInterval(function() {
+					box.style.backgroundPositionY = getStyle(box, 'backgroundPositionY') + 10 + 'px';
+
+				}, 100)
+
+			}
+			//取样式和处理兼容
+			function getStyle(obj, attr) {
+				if(obj.currentStyle) { //IE取样式
+					return parseInt(obj.currentStyle[attr]);
+				} else {
+					return parseInt(getComputedStyle(obj, false)[attr]);
+				}
+
+			}
+			//玩家移动
+			function playStart() {
+				document.onkeydown = function(e) {
+					e = e || window.event;
+					//alert(e.keyCode)
+					var code = e.keyCode;
+					switch(code) {
+						case 38: //上
+							if(getStyle(player, 'bottom') + 10 < 640) {
+								player.style.bottom = getStyle(player, 'bottom') + 10 + "px";
+							}
+							break;
+						case 39: //右
+							if(getStyle(player, 'left') + 10 < 406) {
+								player.style.left = getStyle(player, 'left') + 10 + "px";
+							}
+							break;
+						case 40: //下
+							if(getStyle(player, 'bottom') - 10 > 0) {
+								player.style.bottom = getStyle(player, 'bottom') - 10 + "px";
+							}
+							break;
+						case 37: //左
+							if(getStyle(player, 'left') - 10 > 0) {
+								player.style.left = getStyle(player, 'left') - 10 + "px";
+							}
+							break;
+						case 32:
+							sendBullet("red");
+							break;
+					}
+
+				}
+			}
+
+			//子弹生成
+			function sendBullet(color) {
+				var div = document.createElement("div");
+				div.className = "bullet";
+				div.style.backgroundColor = color;
+				div.style.left = player.offsetLeft + 11 + "px";
+				div.style.top = player.offsetTop - 8 + "px";
+				box.appendChild(div);
+				//子弹运动
+				startAnim(div,0,-10 );
+			}
+			//子弹运动
+			function startAnim(obj,Tager,speed) {
+//				clearInterval(obj.times);
+				obj.times = setInterval(function() {
+					var curr = obj.offsetTop;//获取当前的Top值
+					if(curr <= Tager) {//如果达到或超过目标值时停止运动,并清除该子弹
+						clearInterval(obj.times);//清除定时器
+						box.removeChild(obj)//清除子弹
+					} else {//否则继续运动
+						obj.style.top = curr + speed + "px";
+						
+						for(var i= 1;i<EnemyList.length;i++){
+							var curr = EnemyList[i];
+						var flag = ifRam(obj.offsetLeft,obj.offsetTop,obj.offsetWidth,obj.offsetHeight,EnemyList[i].offsetLeft,EnemyList[i].offsetTop,EnemyList[i].offsetWidth,EnemyList[i].offsetHeight)
+						if(EnemyList[i].flag){
+							continue;
+						}
+						if(flag){
+							
+//							clearInterval(obj.time);
+							box.removeChild(obj);
+							clearInterval(curr,times);
+							curr.src = 'img/bomb.png';
+							curr.flag = true;//为true 代表死亡
+							setTimeout(function(){
+								box.removeChild(curr);
+							},500)
+						}
+						}
+					}
+				}, 50)
+			}
+			
+			//创造敌机
+			function  hostilePlane(){
+				var ememyTimes = setInterval(function(){
+				  
+				   var n = Math.floor(Math.random()*400);
+				   ememy.src = "img/ememy1.png";
+				   ememy.style.left = n + "px";
+				   ememy.style.top =  0+ "px";
+				   box.appendChild(ememy);
+				   //敌机运动
+				   start_Anim(ememy,600,10);
+				},2000)
+				
+			}
+			//敌机运动
+			function start_Anim(obj,Tager,speed) {
+				clearInterval(obj.times);
+				obj.times = setInterval(function() {
+					var curr = obj.offsetTop;//获取当前的Top值
+					if(curr >= Tager) {//如果达到或超过目标值时停止运动,并清除该子弹
+						clearInterval(obj.times);//清除定时器
+						box.removeChild(obj)//清除敌机
+					} else {//否则继续运动
+						obj.style.top = curr + speed + "px";
+					}
+				}, 100)
+			}
+			
+			  /**
+    * 游戏碰撞检测工具类，用于矩形碰撞
+    * @author Administrator
+    *
+    */
+   /**
+    * 用于判断两个矩形是否相撞
+    * @param x1 第1个矩形左上角的X坐标
+    * @param y1 第1个矩形左上角的Y坐标
+    * @param w1 第1个矩形宽
+    * @param h1 第1个矩形高
+    * @param x2 第2个矩形左上角的X坐标
+    * @param y2 第2个矩形左上角的Y坐标
+    * @param w2 第2个矩形宽
+    * @param h2 第2个矩形高
+    * @return 返回boolean类型。返回true表示相撞了，返回false表示没有相撞。
+    */
+   function ifRam(x1,y1,w1,h1,x2,y2,w2,h2)
+   {
+       return !((x1 + w1 < x2) | (y1 + h1 < y2) | (x1 > x2 + w2) | (y1 > y2 + h2));
+   }
+
+		</script>
+	</head>
+
+	<body>
+		<div id="box">
+			<img src="img/player.png" id="player">
+			<img src="">
+		</div>
+
+	</body>
+
+</html>
