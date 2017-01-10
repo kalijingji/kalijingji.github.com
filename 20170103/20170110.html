@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+				font-family: "微软雅黑";
+				background: lightgoldenrodyellow;
+			}
+			
+			h1 {
+				width: auto;
+				height: 100px;
+				line-height: 100px;
+				text-align: center;
+				color: red;
+			}
+			
+			h3 {
+				width: auto;
+				height: 60px;
+				line-height: 60px;
+				color: green;
+			}
+			
+			pre {
+				background: lightyellow;
+				border: 2px solid grey;
+				border-radius: 10px;
+				margin-top: 30px;
+				margin-bottom: 30px;
+				padding: 5px;
+			}
+			
+			#box {
+				width: 1000px;
+				margin: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<h1>CSS3媒体查询:</h1>
+			<h3>基本格式:</h3>
+			<pre>@media all and (min-width:415px){
+			}
+			</pre>
+			<h3>试用移动端需要的设置:</h3>
+			<pre>
+				&lt;meta name="viewport" content="width=device-width,initial-scale=1.0">
+			</pre>
+			<p>width=device-width:自动代表适应移动设备的宽</p>
+			<p>initial-scale=1.0:代表缩放比列</p>
+			<p>user-scalable=no:代表禁止缩放/yes代表允许缩放</p>
+			<p>minimum-scale=0.5:代表允许最小缩放比列</p>
+			<p>maximum-scale=1.0:代表允许最大缩放比列</p>
+			<h3>1,使用CSS3的@media属性;</h3>
+			<h3>2,紧跟着@media的属性:screen,tv;</h3>
+			<h3>3,紧跟着屏幕设备尺寸后的关键词 only;and;not;</h3>
+			<p>a,only:仅仅,只用于某种属性;</p>
+			<p>b,and:属性链接;</p>
+			<p>c,not:除去某种设备属性;</p>
+			<h3>4,em相对于body;</h3>
+			<h3>5,rem相对于html;</h3>
+			<h3>6,Media所有参数汇总     </h3>
+			<p>width:浏览器可视宽度</p>
+			<p>height:浏览器可视高度</p>
+			<p>device-width:设备屏幕的宽度</p>
+			<p>device-height:设备屏幕的高度</p>
+			<p>orientation:检测设备目前处于横向还是纵向状态</p>
+			<p>aspect-ratio:检测浏览器可视宽度和高度的比例</p>(例如：aspect-ratio:16/9)
+			<p>device-aspect-ratio:检测设备的宽度和高度的比例</p>
+			<p>color:检测颜色的位数</p>（例如：min-color:32就会检测设备是否拥有32位颜色）
+			<p>color-index:检查设备颜色索引表中的颜色，他的值不能是负数</p>
+			<p>monochrome:检测单色楨缓冲区域中的每个像素的位数</p>（这个太高级，估计咱很少会用的到）
+			<p>resolution:检测屏幕或打印机的分辨率</p>(例如：min-resolution:300dpi或min-resolution:118dpcm)</p>
+			<p>grid:检测输出的设备是网格的还是位图设备</p>
+			</p>
+		</div>
+	</body>
+
+</html>

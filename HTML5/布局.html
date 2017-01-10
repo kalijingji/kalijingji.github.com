@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 80%;
+				height: 500px;
+				background: green;
+				margin: auto;
+			}
+			#btn{
+				width:1200px;
+				height: 500px;
+			}
+			#box_1{
+				width: 60%;
+				height: 400px;
+				background: red;
+				float: left;
+			}
+			#box_2{
+				width: 40%;
+				height: 400px;
+				background: pink;
+				float: left;
+			}
+			@media all and (max-width: 500px) {
+				#box{
+					background: red;
+				}
+			}
+			@media all and (max-width: 800px) and (min-width: 500px){
+				#box{
+					background: pink;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<!--<div id="btn">
+			<div id="box_1"></div>
+			<div id="box_2"></div>-->
+			CSS3媒体查询:
+			1,使用CSS3的@media属性;
+			2,紧跟着@media的属性:screen,tv;
+			3,紧跟着屏幕设备尺寸后的关键词 only and not;
+			a,only:仅仅,只用于某种属性;
+			b,and:属性链接;
+			c,not:除去某种设备属性;
+			4,em相对于body;
+			5,rem相对于html;
+			</div>
+		</div>
+	</body>
+</html>
