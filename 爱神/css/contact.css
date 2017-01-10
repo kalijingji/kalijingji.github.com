@@ -1,0 +1,15 @@
+*{margin: 0;padding: 0;color: #CDB38B}
+a{text-decoration: none;color: #f90;}
+body{background:#FFEBCD;}
+#nav{width: 100%;height: 160px;background: url(../img/bg-header.jpg);}
+#nav_1{width: 1076px;height: 140px;margin: auto;}
+#img1{float: left;}
+#ull>li{list-style-type: none;float: left;width: 150px;height: 150px;text-align:center;line-height: 150px;color: #f90;}
+#Head{width: 100%;height: 100%;background:	#FFEBCD;}
+#Head_a{width: 800px;height: 100%;margin: auto;}
+#dns{width: 800px;height: 800px;float: left;}
+.Head_1{width: 800px;height: 150px;padding: 50px;}
+#Bottom{width: 100%;height: 160px;background: url(../img/bg-header.png);border:1px solid #FFEBCD;clear: both;}
+#partook{width: 300px;height: 130px;margin:auto;margin-top: 30px;text-align: center;color: #EE9572;}
+#partook img{margin-left:20px;}
+#partook p{margin-top: 40px;font-weight: bold;}
