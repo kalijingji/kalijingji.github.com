@@ -1,0 +1,73 @@
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-tap-highlight-color: transparent;
+	box-sizing: border-box;
+}
+input {
+	border: none;
+	/*去除蓝边*/
+	outline: none;
+	-webkit-appearance: none;
+	appearance: none;
+}
+body {
+	font-size: 14px;
+	font-family: "Microsoft YaHei UI", sans-serif;
+	color: #333;
+}
+a {
+	text-decoration: none;
+}
+.box {
+	width: 100%;
+	max-width: 640px;
+	min-width: 300px;
+	margin: 0 auto;
+	height: 1000px;
+	background: #F3F5F7;
+}
+.debark_header{
+	width: 100%;
+	height: 40px;	
+	position: relative;
+	border-bottom: 1px solid #aaa;
+	text-align: center;
+	line-height: 40px;
+	font-size: 17px;
+	background: #F9F9F9;
+}
+.debark_img{
+	width: 22px;
+	height: 22px;
+	background:url(../img/jd-sprites.png) no-repeat;
+	overflow: hidden;
+	position:absolute;
+	top:12px;
+	left: 12px;
+	background-position: -20px 0px;
+	background-size: 200px 200px;
+}
+.box>form{
+	width: 90%;
+	height: auto;
+	margin: auto;
+}
+.debark_verify{
+	width: 100%;
+	height: 40px;
+	margin-top: 20px;
+}
+.verify{
+	width: 70%;
+	height: 40px;
+	margin-top: 15px;
+	}
+.debark_ver{
+	width: 30%;
+	height: 40px;
+	margin-top: 15px;
+}
+.shadow{
+	display: none;
+}

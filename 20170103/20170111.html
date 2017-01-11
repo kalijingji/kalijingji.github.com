@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+				font-family: "微软雅黑";
+				background: lightgoldenrodyellow;
+			}
+			
+			h1 {
+				width: auto;
+				height: 100px;
+				line-height: 100px;
+				text-align: center;
+				color: red;
+			}
+			
+			h3 {
+				width: auto;
+				height: 60px;
+				line-height: 60px;
+				color: green;
+			}
+			
+			pre {
+				background: lightyellow;
+				border: 2px solid grey;
+				border-radius: 10px;
+				margin-top: 30px;
+				margin-bottom: 30px;
+				padding: 5px;
+			}
+			
+			#box {
+				width: 1000px;
+				margin: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<h1>移动端布局及适配</h1>
+			<h3>viewport的&lt;meta>标签用法</h3>
+			<p>其主要用来告诉浏览器如何规范的渲染Web页面，而你则需要告诉它视窗有多大</p>
+            <p>移动端开发中，通常我们都会采用&lt;meta name="viewport"   content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">来设置viewport，那么viewport是什么样的原理控制页面适配呢？</p>
+            <p>所以在讲淘宝的具体做法之前，我们先来深入了解viewport</p>
+            <h3>viewport是什么?</h3>
+            <p>通俗来讲，移动端的viewport就是我们所能看到的手机端浏览器的可视窗口大小，但viewport又不仅仅局限于可视窗口的大小，一般情况下，它是比默认窗口大小要大的，这是因为考虑到移动设备的分辨率相对于桌面电脑来说都比较小，所以为了能在移动端正常显示为桌面浏览器而设计的网页，移动端的浏览器都会默认把自己的默认的viewport设为980px到1024px不等，但其后果就是会出现横向滚动条，因为移动端浏览器可视区域的大小是比默认的viewport宽度要小的。</p>
+			<h3>不同的设备对1px有不一样的定义</h3>
+			<p>在css中我们一般使用px作为单位，在桌面浏览器中css的1个像素往往都是对应着电脑屏幕的1个物理像素，这可能会造成我们的一个错觉，那就是css中的像素就是设备的物理像素。但实际情况却并非如此，css中的像素只是一个抽象的单位，在不同的设备或不同的环境中，css中的1px所代表的设备物理像素是不同的。在为桌面浏览器设计的网页中，我们无需对这个津津计较，但在移动设备上，必须弄明白这点。在早先的移动设备中，屏幕像素密度都比较低，如iphone3，它的分辨率为320x480，在iphone3上，一个css像素确实是等于一个屏幕物理像素的。后来随着技术的发展，移动设备的屏幕像素密度越来越高，从iphone4开始，苹果公司便推出了所谓的Retina屏，分辨率提高了一倍，变成640x960，但屏幕尺寸却没变化，这就意味着同样大小的屏幕上，像素却多了一倍，这时，一个css像素是等于两个物理像素的。</p>
+			<p>在移动端浏览器中以及某些桌面浏览器中，window对象有一个devicePixelRatio属性，它的官方的定义为：设备物理像素和设备独立像素的比例，也就是 devicePixelRatio = 物理像素 / 独立像素。css中的px就可以看做是设备的独立像素，所以通过devicePixelRatio，我们可以知道该设备上一个css像素代表多少个物理像素。例如，在Retina屏的iphone上，devicePixelRatio的值为2，也就是说1个css像素相当于2个物理像素</p>
+			<h3>常用样式:</h3>
+			<p>清除移动端点击高亮显示</p>
+			<pre>-webkit-tap-highlight-color: transparent;</pre>
+			<p>规定盒子包括padding和border</p>
+			<pre>box-sizing: border-box;</pre>
+			<p>去除input点击时的蓝边</p>
+			<pre>outline:none</pre>
+			<p>去除input的边框</p>
+			<pre>border:none</pre>
+			<p>设置移动端的最大和最小显示宽度,一般设置在最外层</p>
+			<pre>
+				max-width:640px;
+				min-width:300px;
+			</pre>
+			<h3><a href="../京东/index.html">实例</a></h3>
+		</div>
+	</body>
+
+</html>
