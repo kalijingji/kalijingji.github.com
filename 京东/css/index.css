@@ -174,7 +174,7 @@ input {
 .jd_nav>ul>li>a>img{
 	width: 50%;
 }
-.jd_slip{
+.jd_slip{ 
 	width: 100%;
 	overflow: hidden;
 	overflow-x: scroll;

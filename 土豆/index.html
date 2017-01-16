@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+		body{
+			margin: 0;
+			padding: 0;
+			text-align: center;
+			line-height: 80px;
+			color: #fff;
+		}
+		ul li{
+			list-style: none;
+			float: left;
+			padding: 5px;
+			width: 60px;
+		}
+			.shadow{
+				width: 1200px;
+				height: 300px;
+				margin: auto;
+				border: 1px solid #aaa;
+				background: url(img/_106221462123731316275976133879053264698_r2.jpg);
+				position: relative;
+			}
+			.nav{
+		        position:absolute;
+		        width: 700px;
+		        height: 80px;
+				top: 200px;
+				left: 220px;
+				background:#000;
+				opacity: 0.8;
+			}
+			.nav_1{
+				position:absolute;
+				top: 200px;
+				left: 130px;
+				width: 80px;
+				height: 80px;
+				background:#000;
+				opacity: 0.8;
+			}
+			.nav_2{
+				position:absolute;
+				left: 930px;
+				top: 200px;
+				width: 80px;
+				height: 80px;
+				background:#000;
+				opacity: 0.8;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="shadow">
+			<div class="nav_1">＜</div>
+			<div class="nav">				
+				<ul>
+					<li><img src="img/_46959050647897235054312926171110228269.jpg" alt="" /></li>
+					<li><img src="img/50894918128775943719532802907068737207.jpg" alt="" /></li>
+					<li><img src="img/58745b01N362892c0.jpg" alt="" /></li>
+					<li><img src="img/81159054181885992015797162848617676056.jpg" alt="" /></li>
+					<li><img src="img/96362074610254595669102332348141745783.jpg" alt="" /></li>
+					<li><img src="img/_156877742892376331751242568087070200240.jpg" alt="" /></li>
+					<li><img src="img/_94402820742704366466969924722380548434.jpg" alt="" /></li>
+				</ul>				
+			</div>	
+			<div class="nav_2">＞</div>
+		</div>
+		<script type="text/javascript">
+		    var arr=["img/_100281725148642685375312340999228670443_r2.jpg","img/_106221462123731316275976133879053264698_r2.jpg","img/_135794362339806693990928457148636515926_r2.jpg","img/13223861860895479732052534689615919044_r2.jpg","img/13223861860895479732052534689615919044_r2.jpg","img/104350232699615171058285760104247375762_r2.jpg","img/_106221462123731316275976133879053264698_r2.jpg"]
+			var nav_1 = document.getElementsByClassName("nav_1")[0];
+			var shadow = document.getElementsByClassName("shadow")[0];
+			var nav_2 = document.getElementsByClassName("nav_2")[0];
+			var nav = document.getElementsByClassName("nav")[0];
+			var Li = document.getElementsByTagName("li");
+			var imge = document.getElementsByTagName("img");
+			var n=0,m;
+			//图片自动轮播
+			var time=setInterval(move,1000);
+				   function move(){	
+				   	m = n;
+					var img = arr[n];						
+						reset();
+						imge[n].style.border="1px solid red";
+						shadow.style.backgroundImage="url("+img+")";
+						n++;
+					if(n==arr.length){
+						n=0;
+					}					
+			        }
+				   //重置边框颜色
+	          function reset(){
+	  	             for(var m=0;m<imge.length;m++){
+				   		imge[m].style.border="1px solid #aaa";
+				   	}
+	           };
+			
+			//鼠标悬停变换图片
+			function Fun(){								
+			for(var i=0;i<Li.length;i++){
+				Li[i].aa=i;
+				//鼠标移入
+				Li[i].onmouseover = function (){
+					clearInterval(time);
+					reset();
+					shadow.style.backgroundImage="url("+arr[this.aa]+")";
+					imge[this.aa].style.border="1px solid red";
+					n = this.aa;
+				}
+				//鼠标移出
+				Li[i].onmouseleave = function (){
+					n++;
+					imge[this.aa].style.border="1px solid #aaa";
+					time=setInterval(move,1000);
+				}
+			}
+			}
+			Fun();
+			
+			//右点击
+			nav_2.onmouseenter=function(){
+				clearInterval(time);
+			}
+			nav_2.onclick=function (){				
+				move();
+			}
+			nav_2.onmouseleave=function(){
+				time=setInterval(move,1000);
+			}
+			//左点击
+			nav_1.onmouseenter=function(){
+				clearInterval(time);
+			}
+			nav_1.onclick=function (){					   						
+					if(m>0){
+						m--;
+						reset();
+						imge[m].style.border="1px solid red";						
+						shadow.style.backgroundImage="url("+arr[m]+")";
+					}else{
+						m=arr.length-1;					
+			         }
+				        reset();
+						imge[m].style.border="1px solid red";
+						shadow.style.backgroundImage="url("+arr[m]+")";				
+				 };
+			nav_1.onmouseleave=function(){
+				time=setInterval(move,1000);
+			}
+		</script>
+	</body>
+</html>
