@@ -80,7 +80,7 @@
 			var imge = document.getElementsByTagName("img");
 			var n=0,m;
 			//图片自动轮播
-			var time=setInterval(move,1000);
+			var time=setInterval(move,3000);
 				   function move(){	
 				   	m = n;
 					var img = arr[n];						
@@ -115,7 +115,7 @@
 				Li[i].onmouseleave = function (){
 					n++;
 					imge[this.aa].style.border="1px solid #aaa";
-					time=setInterval(move,1000);
+					time=setInterval(move,3000);
 				}
 			}
 			}
@@ -129,7 +129,7 @@
 				move();
 			}
 			nav_2.onmouseleave=function(){
-				time=setInterval(move,1000);
+				time=setInterval(move,3000);
 			}
 			//左点击
 			nav_1.onmouseenter=function(){
@@ -149,7 +149,7 @@
 						shadow.style.backgroundImage="url("+arr[m]+")";				
 				 };
 			nav_1.onmouseleave=function(){
-				time=setInterval(move,1000);
+				time=setInterval(move,3000);
 			}
 		</script>
 	</body>
