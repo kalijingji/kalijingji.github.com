@@ -1,0 +1,5 @@
+.carouseol_page{width: 1200px;height: 566px;margin: auto;background: #fff;border-top: 1px solid #fff;}
+#normal_map {height:80%;overflow: hidden;width: 50%;margin-top: 50px;margin-left: 50px;float: left;}
+.carouseol_page_right{width: 300px;height: 450px;float: left;margin-top: 50px;margin-left: 50px;font-size: 12px;}
+.carouseol_page_right img{margin-top: 20px;}
+.carouseol_page_right p{margin-top: 10px;}

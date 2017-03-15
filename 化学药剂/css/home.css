@@ -1,0 +1,52 @@
+body{background: rgb(220,221,221);}
+.content{width: 100%;background: rgb(220,221,221);border-top: 1px solid rgb(220,221,221);}
+.search{width: 1200px;margin: auto;height: 121px;margin-top: 4px;}
+.orange{width: 187px;height: 121px;background: url(../img/首页_07.png);float: left;cursor: pointer;}
+.color_two{width: 137px;height: 121px;float: left;}
+.color_two img{width: 137px;height: 59px;cursor: pointer;}
+.blue{width: 876px;height: 121px;float: left;background: #fff;}
+.blue img{display: block;float: left;cursor: pointer;}
+.query{float: left;width: 766px;margin-top:15px ;}
+.query li{width: 191.5px;height: 31px;float: left;margin-top: 10px;/*text-align: center;*/}
+.query li a{border: 2px solid blue; border-radius: 5px;font-size: 12px;color: blue;padding: 5px;margin-left: 20px;} 
+.query li a:hover{background: blue;color: #fff;}
+.Journalism{width: 1200px;height: 270px;margin: auto;margin-top: 4px;background: #fff;}
+.Journalism img{margin-top: 15px;margin-left: 30px;float: left;}
+.Journalism_left,.Journalism_right{width: 342px;height: 230px;float: left;margin-top: 15px;}
+.Journalism_left{margin-left: 20px;}
+.Journalism_left_text{width: 99px;height: 35px;background: dodgerblue;border-radius: 10px 10px 0 0;text-align: center;line-height: 35px;color: #fff;}
+.Line{width: 342px;border-bottom: 3px solid orange;}
+.Line_1{width: 342px;border-bottom: 3px solid blue;}
+.Journalism_right_text{width: 99px;height: 35px;text-align: center;line-height: 35px;color: orangered;margin-left: 242px;}
+.Journalism p{margin-top: 15px;font-size: 12px;}
+.Journalism p:hover{color: red;cursor: pointer;}
+.Journalism_text1{border-right: 2px solid #ddd;}
+.Journalism_text2{margin-left: 10px;}
+.News_column{width: 1200px;margin: auto;margin-top: 4px;}
+.News_column_left,.News_column_right{width: 597px;height: 737px;float: left;}
+.News_column_right{margin-left: 4px;}
+.News_column_left_1{width: 597px;height: 243px;margin-top: 4px;background: #fff;}
+.Sociology_left,.Sociology_right{width: 258px;height: 35px;margin-top: 15px;border-bottom: 3px solid orange;float: left;}
+.Sociology_right{border-bottom: 3px solid blue;}
+.Sociology_right p{margin-left:200px ;}
+.Sociology_left{margin-left: 30px;}
+.News_column_left_1 img{margin-top: 10px;float: left;margin-left: 20px;}
+.TEXT{width: 330px;font-size: 12px;float: right;margin-top: 10px;}
+.TEXT p{margin-top: 12px;font-size: 12px;}
+.TEXT p:hover{color: red;cursor: pointer;}
+.shadow{background: rgb(220,221,221);width: 100%;height: 737px;border-top: 1px solid rgb(220,221,221);}
+.Special{width: 1200px;height:328px ;margin: auto;margin-top: 750px;}
+.Special_left{width: 911px;height:328px ;background: #fff;float: left;}
+.Sociology_right1{width: 150px;height: 35px;margin-top: 15px;border-bottom: 3px solid blue;float: left;}
+.Sociology_left1{border-bottom: 3px solid orange;width: 150px;float: left;margin-top: 15px;}
+.TEXT1{width: 330px;font-size: 12px;margin-top: 80px;}
+.Special_left img{margin-top: 15px;margin-left: 20px;}
+.Special_left_1{float: right;width: 430px;height: 328px;}
+.Special_left_1 p{margin-top: 20px;font-size:14px;}
+.Special_left_1 p:hover{color: red;cursor: pointer;}
+.Special_right{width: 285px;height: 328px;float: right;}
+.Special_right img{width: 139px;height: 108px;cursor: pointer;}
+.Drop_down{width: 1200px;height: 48px;margin: auto;background: rgb(159,160,160);margin-top: 8px;border-top: 1px solid rgb(159,160,160);}
+select{width: 161px;height: 20px;}
+.Drop_down1{margin-left: 120px;margin-top: 10px;}
+

@@ -1,0 +1,27 @@
+body{background: url(../img/1.png) no-repeat;background-size: 100%;}
+.page{width: 849px;height: 438px;margin: auto;margin-top: 200px;background: #fff;border:1px solid blue}
+.page .img1{width: 243px;height: 88px;margin-left: 307px;margin-top: 46px;}
+.page .wang{text-align: center;line-height: 250px;color:deepskyblue;}
+.copyright{width: 100%;height: 43px;background: #999;text-align: center;line-height: 43px;color: #fff;}
+.nav1_img1{height: 97px;width: 160px;margin: auto;}
+.nav1_img1 img{height: 80px;margin-top: 8px;}
+.nav1_top1{width: 1200px;margin:auto;height: 97px;}
+.nav1{width: 100%;height: 97px;border-bottom: 4px solid rgb(0,156,255);background: #fff;}
+
+.headerimg{width: 1200px;height: 372px;margin: auto;background: url(../img/会员服务专区_03.png);}
+.headertext{width: 1200px;height: 400px;margin: auto;background: #fff;border-top:1px solid #fff;}
+.headertext ul{margin-top: 80px;margin-left: 100px;}
+.headertext ul li{width: 250px;height: 154px;float: left;}
+.imgtext{float: left;cursor: pointer;}
+.texttext{font-size: 15px;margin-top: 20px;}
+.header_blue{width: 1200px;height: 34px;margin: auto;background:rgb(70,201,255);}
+.heder_footer{width: 1200px;height: 50px;margin: auto;margin-top: 5px;}
+.form{width: 276px;height: 358px;background: #fff;float: right;margin-right: 25px;}
+.form_1{width: 276px;height: 55px;border: 1px solid #ddd;text-align: center;line-height: 55px;}
+.inp1{float: right;width: 161px;height: 30px;padding-left:5px}
+.inp2{width: 82px;height: 30px;padding-left:5px}
+input{background: #ddd;/*border: none;*/}
+.inp img{width: 70px;height: 32px;vertical-align:middle;}
+.inp{width: 234px;margin: auto;margin-top: 20px;}
+.inp3{width: 108px;height:38px;margin-top: 10px;margin-left: 5px;background: deepskyblue;border:none;border-radius: 5px;color: #fff;cursor: pointer;}
+.di{width: 276px;height: 29px;font-size: 12px;line-height: 29px;text-align: center;margin-top: 20px;background: #888;}
