@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+ 
+	<head>
+		<meta charset="UTF-8">
+		<!--强制让文档的宽度与设备的宽度保持1:1，并且文档最大的宽度比例是1.0，且不允许用户点击屏幕放大浏览-->
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<!--iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览-->
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<!--iphone的私有标签，它指定的iphone中safari顶端的状态条的样式-->
+		<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+		<!--告诉设备忽略将页面中的数字识别为电话号码-->
+		<meta content="telephone=no" name="format-detection" />
+		<!--告诉设备忽略将页面中的数字识别为电子邮件-->
+		<meta content="email=no" name="format-detection" />
+		<title>首页</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" href="css/public.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" href="lib/swiper.min.css" />
+		<script src="lib/jquery-3.1.1.js"></script>
+		<script src="lib/swiper.min.js"></script>
+		<script src="js/public.js"></script>
+		<script src="js/help.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			#noticeBox {
+				height: 40px;
+				width: 100%;
+			}
+			
+			#notice {
+				width: 100%;
+				height: 40px;
+				position: absolute;
+				line-height: 40px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="noticeBox" style="position: relative;overflow: hidden;">
+			<div id="notice" style="font-size:20px">
+
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			function roll() {
+				var rollUp = 0;
+				function move() {
+					
+					$("#notice").animate({
+						top: rollUp + "px"
+					}, 
+					function() {
+						if(rollUp < -200) {
+							rollUp = -40;
+							$("#notice").css("top",0);
+							
+						}
+					});
+                  rollUp -= 40;
+				}
+               st1 =  setInterval(move, 1000)
+
+			}
+            var height = $("#notice").innerHeight();
+            console.log(height);
+			var apiUrl = "http://120.55.86.40:82/yiyuanapi/";
+			$.ajax({
+				url: apiUrl + "homepage/getLottery", 
+				datatype: "json",
+				type: "GET",
+				data: {
+					paramType: "banner,navigation_index,navigation_mid,navigation_foot"
+				},
+				success: function(data) {
+					console.log(data)
+					var info = data.data;
+					console.log(info);
+					text2 = ""
+					for(i = 0; i < info.length; i++) {
+						text2 += '<a href="../hemiyungou/lotteryInfo.html" class="ellip">恭喜<i class="col_blue">' + info[i].username + '</i><span>' + info[i].title + '</span></a><br>'
+					}
+                 
+					$("#notice").html(text2+'<a href="../hemiyungou/lotteryInfo.html" class="ellip">恭喜<i class="col_blue">' + info[0].username + '</i><span>' + info[0].title + '</span></a>');
+					roll();
+				},
+				error: function(error) {
+					console.log(error)
+				}
+			})
+		</script>
+
+	</body>
+
+</html>

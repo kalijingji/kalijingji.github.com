@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<!DOCTYPE html>
+		<html>
+
+		<head>
+			<meta charset="UTF-8">
+			<!--强制让文档的宽度与设备的宽度保持1:1，并且文档最大的宽度比例是1.0，且不允许用户点击屏幕放大浏览-->
+			<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+			<!--iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览-->
+			<meta content="yes" name="apple-mobile-web-app-capable" />
+			<!--iphone的私有标签，它指定的iphone中safari顶端的状态条的样式-->
+			<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+			<!--告诉设备忽略将页面中的数字识别为电话号码-->
+			<meta content="telephone=no" name="format-detection" />
+			<!--告诉设备忽略将页面中的数字识别为电话号码-->
+			<meta content="email=no" name="format-detection" />
+			<link rel="stylesheet" type="text/css" href="../css/style.css" />
+			<link rel="stylesheet" type="text/css" href="../css/basic.css" />
+			<script src="../js/basic.js" type="text/javascript" charset="utf-8"></script>
+			<title>使用红包</title>
+			<style type="text/css">
+				body {
+					background: #F0F0F0;
+				}
+			</style>
+			<script src="../js/jquery-3.1.0.min.js" type="text/javascript" charset="utf-8"></script>
+			<script src="../js/help.js" type="text/javascript" charset="utf-8"></script>
+
+		</head>
+
+		<body>
+
+			<div class="helpHead">
+				<a href="javascript:history.go(-1)"  id="goback" style="z-index: 9999;"><img src="../img/tbo.png" /></a>
+				<p>支付订单</p>
+			</div>
+			<div class="useBox payBox" style="width: 100%;height: auto;">
+				<div style="width: 100%;height: 0.88rem;"></div>
+				<div class="payBoxaa">
+					<div class="payBoxa">
+						<p>奖金合计<span style="display:block;float:right;padding-right: 0.2rem;color: #f2473d;">¥200.00</span></p>
+						<p>订单明细</p>
+					</div>
+					
+					<div class="payCon">
+					<p style="padding-top:0.13rem;"> 苹果Apple iPhone6s Plus 64G Smart header 颜色随机</p>
+					<p>共参与<span style="color: #F2473D;">10</span>人次</p>
+					<p>订单号：2016032415534255216</p>
+				</div>
+
+				<div class="redNun">
+					<div style="line-height: 0.44rem;">
+						<p></p>
+						<img src="../img/rmb.png" />
+						<p style="float: left;text-indent: 1em;">红包<span style="color: #F2473D;">3</span>个</p>
+						<img src="../img/goes.png" / style="display: block;float: right;width: 0.12rem;height: 0.24rem;padding-top: 0.1rem;">
+						<p style="float: right;padding-right: 0.2rem;">
+							<a href="" style="color: #50bbeb;">立即使用</a>
+						</p>
+					</div>
+				</div>
+
+				<div class="payBoxaa">
+					<div class="payBoxa">
+						<p>支付金额<span style="display:block;float:right;padding-right: 0.2rem;color: #f2473d;">¥200.00</span></p>
+						<p>余额支付<span style="display:block;float:right;padding-right: 0.2rem;color: #f2473d;"><span style="color: #333333;">余额：</span>¥120000.00 <input type="radio" name="" id="" value="" /></span>
+
+						</p>
+
+					</div>
+				</div>
+
+			  <div class="payBottom">
+			  	<div class="payBottomList">
+			  		<div>
+			  			其他支付方式
+			  		</div>
+			  	</div>
+			  	<div class="payBottomList">
+			  		<div>
+			  		    <img src="../img/zhifubai.png"/>	  支付宝支付
+			  		    <div class="choosenX" >
+                         	<div id="circle" style="float: right;width: 0.3rem;height: 0.3rem; border-radius: 0.32rem;border: 1px solid #666666;position: absolute;right: 0.18rem;top: 0.26rem;"></div>
+                         	<img src="../img/choosen1.png"/ style="width: 0.34rem;height: 0.34rem;display: block;position: absolute;right: 0;top: 0rem">
+                    </div>
+			  		</div>
+			  	</div>
+			  	<div class="payBottomList">
+			  		<div>
+			  		<img src="../img/wechanfu.png"/ style="position: relative;">  微信支付
+			  		 <div class="choosenX" >
+                         	<div id="circle" style="float: right;width: 0.3rem;height: 0.3rem; border-radius: 0.3rem;border: 1px solid #666666;position: absolute;right: 0.18rem;top: 0.26rem;"></div>
+                         	<img src="../img/choosen1.png"/ style="width: 0.34rem;height: 0.34rem;display: block;position: absolute;right: 0;top: 0rem">
+                    </div>
+			  		</div>
+			  	</div>
+			  </div>
+			</div>
+				</div>
+
+				<a href="" class="payConfirm" style="display: block; width: 100%;height: 0.8rem;background: #F2473D;position: fixed;bottom: 0;font-size: 0.28rem;text-align: center;color: #FFFFFF;line-height: 0.8rem;max-width: 640px;">
+					确认支付
+				</a> 
+			
+			<script type="text/javascript">
+		var ifCho = false;
+		$(".choosenX").children("img").hide();
+			$(function(){
+				
+				$(".choosenX").click(function(){
+					ifCho = !ifCho;
+					if(ifCho){
+						$(this).children("img").toggle();
+					$(this).children("#circle").toggle();
+					}else{
+						$(this).children("#circle").toggle();
+					$(this).children("img").toggle();
+					}
+					
+				})
+			})
+		</script>
+
+		</body>
+
+		</html>
+	</body>
+
+</html>

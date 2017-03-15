@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<!--强制让文档的宽度与设备的宽度保持1:1，并且文档最大的宽度比例是1.0，且不允许用户点击屏幕放大浏览-->
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<!--iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览-->
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<!--iphone的私有标签，它指定的iphone中safari顶端的状态条的样式-->
+		<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+		<!--告诉设备忽略将页面中的数字识别为电话号码-->
+		<meta content="telephone=no" name="format-detection" />
+		<!--告诉设备忽略将页面中的数字识别为电子邮件-->
+		<meta content="email=no" name="format-detection" />
+		<title>我的积分</title>
+		<link rel="stylesheet" href="../css/public.css" />
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<script src="../js/public.js"></script>
+	</head>
+	<body bgcolor="#F0F0F0">
+		<div class="top">
+			<a href="javascript:history.go(-1)"><img class="arrow_top" src="../img/index/arrow_top.png" alt="" /></a>
+			<span>我的积分</span>
+			<a href="integral_explain.html" class="integral_explain">积分说明</a>
+		</div>
+		
+		<div class="integral_show">
+			<span>积分</span>
+			<h2>888</h2>
+			<a href="" class="exchange">
+				兑换记录
+			</a>
+		</div>
+		
+		<a href="" class="mall_link">
+			<img src="../img/index/icon_tip.png" alt="" />
+			积分可用于兑换商品，去积分商城转转
+			<img src="../img/index/arrow_mall.png"/>
+		</a>
+		
+		<h3 class="title">积分记录</h3>
+		
+		<div class="infors">
+			<span>2016-06-01</span><span>购买商品100元</span><span>+100</span>
+		</div>
+		<div class="infors">
+			<span>2016-05-30</span><span>购买商品200元</span><span>+200</span>
+		</div>
+		<div class="infors">
+			<span>2016-05-27</span><span>兑换商品</span><span>-1680</span>
+		</div>
+		<div class="infors">
+			<span>2016-05-24</span><span>购买商品300元</span><span>+300</span>
+		</div>
+		<div class="infors">
+			<span>2016-05-24</span><span>签到</span><span>+5</span>
+		</div>
+		
+		
+		<h3 class="no_data">没有更多数据了</h3>
+	</body>
+</html>

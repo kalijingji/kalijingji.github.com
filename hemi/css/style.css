@@ -1,0 +1,194 @@
+img{border: none;}
+.myBox{width: 100%;margin: auto;}
+.firstPageaBox{width: 100%;}
+.firstPageTop{width: 100%;}
+ .fptopHead{width: 100%;height: 0.88rem;display: block;position: fixed;background: #f2473d;z-index: 999;max-width: 800px;line-height: 0.88rem;color: #FFFFFF;text-align: center;font-size: 0.36rem;}
+ .fptopHead>img{width: 2.16rem;height: 0.42rem;margin: auto;display: block;margin-bottom: 0.32rem;padding-top:0.14rem ;}
+.fptopHead a>img{width:100%;height: 100%;display: block;}
+.fptopHead a:nth-child(1){display: block;position: absolute;width: 0.44rem;height: 0.3rem;left: 0.24rem;bottom: 0.32rem;z-index: 9999;}
+
+.firstPageaBannar{width: 100%;height: 2.4rem;background: #ececec;position: relative;overflow: hidden;}
+.firstPageaBannar .BannarBox{width:500%;height: 100%;position: absolute;}
+.firstPageaBannar .BannarBox a{display: block;width: 20%;height: 100%;float: left;}
+.firstPageaBannar .BannarBox a img{display: block;width: 100%;height: 100%;}
+.PointBox{width: 0.88rem;height: 0.1rem;position: absolute;bottom:0.18rem;left: 50%;margin-left: -0.44rem;box-sizing: border-box;}
+.PointBox div{width:0.1rem;height: 0.1rem;background: #e2e2e2;float: left;margin-left: 0.12rem;border-radius: 0.1rem;} 
+.firstPageaBannarNav{width: 100%;height: 1.62rem;border-bottom: 1px solid #f0f0f0;}
+.firstPageaBannarNav li{width: 20%;height: 100%;float: left;}
+.firstPageaBannarNav li a{display: block;width: 100%;height: 100%;float: left;position: relative;}
+.PageaBannarNav li a img{display: block;width: 0.7rem;height: 0.7rem;margin: auto;padding-top: 0.3rem;}
+.firstPageaBannarNav li a img{display: block;width: 0.7rem;height: 0.7rem;margin: auto;padding-top: 0.3rem;}
+.firstPageaBannarNav li a span{display: block;width: 100%;height: 0.22rem;position: absolute;font-size: 0.22rem;text-align: center;bottom: 0.23rem;line-height: 0.22rem;color: #666;}
+.rollNew{width: 100%;height: 0.7rem;position: relative;}
+.rollNew .speaker{display: block;position: absolute;width: 0.4rem;height: 0.4rem;left: 0.3rem;top: 0.15rem;}
+.topLast{width: 100%;height: 0.2rem;background:#f0f0f0 ;}
+.rollNew p {height: 0.7rem;width: 6rem;float: left;line-height: 0.7rem;font-size: 0.24rem;position: absolute;left: 0.9rem;}
+
+
+
+.firstPageaBox  .firstPageCon{width: 100%;}
+.firstPageCon .firstPageConTop{width: 100%;height: 0.8rem;}
+.firstPageCon .firstPageConTop li{width: 25%;height: 100%;box-sizing: border-box;float: left;}
+.firstPageCon .firstPageConTop li span{display: block;width: 1.1rem;height: 100%;font-size: 0.3rem;text-align: center;line-height: 0.8rem;box-sizing: border-box;margin: auto;cursor: pointer;}
+.firstPageCon .firstPageConTop li span:hover{border-bottom: 4px solid #f2473d;color: #f2473d;}
+.firstPageCon .showList{width: 100%;height: auto; }
+.firstPageCon .showList>div{width: 50%;height: 5rem;box-sizing: border-box;float: left;border-top: 1px solid #F0F0F0;border-bottom: 1px solid #F0F0F0;}
+.firstPageCon .showList div a{display: block;width: 2.8rem;height: 2.8rem;margin: auto;padding-top: 0.2rem;}
+.firstPageCon .showList div a>img{display: block;width: 2.8rem;height: 2.8rem;}
+.firstPageCon .showList div .proIntro{width: 2.8rem;height: 1.68rem;margin-left: 0.2rem;position: relative;}
+.proIntro p{font-size: 0.28rem;}
+
+
+.progressing{width: 1.5rem;height: 0.1rem;margin-top: 0.12rem;}
+.progressing img{display: block;width: 1.5rem;height: 0.1rem;}
+.proIntro>span{display: block;width:100%;height: 0.24rem;font-size: 0.24rem;line-height: 0.24rem;margin-top: 0.24rem;color: #666666;}
+.proIntro .spcar{width: 0.6rem;height: 0.6rem;position: absolute;right: 0;bottom:0.24rem}
+
+.fpNav{width: 100%;height: 0.98rem;position: fixed;bottom: 0;background: #ffffff;max-width: 640px;}
+.fpNav>a{display: block;width: 20%;height:0.98rem ;float: left;}
+.fpNav>a img{display: block;width: 0.45rem;height: 0.45rem;margin: auto;padding-top: 0.2rem;}
+.fpNav>a p{width: 100%;height: 0.2rem;text-align: center;line-height: 0.2rem;font-size: 0.2rem;margin-top: 0.13rem;color: #929292;}
+
+
+/*帮助新人*/
+.helpHead{width: 100%;height: 0.88rem;display: block;position: fixed;background: #f2473d;z-index: 999;}
+.helpHead a{display: block;position: absolute;width: 0.21rem;height: 0.38rem;left: 0.2rem;bottom: 0.3rem;}
+.helpHead a>img{width:0.21rem;height: 0.38rem;display: block;}
+.helpHead p{width: 100%;height: 0.36rem;color: #FFFFFF;position: absolute;bottom: 0.3rem;text-align: center;font-size: 0.36rem;}
+ .helpbox>div{width: 100%;background: ;}
+.helpbox>div .helpTitle{width: 100%;height: 0.88rem;border-bottom: 1px solid #E2E2E2;box-sizing: border-box;font-size: 0.3rem;text-indent: 0.2rem;line-height: 0.88rem;font-weight: bold;}
+.helpbox>div .helpContent{width: 100%;height: ;background: #fff9ed;}
+.helpbox>div .helpContent>div{width: 0.555rem;padding: 0.3rem 0.2rem 0.3rem 0.64rem;font-size:0.24rem;}
+.helpbox>div .helpTitleb{width: 100%;height: 0.88rem;border-bottom: 1px solid #E2E2E2;box-sizing: border-box;font-size: 0.3rem;text-indent: 0.2rem;line-height: 0.88rem;color: #666666;}
+
+
+/*签到效果*/
+.arrivaling{width:100%;height: 100%;position: fixed;background: #000000;top: 0;left: 0;z-index: 999999;opacity: 0.8;display: block;display: none;}
+.arrivaling img{display: block;width: 4rem;height: 4rem;margin: auto;padding-top: 50%;}
+/*红包效果*/
+.redporket1{width:100%;height: 100%;position: fixed;background: rgba(0,0,0,0.7);top: 0;left: 0;z-index: 999999;display: block;/*display: none;*/}
+
+
+.redCon1{width: 6rem;height: 8rem;padding-top: 0.36rem;margin: auto;padding-top: 0.36rem;}
+.redCon1 .porketDetail{width: 100%;height: 1.9rem;background: url(../img/red_4.png);margin-top: 0.36rem;}
+.redCon1 .porketDetail .newUser{width: 3.6rem;height: 1.5rem;padding-top: 0.4rem;margin-left: 0.34rem;float: left;}
+.redCon1 .porketDetail .newMoney{width: 1.8rem;height: 1.5rem;padding-top: 0.4rem;float: right;padding-right: 0.2rem;}
+.redCon1 .porketButton{display: block;width: 5.8rem;height: 0.8rem;margin: auto;text-align: center;line-height: 0.8rem;font-size: 0.3rem;color: #FFFFFF;background: #f2473d;border-radius: 5px;margin-top: 0.3rem;}
+.payBox .payBoxa{width: 6rem;height: 1.76rem;padding-left: 0.2rem;}
+.payBox .payBoxaa{width: 6.4rem;height: 1.76rem;background: #FFFFFF;}
+.payBox .payBoxa p{width: 100%;height: 0.88rem;font-size: 0.28rem;line-height: 0.88rem;color:#333333}
+.payBox .payCon{width: 100%;height: 1.46rem;background: url(../img/redbg2.png);}
+.payBox .payCon p{width:6rem;height: 0.4rem;line-height: 0.4rem;font-size: 0.24rem;padding-left: 0.2rem;}
+.payBox .redNun{width: 6rem;height: 1.16rem;padding-left: 0.2rem;position: relative;}
+.payBox .redNun div{width: 6rem;height: 0.44rem;position: absolute;bottom: 0.3rem;font-size: 0.28rem;line-height0.44rem;right: 0.2rem;}
+.payBox .redNun div img{height: 100%;display: block;float: left;}
+.payBox .payBottom{width: 100%;height: 3.6rem;background: #FFFFFF;margin-top: 0.3rem;}
+.payBox .payBottom .payBottomList{width: 100%;height: 0.89rem;border-bottom: 1px solid #f0f0f0;}
+.payBox .payBottom .payBottomList>div{width:6rem;height:100%;padding-left:0.2rem;font-size: 0.28rem;line-height: 0.89rem;position: relative}
+.payBox .payBottom .payBottomList>div img{width: 0.32rem;height: 0.32rem;display: block;float: left;padding-top: 0.28rem;padding-right: 0.2rem;}
+
+
+
+/*邀请好友*/
+.inviteBox{width: 100%;position: relative;}
+.inviteBox .inviteBig{width: 100%;height: 2.82rem;display: block;}
+.inviteBox #inviteButton{display: block;width: 6rem;height: 0.8rem;background: #F2473D;color: #FFFFFF;margin: auto;font-size: 0.3rem;line-height: 0.8rem;text-align: center;margin-top: 0.44rem;border-radius: 5px;}
+.inviteBox .inveteIntro{width: 5.3rem;height: 5rem;margin-left: 0.6rem;background: #ECECEC;margin-top: 0.7rem;}
+.inviteBox .inveteIntro .inveteIntroTitles{color: #333;font-size: 0.24rem;height: 0.5rem;}
+.inviteBox .inveteIntro .titleList{color: #333333;font-size: 0.2rem;height: 0.4rem;line-height: 0.4rem;}
+.inviteBox .inveteIntro .inviteDetail{font-size: 0.2rem;line-height: 0.35rem;color: #757575;text-indent: 2em;}
+.inviteShowBox {width: 100%;height: 100%;background: rgba(0,0,0,0.7);position: fixed;top: 0;z-index: 9999;display: none;}
+.inviteShowBox .inviteInfo{width: 100%;height: 6.02rem;background: #e0dfdf;position: fixed;bottom: 0;}
+.inviteShowBox .inviteInfo>div{width: 100%;height: 2rem;float: left;}
+.inviteShowBox .inviteInfo>div>a{display: block;width: 25%;height: 100%;float: left;}
+.wechant img{display: block;width: 0.8rem;height: 0.8rem;padding-top: 0.2rem;margin: auto;}
+.wechant span{width: 100%;height: 0.1rem;line-height:1rem;font-size: 0.2rem;display: block;text-align: center;color: #333333;}
+.inviteBoxC{width: 100%;height: 10.08rem;background: url(../img/下载app.png); background-size: cover;position: relative;}
+.inviteBoxC .clickc{display: block;width: 4.80rem;height: 0.87rem;position: absolute;bottom: 1.06rem;left: 0.83rem;background: #ECECEC;border-radius: 4px;background: #feee96;text-align: center;font-size: 0.3rem;line-height: 0.85rem;color: #F2473D;}
+
+
+
+/*积分首页*/
+.proIntro #scoring{width: 100%;height: 0.45rem;}
+.proIntro #scoring a{display: block;width: 1.15rem;height: 0.45rem;float: right;}
+.proIntro #scoring a img{display: block;width: 1.15rem;height: 0.45rem;}
+.jifenTitle{width: 100%;height: 0.9rem;background: #FFF;}
+.jifenTitle>p{width:auto;height: 100%;line-height: 0.9rem;color: #333;font-size: 0.3rem;padding-left: 0.3rem;}
+.jifenTitle>div{width: 2.3rem;height: 100%;float: right;padding-right: 0.2rem;font-size: 0.2rem;line-height: 0.9rem;}
+.jifenTitle>div a{display: block;float: right;width: 1.1rem;height: 100%;color: #333333}
+.jifenTitle>div a img{display: block;width: 0.12rem;height: 0.24rem;float: right;padding-top: 0.32rem;}
+.accountb{width: 100%;height: 1.14rem;background: #fff;position: fixed;bottom: 0;max-width: 640px;}
+.accountb #numbers{width: 2rem;height: 0.5rem;border: 1px solid #999;margin-top: 0.32rem;margin-left: 0.2rem;box-sizing: border-box;float: left;position: relative;}
+#numbers #addPro{width: 0.48rem;height: 0.48rem;line-height: 0.5rem;text-align: center;font-size: 0.2rem;float: left;box-sizing: border-box;border-right: 1px solid #999999;}
+#numbers input{display: block;width: 1rem;height: 100%;float: left;border: none;line-height: 0.5rem;text-align: center;font-size: 0.2rem;position: absolute;left: 0.48rem;top: 0;z-index: -1;}
+ 
+ #minPro{width: 0.5rem;height: 0.48rem;line-height: 0.48rem;text-align: center;font-size: 0.2rem;float: right;box-sizing: border-box;border-left: 1px solid #999999;}
+#scoreNeed{width: 2.4rem;height:100%;float: left;margin-left: 0.2rem;line-height: 1.14rem;font-size: 0.24rem;color: #333333;}
+.accountb a{display: block;width: 1.27rem;height: 0.5rem;background: #F2473D;float: right;line-height: 0.5rem;text-align: center;color: #fff;font-size: 0.24rem;margin-top: 0.32rem;border-radius: 4px;margin-right: 0.2rem;}
+/*jifdenbuzu*/
+#noEnoughScore{width: 4rem;height: 2.38rem;background: rgba(0,0,0,0.7);left: 1.2rem;top: 3.5rem;position: fixed;border-radius: 4px;}
+/*积分筛选*/
+#chooseSCorebox{width: 100%;height: 100%;position: fixed;background: rgba(0,0,0,0.8);top: 0;left: 0;z-index: 99999;}
+#chooseSCorebox>div{width: 100%;height: 100%;position: relative;}
+#chooseSCorebox>div>div{width: 100%;height: 5rem;background: #FFFFFF;position: absolute;bottom: 0;}
+.chooseSCoreTop{width: 100%;height: 0.9rem;box-sizing: border-box;border-bottom: 1px solid #c9c7c7;}
+.chooseSCoreTop a{width: 50%;height: 100%;display: block;float: left;line-height: 0.9rem;font-size: 0.3rem;text-align: center;color: #373737;box-sizing: border-box;}
+.chooseSCoreMiddle{width: 100%;height: 0.8rem;box-sizing: border-box;border-bottom: 1px solid #c9c7c7;text-align: center;line-height: 0.8rem;font-size: 0.28rem;color: #373737;}
+.chooseSCoreBottom{width: 100%;height: 0.66rem;box-sizing: border-box;border-bottom: 1px solid #e2e2e2;text-align: center;line-height: 0.66rem;font-size: 0.24rem;color: #373737;}
+/*兑换结果*/
+.scoreResult{width: 100%;height: auto;}
+.scoreResult>.scoreResultTop{width: 100%;height: 3rem;background: #fff;}
+.scoreResult>.scoreResultTop img{display: block;width: 1.2rem;padding-top: 0.6rem;margin: auto;}
+.scoreResult>.scoreResultTop p{width: 100%;height: 0.28rem;line-height: 0.28rem;text-align: center;font-size: 0.28rem;margin-top: 0.25rem;color: #333333;}
+.scoreResult .resultButton{display: block;width: 2.9rem;height: 0.8rem;float: left;background: #F2473D;margin-left: 0.2rem;margin-top: 0.3rem;border-radius: 4px;text-align: center;line-height: 0.8rem;color: #fff;font-size: 0.3rem;}
+/*我的个人中心首页*/
+.myCenteraTitle{width: 100%;height: 1.6rem;background: #fff;margin-top: 0.3rem;position: relative;}
+.myCenteraTitle .centerpage1{width: 1.1rem;display: block;padding-top: 0.25rem;margin-left: 0.2rem;float: left;}
+.myCenteraTitle .nickName{width: 2.5rem;height: 100%;float: left;margin-left: 0.2rem;}
+.myCenteraTitle .nickName p:nth-child(1){height: 0.28rem;font-size: 0.28rem;margin-top: 0.32rem;color: #333333;}
+.myCenteraTitle .nickName p:nth-child(2){height: 0.24rem;font-size: 0.24rem;margin-top: 0.2rem;color: #66666;}
+.myCenteraTitle .scango{width: 0.64rem;height: 100%;float: right;margin-right: 0.2rem;}
+.myCenteraTitle .scango>img{display: block;width: 0.36rem;margin-top: 0.62rem;float: left;}
+.myCenteraTitle .scango a{display: block;width: 0.12rem;height: 0.24rem; margin-top: 0.68rem;float: right;}
+.myCenteraTitle .scango a img{display: block;width: 0.12rem;height: 0.24rem;}
+.myCenteraCon{width: 100%;height: auto;margin-top: 0.3rem;background: #fff;}
+.myCenteraCon>a{width: 6.2rem;background: #fff;height: 0.86rem;border-bottom: 1px solid #F0F0F0;margin-left: 0.2rem;display: block;}
+.myCenteraCon>a img:nth-child(1){display: block;width: 0.42rem;padding-top: 0.22rem;float: left;}
+.myCenteraCon>a p:nth-child(2){width:1.2rem;height: 0.86rem;float: left;font-size:0.3rem;line-height: 0.86rem;margin-left: 0.35rem;color: #333333;}
+ .myCenteraCon>a p:nth-child(4){width: 2.50rem;height: 100%;float: right;font-size: 0.22rem;line-height: 0.86rem;color: #666666;}
+ .myCenteraCon>a img:nth-child(3){display: block;width: 0.12rem;height: 0.24rem;float: right;margin-top: 0.29rem;margin-right: 0.2rem;}
+/*我的钱包*/
+.myPurseTop{width: 100%;height: 3.34rem;background: #fff;}
+.myPurseTop .rmb{width: 1.2rem;display: block;padding-top:0.58rem;margin: auto;}
+.myPurseTop>div{width: 3rem;height: 0.72rem;float: left;margin-left: 0.2rem;margin-top: 0.3rem;}
+.myPurseTop>div p:nth-child(1){height: ; 0.28rem;width: 100%;line-height: 0.28rem;font-size: 0.28rem;text-align: center;color: #333333;}
+.myPurseTop>div p:nth-child(2){height: ; 0.24rem;width: 100%;line-height: 0.24rem;font-size: 0.24rem;text-align: center;margin-top: 0.2rem;color: #F2473D;}
+.myPurseButton{width: 100%;margin-top: 0.3rem;}
+.myPurseButton a{display: block;width: 2.9rem;height: 0.8rem;color: #fff;font-size: 0.3rem;text-align: center;background: #F2473D;line-height: .8rem;float: left;margin-left: 0.2rem;border-radius: 4px;}
+
+.helpHead #moneyDetail{display: block;width: 1.2rem;height: 0.88rem;font-size: 0.3rem;position: relative;float: right; right: 0;bottom: 0;line-height: 0.88rem;color: #fff;margin-right: 0.3rem;}
+.moneyDetailTop{width: 6.4rem;height: 2.1rem;background: #fff;}
+.moneyDetailTop .detailList{width: 33.3%;height: 0.66rem;float: left;padding-top: 0.4rem;}
+.moneyDetailTop .detailList p:nth-child(1){width: 100%;height: 0.24rem;font-size: 0.24rem;text-align: center;color: #333333;}
+.moneyDetailTop .detailList p:nth-child(2){width: 100%;height: 0.22rem;font-size: 0.22rem;text-align: center;margin-top: 0.2rem;color: #333333;}
+.applyMoney{display: block;width: 1.4rem;height: 0.45rem;color: #fff;font-size: 0.24rem;text-align: center;background: #F2473D;line-height: 0.45rem;float: left;margin-left: 0.2rem;border-radius: 0.1rem;margin-top: 0.3rem;}
+.applyMoneyInfo{display: block;width: 2.7rem;height: 0.45rem;color: #666;font-size: 0.22rem;line-height: 0.45rem;float: left;margin-left: 0.1rem;margin-top: 0.3rem;float: left;}
+.moneyDetailMiddle{height: 0.8rem;width: 100%;margin-top: 0.3rem;background: #fff;}
+.moneyDetailMiddle div{height: 100%;width: 1.62rem;float: left;text-align: center;font-size: 0.28rem;color: #333333;line-height: 0.8rem;box-sizing: border-box;margin-left: 0.25rem;margin-right: 0.25rem;}
+
+
+.moneyDetailBottom{width: 100%;margin-top: 0.1rem;height: auto;}
+.moneyDetailBottom #inviteAwardList ul{width: 100%;height: 0.7rem;margin-top: 1px;background: #fff;}
+.moneyDetailBottom #inviteAwardList ul li{float: left;height: 0.7rem;line-height: 0.7rem;text-align: center;font-size: 0.2rem;}
+.moneyDetailBottom #sepradAwardList ul{width: 100%;height: 0.7rem;margin-top: 1px;background: #fff;}
+.moneyDetailBottom #sepradAwardList ul li{float: left;height: 0.7rem;line-height: 0.7rem;text-align: center;font-size: 0.2rem;width: 33.33%;}
+.moneyDetailBottom #moreAwardList ul{width: 100%;height: 0.7rem;margin-top: 1px;background: #fff;}
+.moneyDetailBottom #moreAwardList ul li{float: left;height: 0.7rem;line-height: 0.7rem;text-align: center;font-size: 0.2rem;width: 33.33%;}
+.moneyDetailBottom>div{display: none;}
+.awardcss{border-bottom:4px solid #F2473D; color: #F2473D;}
+.toMoney ul{height: 0.7rem;width: 100%;background: #fff;margin-bottom: 1px;}
+.toMoney ul li{width: 25%;height: 100%;line-height: 0.7rem;text-align: center;float: left;font-size: 0.2rem;color: #666;}
+
+.nomoneyRecord{display: block;width: 1rem;margin:auto;margin-top: 2.78rem;}
+.nomoneyRecordb{width: 100%;height: 0.28rem;font-size: 0.28rem;margin-top: 0.2rem;text-align: center;color: #666666;}
+.chargesuccessp{width: 100%;height: 0.28rem;font-size: 0.28rem;text-align: center;margin-top: 0.2rem;line-height: 0.28rem;color: #F2473D;}

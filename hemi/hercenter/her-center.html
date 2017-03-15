@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<!--强制让文档的宽度与设备的宽度保持1:1，并且文档最大的宽度比例是1.0，且不允许用户点击屏幕放大浏览-->
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<!--iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览-->
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<!--iphone的私有标签，它指定的iphone中safari顶端的状态条的样式-->
+		<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+		<!--告诉设备忽略将页面中的数字识别为电话号码-->
+		<meta content="telephone=no" name="format-detection" />
+		<!--告诉设备忽略将页面中的数字识别为电话号码-->
+		<meta content="email=no" name="format-detection" />
+
+		<link rel="stylesheet" type="text/css" href="../css/basic.css" />
+		<!--<link rel="stylesheet" type="text/css" href="css/her-center.css" />-->
+		<script src="../js/basic.js"></script>
+		<script src="../js/jquery-3.1.1.js"></script>
+		<title>他的个人中心</title>
+	</head>
+
+	<body>
+		<header>
+			<a href="javascript:history.go(-1)"
+>
+				<img src="../img/1.png" />
+			</a>
+			<span class="span">他的个人中心</span>
+			<span></span>
+		</header>
+
+		<!--主体内容-->
+		<section>
+			<div class="header">
+				<img src="../img/3.png" />
+				<ul>
+					<li>宗哥哥恭喜发财</li>
+					<li>ID：168888668</li>
+				</ul>
+			</div>
+			<!--云购记录-->
+			<!--<div class="centerRecord">-->
+			<ul class="recordTitle">
+				<li class="li active">云购记录</li>
+				<li class="li">中奖记录</li>
+			</ul>
+			
+		<div class="main selected">
+			<div class="bigBox">
+				<ul class="recordGoods">
+					<li class="liRight">
+						<a href="#">
+							<img src="../img/center.jpg" />
+						</a>
+					</li>
+					<li class="liLeft">
+						<p>Apple iPhone6s 16g颜...</p>
+						<p class="pFind">揭晓进度<span>78%</span></p>
+						<div class="loading">
+							<span></span>
+						</div>
+						<span><a href="#">追加</a></span>
+						<p>
+							总需<span> 9280</span> 剩余
+							<span> 306</span>
+						</p>
+					</li>
+				</ul>
+				<!--</div>-->
+				<!--获奖者-->
+				<div class="centerPerson">
+					<div class="imgBox">
+						<a href="#">
+							<img src="../img/center2.jpg" />
+						</a>
+					</div>
+					<ul>
+						<li>
+							获 &nbsp;奖&nbsp;者&nbsp;：
+							<a href="">宗哥恭喜发..</a>
+							<p><span class="luckLi">55</span>人次</p>
+						</li>
+						<li>
+							获奖商品： <span class="phStyle">Apple iPhone6s Plus</span>
+						</li>
+						<li>参与期号： <span>32204567</span></li>
+						<li>幸运号码： <span class="luckLi">10000387</span></li>
+						<li>揭晓时间： <span>2016-03-24 13:04:00.000</span></li>
+					</ul>
+					<img src="../img/4.png" />
+				</div>
+				<!--A-->
+				<div class="centerApple">
+					<ul class="appleGoods">
+						<li class="liLeft">
+							<a href="#">
+								<img src="../img/center2.jpg" />
+							</a>
+						</li>
+						<li class="liRight">
+							<p>Apple iPhone6s Plus 64G 颜色随机</p>
+							<p class="pFind">参与期号: <span>303291670</span></p>
+							<p class="pImg"><img src="../img/2.png" />即将揭晓</p>
+							<p>
+								<span>08</span>:<span>51</span>:<span>30</span>
+							</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+			
+		<div class="main">			
+			<div class="winRecord">
+				<ul class="win">
+					<li class="winLeft">
+						<a href="#">
+							<img src="../img/compute.png" class="aImg" />
+						</a>
+					</li>
+					<li class="winRight">
+						<p>苹果Apple iPad Pro 9.7 英寸 32GB</p>
+						<p>商品总需： <span class="color">4988</span>人次</p>
+						<p>参与期号： <span>303291670</span></p>
+						<p>参与次数： <span class="color">55</span>人次</p>
+						<p>幸运号码： <span class="color">10000387</span></p>
+						<p>揭晓时间： <span>2016-03-24</span> <span>13:04:00.000</span></p>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="mainWord">
+				<span><a href="#">—— 已显示全部内 ——</a></span>
+			</div>
+		</div>
+		</section>
+		
+		<script type="text/javascript">
+			$(function(){
+				$(".recordTitle li").mousedown(function(){
+					$(this).addClass("active").siblings(".li").removeClass("active");
+					var ind = $(this).index();
+					$(".main").eq(ind).addClass("selected").siblings(".main").removeClass("selected");
+				})
+			})
+		</script>
+	</body>
+
+</html>

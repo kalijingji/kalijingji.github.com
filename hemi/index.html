@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<!--强制让文档的宽度与设备的宽度保持1:1，并且文档最大的宽度比例是1.0，且不允许用户点击屏幕放大浏览-->
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<!--iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览-->
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<!--iphone的私有标签，它指定的iphone中safari顶端的状态条的样式-->
+		<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+		<!--告诉设备忽略将页面中的数字识别为电话号码-->
+		<meta content="telephone=no" name="format-detection" />
+		<!--告诉设备忽略将页面中的数字识别为电子邮件-->
+		<meta content="email=no" name="format-detection" />
+		<title>首页</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" href="css/public.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" href="lib/swiper.min.css" />
+		<script src="lib/jquery-3.1.1.js"></script>
+		<script src="lib/swiper.min.js"></script>
+		<script src="js/public.js"></script>
+		<script src="js/help.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div class="top" style="text-align:center;line-height:2.2rem">
+			<a href="classify/classify.html"><img class="icon_nav" src="img/index/icon_nav.png" alt="" /></a>
+			<!-- <img class="logo" src="img/index/logo.png" alt="" /> -->
+			<span style="font-size:0.4rem">云 购</span>
+		</div>
+		<!--轮播-->
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<a href="#"><img src="img/index/banner01.jpg" style="width: 100%;" /></a>
+				</div>
+				<div class="swiper-slide">
+					<a href="#"><img src="img/index/banner02.jpg" style="width: 100%;" /></a>
+				</div>
+				<div class="swiper-slide">
+					<a href="#"><img src="img/index/banner03.jpg" style="width: 100%;" /></a>
+				</div>
+			</div>
+			<div class="swiper-pagination"></div>
+		</div>
+
+		<div class="type_nav">
+			<div class="type_box">
+				<a href="cloud_shopping/cloud_shopping.html">
+					<img src="img/index/icon1.png" alt="" /> 云购
+				</a>
+				<a href="">
+					<img src="img/index/icon2.png" alt="" /> 晒单
+				</a>
+				<a href="invite/invite.html">
+					<img src="img/index/icon3.png" alt="" /> 邀请
+				</a>
+				<a href="my_integral/my_integral.html">
+					<img src="img/index/icon4.png" alt="" /> 积分商城
+				</a>
+				<a id="showArrival">
+					<img src="img/index/icon5.png" alt="" /> 签到
+				</a>
+			</div>
+		</div>
+
+		<div class="msg"style="position: relative;">
+			<img src="img/index/icon_horn.png" alt="" />
+			<p style="position: absolute;" id="notice"></p>
+		</div>
+
+		<div class="bg"></div>
+
+		<div class="activity_nav">
+			<ul>
+				<li class="on">
+					人气
+					<div class="goods" style="padding-bottom:1rem;">
+						<a href="">
+							<img class="pic" src="img/index/goods1.jpg" alt="" />
+							<h2>iPad Pro 12.9英寸 32G WIFI版</h2>
+							<h3>揭晓进度</h3>
+							<div class="bar_bg">
+								<div class="bar"></div>
+							</div>
+							<img class="shopping" src="img/index/icon_shopping.png" alt="" />
+						</a>
+						<a href="">
+							<img class="pic" src="img/index/goods2.jpg" alt="" />
+							<h2>iPad Pro 12.9英寸 32G WIFI版</h2>
+							<h3>揭晓进度</h3>
+							<div class="bar_bg">
+								<div class="bar"></div>
+							</div>
+							<img class="shopping" src="img/index/icon_shopping.png" alt="" />
+						</a>
+						<a href="">
+							<img class="pic" src="img/index/goods1.jpg" alt="" />
+							<h2>iPad Pro 12.9英寸 32G WIFI版</h2>
+							<h3>揭晓进度</h3>
+							<div class="bar_bg">
+								<div class="bar"></div>
+							</div>
+							<img class="shopping" src="img/index/icon_shopping.png" alt="" />
+						</a>
+						<a href="">
+							<img class="pic" src="img/index/goods2.jpg" alt="" />
+							<h2>iPad Pro 12.9英寸 32G WIFI版</h2>
+							<h3>揭晓进度</h3>
+							<div class="bar_bg">
+								<div class="bar"></div> 
+							</div>
+							<img class="shopping" src="img/index/icon_shopping.png" alt="" />
+						</a>
+					</div>
+
+				</li>
+				<li>
+					最新
+					<div class="goods" style="padding-bottom:1rem; left:-1.85rem;">
+						<a href="">
+							<img class="pic" src="img/index/goods2.jpg" alt="" />
+							<h2>iPad Pro 12.9英寸 32G WIFI版</h2>
+							<h3>揭晓进度</h3>
+							<div class="bar_bg">
+								<div class="bar"></div>
+							</div>
+							<img class="shopping" src="img/index/icon_shopping.png" alt="" />
+						</a>
+						<a href="">
+							<img class="pic" src="img/index/goods2.jpg" alt="" />
+							<h2>iPad Pro 12.9英寸 32G WIFI版</h2>
+							<h3>揭晓进度</h3>
+							<div class="bar_bg">
+								<div class="bar"></div>
+							</div>
+							<img class="shopping" src="img/index/icon_shopping.png" alt="" />
+						</a>
+						<a href="">
+							<img class="pic" src="img/index/goods2.jpg" alt="" />
+							<h2>iPad Pro 12.9英寸 32G WIFI版</h2>
+							<h3>揭晓进度</h3>
+							<div class="bar_bg">
+								<div class="bar"></div>
+							</div>
+							<img class="shopping" src="img/index/icon_shopping.png" alt="" />
+						</a>
+						<a href="">
+							<img class="pic" src="img/index/goods2.jpg" alt="" />
+							<h2>iPad Pro 12.9英寸 32G WIFI版</h2>
+							<h3>揭晓进度</h3>
+							<div class="bar_bg">
+								<div class="bar"></div>
+							</div>
+							<img class="shopping" src="img/index/icon_shopping.png" alt="" />
+						</a>
+					</div>
+				</li>
+				<li>
+					扫单
+					<div class="goods" style="padding-bottom:1rem; left:-3.45rem;">
+						<a href="">
+							<img class="pic" src="img/index/goods1.jpg" alt="" />
+							<h2>iPad Pro 12.9英寸 32G WIFI版</h2>
+							<h3>揭晓进度</h3>
+							<div class="bar_bg">
+								<div class="bar"></div>
+							</div>
+							<img class="shopping" src="img/index/icon_shopping.png" alt="" />
+						</a>
+						<a href="">
+							<img class="pic" src="img/index/goods1.jpg" alt="" />
+							<h2>iPad Pro 12.9英寸 32G WIFI版</h2>
+							<h3>揭晓进度</h3>
+							<div class="bar_bg">
+								<div class="bar"></div>
+							</div>
+							<img class="shopping" src="img/index/icon_shopping.png" alt="" />
+						</a>
+						<a href="">
+							<img class="pic" src="img/index/goods1.jpg" alt="" />
+							<h2>iPad Pro 12.9英寸 32G WIFI版</h2>
+							<h3>揭晓进度</h3>
+							<div class="bar_bg">
+								<div class="bar"></div>
+							</div>
+							<img class="shopping" src="img/index/icon_shopping.png" alt="" />
+						</a>
+						<a href="">
+							<img class="pic" src="img/index/goods1.jpg" alt="" />
+							<h2>iPad Pro 12.9英寸 32G WIFI版</h2>
+							<h3>揭晓进度</h3>
+							<div class="bar_bg">
+								<div class="bar"></div>
+							</div>
+							<img class="shopping" src="img/index/icon_shopping.png" alt="" />
+						</a>
+					</div>
+				</li>
+				<li>
+					十元
+					<div class="goods" style="padding-bottom:1rem; left:-5.05rem;">
+						<a href="">
+							<img class="pic" src="img/index/goods1.jpg" alt="" />
+							<h2>iPad Pro 12.9英寸 32G WIFI版</h2>
+							<h3>揭晓进度</h3>
+							<div class="bar_bg">
+								<div class="bar"></div>
+							</div>
+							<img class="shopping" src="img/index/icon_shopping.png" alt="" />
+						</a>
+						<a href="">
+							<img class="pic" src="img/index/goods1.jpg" alt="" />
+							<h2>iPad Pro 12.9英寸 32G WIFI版</h2>
+							<h3>揭晓进度</h3>
+							<div class="bar_bg">
+								<div class="bar"></div>
+							</div>
+							<img class="shopping" src="img/index/icon_shopping.png" alt="" />
+						</a>
+						<a href="">
+							<img class="pic" src="img/index/goods2.jpg" alt="" />
+							<h2>iPad Pro 12.9英寸 32G WIFI版</h2>
+							<h3>揭晓进度</h3>
+							<div class="bar_bg">
+								<div class="bar"></div>
+							</div>
+							<img class="shopping" src="img/index/icon_shopping.png" alt="" />
+						</a>
+						<a href="">
+							<img class="pic" src="img/index/goods2.jpg" alt="" />
+							<h2>iPad Pro 12.9英寸 32G WIFI版</h2>
+							<h3>揭晓进度</h3>
+							<div class="bar_bg">
+								<div class="bar"></div>
+							</div>
+							<img class="shopping" src="img/index/icon_shopping.png" alt="" />
+						</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<!--底部导航-->
+		<div id="nav">
+			<div href="" class="box">
+				<a href="index.html" class="nav_icon on">
+					<img src="img/index/home.png" alt="" /> 首页
+				</a>
+				<a href="" class="nav_icon">
+					<img src="img/discover/icon_new.png" alt="" /> 即将揭晓
+				</a>
+				<a href="discover/discover.html" class="nav_icon">
+					<img src="img/index/find1.png" alt="" /> 发现
+				</a>
+				<a href="" class="nav_icon">
+					<img src="img/discover/icon_shoppingCar.png" alt="" /> 购物车
+				</a>
+				<a href="mycenter/mycenterfirst.html" class="nav_icon">
+					<img src="img/discover/icon_personal.png" alt="" /> 个人中心
+				</a>
+			</div>
+		</div>
+
+		<div class="arrivaling">
+			<img src="img/qian_03.png" />
+		</div>
+
+		<script type="text/javascript">
+			var ifArr = true;
+			$("#showArrival").click(function() {
+
+				if(ifArr) {
+					$(".arrivaling").fadeIn("2000");
+					setTimeout(function() {
+						$(".arrivaling").fadeOut();
+						$("#showArrival img").attr("src", "img/qiandao.png")
+					}, 2000);
+					ifArr = false;
+				}
+			})
+			
+			var height = 0.7;
+			console.log(height);
+			function roll() { 
+				var rollUp = -0.7;
+               st1 =  setInterval(function() {
+					$("#notice").animate({
+						top: rollUp + "rem"
+					}, function() {
+				 		if(rollUp < -5*height) {
+							rollUp = -0.7;
+							$("#notice").css("top",0);
+						}
+					});
+                   rollUp -=height;
+				}, 1500)
+
+			}
+			
+			
+			var apiUrl = "http://120.55.86.40:82/yiyuanapi/";
+			$.ajax({
+				url: apiUrl + "homepage/getLottery",
+				datatype: "json",
+				type: "GET",
+				data: {
+					paramType: "banner,navigation_index,navigation_mid,navigation_foot"
+				},
+				success: function(data) {
+                   
+                    var info = data.data;
+					
+					text2 = ""
+					for(i = 0; i < info.length; i++) {
+						text2 += '<a href="../hemiyungou/lotteryInfo.html" class="ellip">恭喜<i class="col_blue">' + info[i].username + '</i><span>' + info[i].title+'</span></a><br>'
+					}
+					
+					
+					$("#notice").html(text2+'<a href="../hemiyungou/lotteryInfo.html" class="ellip">恭喜<i class="col_blue">' + info[0].username + '</i><span>' + info[0].title + '</span></a>');
+					roll();
+					
+				},
+				error: function(error) { 
+					console.log(error)
+				}
+			}) 
+		</script>
+
+	</body>
+
+</html>

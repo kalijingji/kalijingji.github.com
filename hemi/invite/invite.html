@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<!--强制让文档的宽度与设备的宽度保持1:1，并且文档最大的宽度比例是1.0，且不允许用户点击屏幕放大浏览-->
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<!--iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览-->
+		<meta content="yes" name="apple-mobile-web-app-capable" />
+		<!--iphone的私有标签，它指定的iphone中safari顶端的状态条的样式-->
+		<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+		<!--告诉设备忽略将页面中的数字识别为电话号码-->
+		<meta content="telephone=no" name="format-detection" />
+		<!--告诉设备忽略将页面中的数字识别为电话号码-->
+		<meta content="email=no" name="format-detection" />
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+		<link rel="stylesheet" type="text/css" href="../css/basic.css" />
+		<script src="../js/basic.js" type="text/javascript" charset="utf-8"></script>
+		<title>首页一</title>
+		<style type="text/css">
+      body{background: #F0F0F0;}
+		</style>
+		<script src="../js/jquery-3.1.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/help.js" type="text/javascript" charset="utf-8"></script>
+		
+	</head>
+
+	<body>
+
+		<div class="helpHead">
+			<a href="javascript:history.go(-1)" style="z-index: 9999;" ><img src="../img/tbo.png" /></a>
+			<p>邀请返佣金</p>
+		</div>
+		<div class="inviteBox">
+			<div style="width: 100%;height: 0.88rem;"></div>
+			<div class="inviteContent">
+				<img  class="inviteBig" src="../img/inviteBig.png"/>
+				<span id="inviteButton">立即邀请</span>
+				<div class="inveteIntro">
+					<p class="inveteIntroTitles">
+						好友邀请规则说明
+					</p>
+					<div class="titleList" >
+						一、分享链接
+					</div>
+					<div class="inviteDetail">
+						点击[立即邀请]分享至各个社交平台
+					</div>
+					<div class="titleList" >
+						二、邀请成功返佣金
+					</div>
+					<div class="inviteDetail">
+						A用户通过您分享的链接下载注册，并成功在禾米寻宝产生消费，在近一年内，您将获得A用户消费总金额的10%的佣金，上不封顶；
+					</div>
+					<div class="titleList" >
+						三、佣金提现
+					</div>
+					<div class="inviteDetail">
+						您获得的佣金将自动计入余额中，在“个人中心-奖励佣金”中查看所获得的佣金，并可申请提现
+					</div>
+				</div>
+			</div>
+			
+			
+			
+			<div class="inviteShowBox">
+       	       <div class="inviteInfo">
+       	       	<p style="font-size: 0.32rem;height: 1rem;line-height: 1rem;padding-left: 0.25rem;">分享到</p>
+       	       	<div class="wechant">
+       	       		<a href="">
+       	       			<img src="../img/qzone3_03.png"/>
+       	       			<span>微信好友</span>
+       	       		</a>
+       	       		<a href="">
+       	       			<img src="../img/qq4.png"/>
+       	       			<span>微信好友</span>
+       	       		</a>
+       	       		
+       	       		<a href="">
+       	       			<img src="../img/qq.png"/>
+       	       			<span>微信好友</span>
+       	       		</a>
+       	       		
+       	       		<a href="">
+       	       			<img src="../img/qq1_03.png"/>
+       	       			<span>微信好友</span>
+       	       		</a>
+       	       		
+       	       		<a href="">
+       	       			<img src="../img/q6_03.png"/>
+       	       			<span>微信好友</span>
+       	       		</a>
+       	       		<div class="" id="inviteCancel"  style="position: fixed;width: 100%;height: 1rem;line-height: 1rem;text-align: center;font-size: 0.34rem;color: #424242;background: #FFFFFF;bottom: 0;">
+       	       			取消
+       	       		</div>
+       	       	</div>
+       	       </div>
+            </div>
+		</div>
+		
+       
+         <script type="text/javascript">
+         	$("#inviteButton").click(function(){
+         		$(".inviteShowBox").fadeIn();
+         	})
+         	$("#inviteCancel").click(function(){
+         		$(".inviteShowBox").fadeOut();
+         	})
+         </script>
+        
+	</body>
+
+</html>
