@@ -1,52 +1,117 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>Kalijingji.GitHub.com by kalijingji</title>
-    <style type="text/css">
-      a{color:red;text-decoration:none;}
-      *{font-family: "微软雅黑";background:lightgoldenrodyellow;}
-      #box{width:800px;height:100%;margin:auto;border:5px solid burlywood;border-radius: 20px;}
-      h1{text-align: center;}
-      ul li{margin-top:15px;}
-   </style>
-  </head>
-  <body>
-    <div id="box">
-    <h1>目录</h1>
-    <ul>
-      <li><a href="20161206.html">殷永贵_javascript_复习总结一_20161206</a></li>
-      <li><a href="20161207.html">殷永贵_javascript_复习总结二_20161207</a></li>
-      <li><a href="20161208.html">殷永贵_javascript_复习总结三_20161208</a></li>
-      <li><a href="20161212.html">殷永贵_javascript_复习总结四_20161212</a></li>
-      <li><a href="20161213.html">殷永贵_javascript_函数_20161213</a></li>
-      <li><a href="20161214.html">殷永贵_javascript_画布初识_20161214</a></li>
-      <li><a href="20161215.html">殷永贵_javascript_画布进阶_20161215</a></li>
-      <li><a href="20161216.html">殷永贵_javascript_考试总结_20161216</a></li>
-      <li><a href="20161219.html">殷永贵_javascript__闭包_20161219</a></li>
-      <li><a href="20161220.html">殷永贵_javascript__滚动条_20161220</a></li>
-      <li><a href="20161221.html">殷永贵_javascript__消除游戏_20161221</a></li>
-      <li><a href="20161222.html">殷永贵_javascript__AJAX_20161222</a></li>
-      <li><a href="20161223.html">殷永贵_javascript_面向对象_20161223</a></li>
-      <li><a href="20161225.html">殷永贵_javascript__深浅拷贝_20161225</a></li>
-      <li><a href="20161226.html">殷永贵_JQuery__选择器_20161226</a></li>
-      <li><a href="20161227.html">殷永贵_JQuery__jQuery_DOM-一_20161227</a></li>
-      <li><a href="20161228.html">殷永贵_JQuery__jQuery_DOM-二_20161228</a></li>
-      <li><a href="20161229.html">殷永贵_JQuery__jQuery_AJAX交互-_20161229</a></li>
-      <li><a href="20161230.html">殷永贵_JQuery__jQuery总结_20161230</a></li>
-      <li><a href="20170103/20170103.html">殷永贵_jQuery实例_20170103</a></li>
-      <li><a href="20170103/20170104.html">殷永贵_HTML5常用标签_20170104</a></li>  
-      <li><a href="20170103/20170105.html">殷永贵_web存储和CSS3动画_20170105</a></li>
-      <li><a href="20170108.html">殷永贵_CSS3_3d动画_20170108</a></li>
-      <li><a href="20170103/20170109.html">殷永贵_HTML5布局_20170109</a></li>
-      <li><a href="20170103/20170110.html">殷永贵_CSS3媒体查询_20170110</a></li>
-      <li><a href="20170103/20170111.html">殷永贵_移动端布局_20170111</a></li>
-      <li><a href="土豆/index.html">殷永贵_轮播_20170116</a></li>
-      <li><a href="土豆/雪花.html">殷永贵_雪花_20170116</a></li>
-      <li><a href="myFocus Demo v2.0.1/demo.html">殷永贵_轮播集合_20170119</a></li>
-      <li><a href="放大镜/index.html">殷永贵_f放大镜_20170119</a></li>
-      <li><a href="化学药剂/index.html">化学药剂</a></li>
-    </ul>
-    </div>
-  </body>
-</html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			body {
+				background: #000000;
+				background: url(img/timg.jpg) ;
+				background-size: 80%;
+			}
+			
+			#bg {
+				width: 1200px;
+				height: 800px;
+				margin: auto;
+				overflow: hidden;
+				position: relative;
+			}
+			
+			.snow {
+				position: absolute;
+				top: 0;
+			}
+			.box{
+			width: 1200px;
+			height: auto;	
+			margin: auto;
+			text-align: center;		
+		}
+		a{
+			text-decoration: none;
+			color: blue;
+		}
+		ul li{
+			width: 24%;
+			height: 300px;
+			list-style: none;
+			float: left;
+			/*background: red;*/
+			margin-top: 300px;
+			margin-left: 1%;
+		}
+		ul li img{
+			width: 100%;
+			height: 80%;
+		}
+		h1{color: red;margin-top: 50px;}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				var bg = document.getElementById('bg');
+				
+				//雪花生成
+				function createSnow() {
+					var snow = document.createElement('img');
+					snow.className = "snow";
+					snow.src = "img/Snow_202px_1194833_easyicon.net.png";
+					snow.style.width=parseInt(Math.random() * 10)+10 + "px";
+					snow.style.left = parseInt(Math.random() * 1200) + "px";
+					bg.appendChild(snow);
+					snowMove(snow,800,10);
+				}
+				
+				
+				//雪花下落
+				function snowMove(obj, Target, speed) {
+					clearInterval(obj.times);
+					obj.times = setInterval(function() {
+						var curr = obj.offsetTop;
+						if(curr >= Target) {
+							clearInterval(obj.times);
+							bg.removeChild(obj);
+						} else {
+							obj.style.top = curr + speed + "px";
+						}
+					}, 50)
+				}
+
+				setInterval(createSnow, 100);
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="bg">
+			<div class="box">
+			<h1>成品案例Cases</h1>
+			<a href="index1.html">相关资料总结</a>
+			<ul>
+				<li>
+					<a href="myFocus Demo v2.0.1/demo.html"><img src="img/1a.jpg" alt="" /></a>
+					<a href="myFocus Demo v2.0.1/demo.html">轮播小插件</a>
+				</li>
+				<li>
+					<a href="化学药剂/index.html"><img src="img/2a.jpg" alt="" /></a>
+					<a href="化学药剂/index.html">pc端化学药剂</a>
+				</li>
+				<li>
+					<a href="hemi/details.html"><img src="img/3a.jpg" alt="" /></a>
+					<a href="hemi/details.html">移动端网页</a>
+				</li>
+				<li>
+					<a href="HTML5/立方体.html"><img src="img/4a.jpg" alt="" /></a>
+					<a href="HTML5/立方体.html">立方体</a>
+				</li>
+			</ul>
+		</div>
+        </div>
+		</body>
+		</html>

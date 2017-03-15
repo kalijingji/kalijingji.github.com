@@ -1,0 +1,122 @@
+.prize2{
+	width: 100%;
+	height: 7.475rem;
+	margin: auto;
+	border-top: 1px solid #ddd;
+	background: #fff;
+	max-width: 640px !important;
+	margin-top: 0.75rem;
+}
+.prize2_tiao1{
+	width: 16rem;
+	height: 3.4rem;
+	border-bottom: 1px solid #ddd;
+}
+.prize2_tiao2{
+	width: 16rem;
+	height: 4.075rem;
+}
+.prize2_tiao2 p{
+	margin-left: 1.225rem;
+	font-size: 0.5rem;
+	
+}
+.prize2_img{
+	width: 2.25rem;
+	height: 2.25rem;
+	border-radius: 1.125rem;
+	margin-left: 0.5rem;
+	margin-top: 0.75rem;
+	background: url(../img/5.png);
+	background-size: 150%;
+	float: left;
+}
+.prize2_text{
+	float: left;
+	margin-top: 0.825rem;
+	margin-left:0.75rem ;
+	color: #1E90FF;
+	
+}
+.prize2_img1{
+	float: right;
+	width: 1.925rem;
+	margin-top: 0.625rem;
+	margin-right: 0.55rem;
+}
+.xinyun{
+	height: 2.2rem;
+	width: 100%;
+	margin: auto;
+	max-width: 640px !important;
+	line-height: 2.2rem;
+}
+.xinyun p{
+	float: left;
+	font-size: 0.7rem;
+	margin-left: 0.775rem;
+}
+.xinyun_yun{
+	width: 2.875rem;
+	height: 1.125rem;
+	border-radius: 0.2rem;
+	background: #F2473D;
+	float: right;
+	font-size: 0.6rem;
+	line-height:1.125rem ;
+	color: #fff;
+	text-align: center;
+	margin-top: 0.75rem;
+	margin-right: 0.825rem;
+}
+.Winning{
+	height: 8.525rem;
+	width: 100%;
+	margin: auto;
+	max-width: 640px !important;
+     background: #fff;
+}
+.Shopping {
+	line-height: 2rem;
+}
+.Shopping span{
+	font-size: 0.7rem;
+	margin-left: 0.825rem;
+}
+.Winning_1{
+	height: 1.775rem;
+	width: 16rem;
+	border-bottom: 1px solid #ddd;
+	line-height: 1.775rem;
+	
+}
+.Winning_1 p{
+	font-size: 0.6rem;
+	margin-left: 0.8rem;
+}
+.Winning_2{
+	height: 2.575rem;
+	width: 16rem;
+	border-bottom: 1px solid #ddd;
+}
+.Winning_2 p{
+	font-size: 0.5rem;
+	margin-left:0.8rem;
+	margin-top: 0.05rem;
+}
+.Winning_2 ul{
+	margin-top: 0.5rem;
+}
+.Winning_2 ul li{
+	float: left;
+	margin-left:0.8rem ;
+	width: 4.5rem;
+	font-size: 0.6rem;
+}
+.Winning_3{
+	height: 1.65rem;
+	width: 16rem;
+	font-size: 0.7rem;
+	text-align: center;
+	line-height: 1.65rem;
+}
