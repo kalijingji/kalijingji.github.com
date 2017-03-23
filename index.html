@@ -11,14 +11,13 @@
 			}
 			
 			body {
-				background: #000000;
-				background: url(img/timg.jpg);
+				background: url(img/5a.jpg);
+				/*background: #444;*/
 				background-size: 100%;
-			}
-			
+                  }
 			#bg {
 				width: 1200px;
-				height: 800px;
+				height: auto;
 				margin: auto;
 				overflow: hidden;
 				position: relative;
@@ -38,87 +37,55 @@
 			text-decoration: none;
 			color: #fff;
 		}
-		ul{
+		.box ul{
 			width: 1200px;
 			height:auto; 
 			margin: 20px auto;
 		}
-		ul li{
+		.box ul li{
 			width: 20%;
 			height: 250px;
 			list-style: none;
 			float: left;
-			/*background: red;*/
-			margin-top: 200px;
+			margin-top: 120px;
 			margin-left: 3%;
 			position: relative;
 		}
-		ul li img{
+		.box ul li img{
 			width: 100%;
 			height: 80%;
 			position: absolute;
 			left: 50%;top: 50%;
-			margin: -80px 0 0 -100px;
+			margin: -80px 0 0 -120px;
 			z-index: 1;
 		}
-		h1{color: red;margin-top: 50px;}
+		h1{color: red;margin-top: 30px;}
 		</style>
 		<script src="jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript">
-			window.onload = function() {
-				var bg = document.getElementById('bg');
-				
-				//雪花生成
-				function createSnow() {
-					var snow = document.createElement('img');
-					snow.className = "snow";
-					snow.src = "img/Snow_202px_1194833_easyicon.net.png";
-					snow.style.width=parseInt(Math.random() * 10)+10 + "px";
-					snow.style.left = parseInt(Math.random() * 1200) + "px";
-					bg.appendChild(snow);
-					snowMove(snow,800,10);
-				}
-				
-				
-				//雪花下落
-				function snowMove(obj, Target, speed) {
-					clearInterval(obj.times);
-					obj.times = setInterval(function() {
-						var curr = obj.offsetTop;
-						if(curr >= Target) {
-							clearInterval(obj.times);
-							bg.removeChild(obj);
-						} else {
-							obj.style.top = curr + speed + "px";
-						}
-					}, 50)
-				}
-
-				setInterval(createSnow, 100);
-			}
-		</script>
 	</head>
 
 	<body>
 		<div id="bg">
 			<div class="box">
 			<h1>成品案例  Cases</h1>
+			<br>
+			<br>
 			<a href="ziliao.html">相关资料总结</a>
 			<ul>
 				<li>
-					<a href="myFocus Demo v2.0.1/demo.html"><img src="img/1a.jpg" alt="" /></a>
+					<a href="myFocus Demo v2.0.1/demo.html"><img src="img/1a.gif" alt="" class="img" /></a>
 					<a href="myFocus Demo v2.0.1/demo.html">轮播小插件</a>
 				</li>
 				<li>
-					<a href="化学药剂/index.html"><img src="img/2a.jpg" alt="" /></a>
+					<a href="化学药剂/index.html"><img src="img/2a.gif" alt="" class="img" /></a>
 					<a href="化学药剂/index.html">pc端化学药剂</a>
 				</li>
 				<li>
-					<a href="hemi/index.html"><img src="img/3a.jpg" alt="" /></a>
+					<a href="hemi/index.html"><img src="img/3a.gif" alt="" class="img" /></a>
 					<a href="hemi/index.html">移动端网页</a>
 				</li>
 				<li>
-					<a href="HTML5/立方体.html"><img src="img/4a.jpg" alt="" /></a>
+					<a href="HTML5/立方体.html"><img src="img/4a.gif" alt="" class="img"/></a>
 					<a href="HTML5/立方体.html">立方体</a>
 				</li>
 			</ul>
@@ -132,13 +99,13 @@ var big = 1.2;//放大倍数
 $("ul li").hover(function(){
 $(this).find("img").stop(true,true);
 var imgWid2 = 0;var imgHei2 = 0;//局部变量
-imgWid = $(this).find("img").width();
-imgHei = $(this).find("img").height();
+imgWid = $(this).find(".img").width();
+imgHei = $(this).find(".img").height();
 imgWid2 = imgWid * big;
 imgHei2 = imgHei * big;
-$(this).find("img").css({"z-index":2});
-$(this).find("img").animate({"width":imgWid2,"height":imgHei2,"margin-left":-imgWid2/2,"margin-top":-imgHei2/2});
-},function(){$(this).find("img").stop().animate({"width":imgWid,"height":imgHei,"margin-left":-imgWid/2,"margin-top":-imgHei/2.5,"z-index":1});});
+$(this).find(".img").css({"z-index":2});
+$(this).find(".img").animate({"width":imgWid2,"height":imgHei2,"margin-left":-imgWid2/2,"margin-top":-imgHei2/2});
+},function(){$(this).find(".img").stop().animate({"width":imgWid,"height":imgHei,"margin-left":-imgWid/2,"margin-top":-imgHei/2.5,"z-index":1});});
 })
 </script>
 		</body>
