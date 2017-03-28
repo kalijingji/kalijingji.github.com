@@ -58,45 +58,12 @@
 			height: 80%;
 			position: absolute;
 			left: 50%;top: 50%;
-			margin: -80px 0 0 -100px;
+			margin: -80px 0 0 -120px;
 			z-index: 1;
 		}
 		h1{color: red;margin-top: 50px;}
 		</style>
 		<script src="jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript">
-			window.onload = function() {
-				var bg = document.getElementById('bg');
-				
-				//雪花生成
-				function createSnow() {
-					var snow = document.createElement('img');
-					snow.className = "snow";
-					snow.src = "img/Snow_202px_1194833_easyicon.net.png";
-					snow.style.width=parseInt(Math.random() * 10)+10 + "px";
-					snow.style.left = parseInt(Math.random() * 1200) + "px";
-					bg.appendChild(snow);
-					snowMove(snow,800,10);
-				}
-				
-				
-				//雪花下落
-				function snowMove(obj, Target, speed) {
-					clearInterval(obj.times);
-					obj.times = setInterval(function() {
-						var curr = obj.offsetTop;
-						if(curr >= Target) {
-							clearInterval(obj.times);
-							bg.removeChild(obj);
-						} else {
-							obj.style.top = curr + speed + "px";
-						}
-					}, 50)
-				}
-
-				setInterval(createSnow, 100);
-			}
-		</script>
 	</head>
 
 	<body>
