@@ -2,12 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>myFocus v2.0</title>
+<title>轮播</title>
 <script type="text/javascript" src="js/myfocus-2.0.1.min.js"></script>
 <style type="text/css">
 body { background:#fff; padding:20px;}
-h2{height:42px; line-height:42px; background:#f1f1f1; margin-bottom:20px; font-size:12px; color:#666; font-weight:normal;}
-#myFocus{ width:560px; height:300px;}
+#myFocus{ width:560px; height:300px;margin:auto;}
 </style>
 <script type="text/javascript">
 //设置
@@ -16,16 +15,15 @@ myFocus.set({
 	pattern:'mF_fancy',//风格
   loadIMGTimeout:2,
   time:3,//切换时间间隔(秒)
-  auto:true,
+  auto:true,z
   direction:'top'
 });
 </script>
 </head>
 <body>
-<h2>提示：可以修改“pattern”参数以更换不同的风格</h2>
-<div id="myFocus"><!--焦点图盒子-->
-  <div class="loading"><img src="img/loading.gif" alt="请稍候..." /></div><!--载入画面(可删除)-->
-  <div class="pic"><!--图片列表-->
+<!-- 提示：可以修改“pattern”参数以更换不同的风格 -->
+<div id="myFocus">
+  <div class="loading"><img src="img/loading.gif" alt="请稍候..." />
   	<ul>
         <li><a href="#1"><img src="img/1a.jpg" thumb="" alt="" text="图片1更详细的描述文字" /></a></li>
         <li><a href="#2"><img src="img/2a.jpg" thumb="" alt="" text="图片2更详细的描述文字" /></a></li>
