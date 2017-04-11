@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BOOTSTRAB 测试</title>
+    <link rel="stylesheet" type="text/css" href="dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css">
+    <style type="text/css">
+    .site-header,
+    .jumbotron {
+        background: #27AE60;
+    }
+    
+    .navbar-brand {
+        color: #fff;
+    }
+    
+    .col-xs-12 {
+        color: #fff;
+        text-align: center;
+    }
+    
+    .search {
+        text-align: center;
+        box-shadow: none;
+        border-color: #fff;
+        border-radius: 0;
+        height: auto;
+        margin-top: 30px;
+        padding: 13px 30px;
+        background: #fff;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+    }
+    
+    .search-wraper {
+        position: relative;
+        max-width: 680px;
+        margin: auto;
+    }
+    
+    .fa {
+        color: #777;
+        font-size: 16px;
+        position: absolute;
+        right: 10px;
+        top: 18px;
+        cursor: pointer;
+    }
+    
+    .list-inline li {
+        font-size: 30px;
+        color: #888;
+        margin-left: 20px;
+        line-height: auto;
+    }
+    
+    .list-inline li:hover {
+        color: #000;
+        cursor: pointer;
+    }
+    
+    .blue {
+        background: #27AE60;
+        color: #fff;
+    }
+    
+    .blue:hover {
+        background: #27AE60;
+        color: #fff;
+    }
+    
+    .label_hover {
+        color: #999;
+    }
+    
+    .label_hover:hover {
+        color: #000;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+    
+    .navbar-header {
+        position: relative;
+    }
+    
+    .visible-xs-inline-block {
+        position: absolute;
+        right: 10px;
+    }
+    .list-group{
+    	margin-top: 30px;
+    	height:0 auto;
+    }
+    .list-group a{
+    	cursor: pointer;
+    	height: 50px;
+    }
+    .copy-right{
+    	text-align: center;
+    	color: #fff;
+    	background: #27AE60;
+    	height: 60px;
+    	line-height: 60px;
+    }
+    .copy-right a{
+    	color: #fff;
+    }
+    .collapse a{
+    	text-align: center;
+    	color: #fff;
+    }
+    .navbar-right li a:hover{
+    	background: #27AE60;
+    	color: #fff;
+    }
+    </style>
+    <script typet="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body class="home-template">
+    <header class="site-header">
+        <nav class="navbar navbar-static-top main-navbar">
+            <div class="container">
+                <div class="navbar-header">
+                    <a href="" class="navbar-brand brand-bootcdn">CADN</a>
+                    <a href="" class="navbar-brand brand-bootcdn"><span class="glyphicon glyphicon-euro"></span>爱拍云</a>
+                    <a class="navbar-brand brand-bootcdn visible-xs-inline-block navbar-toggle collapsed"><span class="glyphicon glyphicon-th-list"></span></a>
+                </div>
+                <nav class="navbar-collapse collapse" id="bs-navbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="" class="brand-bootcdn" target="_blank">博客</a></li>
+                        <li><a href="" class="brand-bootcdn" target="_blank">关于</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </nav>
+        <div class="container jumbotron">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1>BOOTCDN</h1>
+                    <p>稳定、快速、免费的开源项目 CDN 加速服务</p>
+                    <span>共收录了<strong>2902</strong>个前端开源项目</span>
+                    <form class="search-wraper" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control search clearable" placeholder="搜索开源库，例如：jquery"><i class="fa x fa-search onX glyphicon glyphicon-search"></i>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="mostused-packages well well-sm text-center hidden-xs hidden-sm">
+            <ul class="list-inline">
+                <li class="glyphicon glyphicon-user"></li>
+                <li class="glyphicon glyphicon-star"></li>
+                <li class="glyphicon glyphicon-heart"></li>
+                <li class="glyphicon glyphicon-download-alt"></li>
+                <li class="glyphicon glyphicon-cog"></li>
+            </ul>
+        </div>
+    </header>
+    <div class="container protocal-notice hidden-xs">
+        <div class="row">
+            <div class="col-xs-12">
+                <form class="form-inline pull-right">
+                    <label style="color: #888">选择协议:</label>
+                    <div class="btn-group">
+                        <label class="btn btn-default blue" data-toggle="buttons">
+                            https
+                        </label>
+                        <label class="btn btn-default" data-toggle="buttons">
+                            http
+                        </label>
+                        <label class="btn btn-default" data-toggle="buttons">
+                            自适应
+                        </label>
+                    </div>
+                    <label class="label_hover">了解详情<span class="glyphicon glyphicon-info-sign"></span></label>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container packages-list-container">
+        <div class="list-group">
+            <a class="list-group-item active">Cras justo odio</a>
+            <a class="list-group-item">Dapibus ac facilisis in</a>
+            <a class="list-group-item">Morbi leo risus</a>
+            <a class="list-group-item">Porta ac consectetur ac</a>
+            <a class="list-group-item">Vestibulum at eros</a>
+            <a class="list-group-item ">Cras justo odio</a>
+            <a class="list-group-item">Dapibus ac facilisis in</a>
+            <a class="list-group-item">Morbi leo risus</a>
+            <a class="list-group-item">Porta ac consectetur ac</a>
+            <a class="list-group-item">Vestibulum at eros</a>
+        </div>
+    </div>
+    <footer class="copy-right footer hidden-print">
+    	<span>© 2013-2017 </span>
+    	<a href="http://www.miibeian.gov.cn/" target="_blank"> 京ICP备11008151号 </a>
+    	<span> 京公网安备11010802014853 </span>
+    </footer> 
+    </div>
+</body>
+<script type="text/javascript">
+$(function() {
+    $(".btn-default").click(function() {
+        $(this).addClass("blue").siblings().removeClass("blue");
+    });
+     $(".list-group a").click(function() {
+        $(this).addClass("active").siblings().removeClass("active");
+    });
+     $(function(){
+     	 var n=0;
+     $(".collapsed").click(function(){
+     	  if (n==1) {
+     	  	$(".collapse").css("display","none");
+     	  	n=0;
+     	  }else {
+     	  	 $(".collapse").css("display","block");
+     	  	 n=1;
+     	  }
+     })
+ });
+    
+})
+</script>
+
+</html>

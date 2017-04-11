@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>企业简介 -浙江科强智能控制系统有限公司</title>
+		<link href="css/style.css" type="text/css" rel="stylesheet">
+		<script src="js/jquery-3.1.0.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body class="nbg">
+		<div class="dhbg">
+			<div class="dhbgn">
+				<div class="nlogo">
+					<a href="index.html"><img src="img/about-global.png" /></a>
+				</div>
+				<div class="nav10">
+					<img src="img/about-ball.png"/>
+				</div>
+				<div class="nav nav1">
+					<a href="brand.html">
+						<span class="span1"><img src="img/nav1.png" /></span>
+						<span class="span2"><b><img src="img/about-brand.png" /></b></span>
+					</a>
+				</div>
+				<div class="navo nav2">
+					<a href="products.html">
+						<span class="span1"><img src="img/about-set.png" /></span>
+						<span class="span2"><b><img src="img/nav2o.png" /></b></span>
+					</a>
+				</div>
+				<div class="nav nav3">
+					<a href="technology.html">
+						<span class="span1"><img src="img/about-tech.png" /></span>
+						<span class="span2"><b><img src="img/nav3o.png" /></b></span>
+					</a>
+				</div>
+				<div class="nav nav4">
+					<a href="news.html">
+						<span class="span1"><img src="img/about-news.png" /></span>
+						<span class="span2"><b><img src="img/nav4o.png" /></b></span>
+					</a>
+				</div>
+				<div class="nav nav5">
+					<a href="recruit.html">
+						<span class="span1"><img src="img/about-recru.png" /></span>
+						<span class="span2"><b><img src="img/nav5o.png" /></b></span>
+					</a>
+				</div>
+				<div class="nav nav6">
+					<a href="contact.html">
+						<span class="span1"><img src="img/about-contact.png" /></span>
+						<span class="span2"><b><img src="img/nav6o.png" /></b></span>
+					</a>
+				</div>
+				<div class="nav11">
+					<img src="img/about-ball.png"/>
+				</div>
+			</div>
+		</div>
+		<div class="content">
+			<div class="contentn">
+  <div class="bt"><span>产品中心</span> / PRODUCTS CENTER
+  </div>
+<ul class="pdh">
+    <li class="pdh1"><a href="#">工业4.0信息中心</a></li>
+    <li class="pdh2"><a href="#">精密注塑控制系统</a></li>
+    <li class="pdh3"><a href="#">工业节能</a></li>
+</ul>
+
+<div class="pro">
+
+
+<ul class="fold_wrap" id="sm">
+	<li><a href="#">
+	<div class="pic_auto" style="background:url(img/1a.jpg) no-repeat center center; ">
+	<div class="smwzs">工业4.0信息中心</div>
+	<div class="smwz">工业4.0信息中心</div>
+	</div>
+	</a>
+	</li>
+    	<li><a href="#">
+	<div class="pic_auto" style="background:url(img/2a.png) no-repeat center center; ">
+	<div class="smwzs">注塑控制系统</div>
+	<div class="smwz">注塑控制系统</div>
+	</div>
+	</a>
+	</li>
+    	<li><a href="#">
+	<div class="pic_auto" style="background:url(img/3a.png) no-repeat center center; ">
+	<div class="smwzs">高效纳米节能环</div>
+	<div class="smwz">高效纳米节能环</div>
+	</div>
+	</a>
+	</li>
+    
+</ul>
+<script type="text/javascript">
+	$(function(){
+		$(".fold_wrap li").mouseover(function(){
+			_index7=$(this).index();
+			$(this).stop().animate({width:666},500).siblings("li").stop().animate({width:102},500);
+			$(".smwz").eq(_index7).css("opacity",0).siblings(".smwz").css("opacity",1);
+			$(".smwzs").eq(_index7).stop().animate({left:50,opacity:1},500).siblings(".smwzs").css("opacity",0);
+		});
+		$(".fold_wrap li").mouseleave(function(){
+			_index7=$(this).index();
+			$(this).stop().animate({width:290},500).siblings("li").stop().animate({width:290},500);
+			$(".smwz").eq(_index7).css("opacity",1).siblings(".smwz").css("opacity",0);
+			$(".smwzs").eq(_index7).stop().animate({left:-290,opacity:0},500).siblings(".smwzs").css("opacity",1);
+		})
+	})
+</script>
+</div>  
+ 
+ 
+</div>
+</div>
+
+
+			</div>
+		</div>
+
+		<footer>
+			Copyright&nbsp;©2015&nbsp;浙江科强智能控制系统有限公司&nbsp;All Rights Reserved&nbsp;&nbsp;&nbsp;备案号：浙ICP备16000621号-1&nbsp;&nbsp;&nbsp;
+			<a href="http://www.zjr1.com" target="_blank">技术支持：鼎易科技</a>
+		</footer>
+
+		<script>
+			$(function() {
+				function css() {
+					var widthn = $(window).width();
+					var nheight = $(window).height();
+					var nheightw = $(".contentn").height();
+					var nheight2 = nheight - 40;
+					var nheight3 = nheightw + 40;
+					var widthn2 = (widthn - 1210) / 2;
+					if(widthn > 1210) {
+						$(".dhbg").css("left", widthn2);
+
+					} else {
+						$(".dhbg").css("left", 0);
+					}
+					if(nheight3 < nheight) {
+						$(".content").css("height", nheight2);
+
+					} else {
+						//$(".content").css("height",nheight2);
+					}
+					setTimeout(css)
+				}
+				css();
+			});
+		</script>
+	</body>
+
+</html>
