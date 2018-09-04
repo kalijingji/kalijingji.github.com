@@ -2,27 +2,65 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <!-- <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=v4CT7ZIIT5jWI9GF4qzQ3c9GFSpKi3uh"></script> -->
- 
-    <title>百度地图的定位</title>
+   <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.6&key=569412466305bfbec803979c5e720420&plugin=AMap.Geocoder"></script>
 </head>
 <body>
-    <script type="text/javascript" src="https://3gimg.qq.com/lightmap/components/geolocation/geolocation.min.js"></script>
-<script>
-    
-var geolocation = new qq.maps.Geolocation("OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77", "myapp");
+ <script>  
+function getLocation() {
+	//alert("弹框");
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(showPosition, showError);
+		} else {
+			alert("浏览器不支持地理定位。");
+		}
+	}
 
-geolocation.getLocation(showPosition, showErr);
+	function showError(error) {
+		switch (error.code) {
+		case error.PERMISSION_DENIED:
+			alert("定位失败,用户拒绝请求地理定位");
+			break;
+		case error.POSITION_UNAVAILABLE:
+			alert("定位失败,位置信息是不可用");
+			break;
+		case error.TIMEOUT:
+			alert("定位失败,请求获取用户位置超时");
+			break;
+		case error.UNKNOWN_ERROR:
+			alert("定位失败,定位系统失效");
+			break;
+		}
+	}
 
-function showPosition(result) {
-    alert('您的位置：'+ result.lng + ',' + result.lat );
-};
-
-function showErr(err) {
-    alert(err)
-};
+	function showPosition(position) {
+		var lat = position.coords.latitude; //纬度 
+		var lag = position.coords.longitude; //经度 
+		regeocoder(lag,lat);
+		
+ 	}
+	 function regeocoder(lag,lat) {  //逆地理编码
+		 lnglatXY = [lag, lat]; //已知点坐标
+	        var geocoder = new AMap.Geocoder({
+	            radius: 1000,
+	            extensions: "all"
+	        });        
+	        geocoder.getAddress(lnglatXY, function(status, result) {
+	            if (status === 'complete' && result.info === 'OK') {
+	                geocoder_CallBack(result,lag,lat);
+	            }
+	        });        
+	  
+	    }
+	    function geocoder_CallBack(data,lag,lat) {
+	    
+	    	var province = data.regeocode.addressComponent.province;//省
+	    	var city = data.regeocode.addressComponent.city;//城市
+	    	var pcaddress = province;
+	        var address = data.regeocode.formattedAddress; //返回地址描述
+	        alert(address)
+	    }
 </script> 
-
 </body>
  
  
