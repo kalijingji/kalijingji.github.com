@@ -4,6 +4,7 @@
 	<title></title>
 </head>
 <body>
+	<div id="demo">位置:</div>
 	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
   <script type="text/javascript">
     function Location() {};
@@ -76,6 +77,7 @@
         //JSON.stringify(res)，把返回的对象转为字符串了，自己根据需求截取下就好
         var resstr = JSON.stringify(res);
         alert(resstr);
+	 $("#demo").html(resstr)
     });
   </script>
 </body>
