@@ -7,6 +7,7 @@
 </head>
 <body>
  <script>  
+$(function(){
 function getLocation() {
 	//alert("弹框");
 		if (navigator.geolocation) {
@@ -60,6 +61,7 @@ function getLocation() {
 	        var address = data.regeocode.formattedAddress; //返回地址描述
 	        alert(address)
 	    }
+	})
 </script> 
 </body>
  
