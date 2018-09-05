@@ -12,22 +12,6 @@
 <input type="text" id="record-address"  >
 <input id="record-negoDate" value=""  type="text">
 <button type="button" onclick="punchCards();">打卡</button>
-<script>
-function punchCards(){   
-var geolocation = new qq.maps.Geolocation("OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77", "myapp");
-
-geolocation.getLocation(showPosition, showErr);
-
-function showPosition(result) {
-    alert('您的位置：'+ result.lng + ',' + result.lat );
-};
-
-function showErr(err) {
-    alert(err)
-};
-}
-</script> 
-
 </body>
 <script>
  var myaddress;
@@ -39,29 +23,16 @@ $(function(){
 	/*定位*/
 	var geolocation = new qq.maps.Geolocation("OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77", "myapp");
 
-	geolocation.getLocation(showPosition, showError);
+	geolocation.getLocation(showPosition, showErr);
 
 	function showPosition(result) {
-	    //alert('您的位置：'+ result.lng + ',' + result.lat );
+	    alert('您的位置：'+ result.lng + ',' + result.lat );
 	    regeocoder(result.lng,result.lat)
 	};
 
-	function showError(error) {
-		switch (error.code) {
-		case error.PERMISSION_DENIED:
-			alert("定位失败,用户拒绝请求地理定位");
-			break;
-		case error.POSITION_UNAVAILABLE:
-			alert("定位失败,位置信息是不可用");
-			break;
-		case error.TIMEOUT:
-			alert("定位失败,请求获取用户位置超时");
-			break;
-		case error.UNKNOWN_ERROR:
-			alert("定位失败,定位系统失效");
-			break;
-		}
-	}
+	function showErr(err) {
+    alert(err)
+};
 })
 
 	 function regeocoder(lag,lat) {  //逆地理编码
