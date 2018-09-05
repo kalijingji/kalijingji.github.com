@@ -19,7 +19,7 @@ var mylatitude;
 var mylongitude;
 var today = new Date();
 var dateString = (today.getFullYear()) +"-" + (today.getMonth() + 1 ) + "-" + today.getDate() + "  " + today.getHours()+":"+today.getMinutes(); 
-$(function(){
+function add_adress(){
 	/*定位*/
 	var geolocation = new qq.maps.Geolocation("OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77", "myapp");
 
@@ -33,7 +33,7 @@ $(function(){
 	function showErr(err) {
     alert(err)
 };
-})
+}
 
 	 function regeocoder(lag,lat) {  //逆地理编码
 		 lnglatXY = [lag, lat]; //已知点坐标
@@ -64,7 +64,9 @@ $(function(){
 	     * @returns
 	     */
 	    function punchCards(){
+
 			  alert("打卡成功");
+			  add_adress()
 			  $("#record-address").val(myaddress);
 			  $("#record-negoDate").val(dateString);
 	    }
