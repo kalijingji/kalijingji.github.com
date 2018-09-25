@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vip解析</title>
+	<style>
+	    body{margin: 0;padding:0;text-align: center;}
+		input{width:790px;height:30px;margin-top: 20px;padding-left: 10px;}
+		.vipbox{width: 800px;height: 500px;margin:auto;border:1px solid #ddd;margin-top: 10px;}
+		#palybox{width: 100%;height: 100%;}
+		p{width: 800px;display:block;margin: auto;}
+	  	p button{width: 160px;height:30px;margin-left: 42px;border:none;background: #28c49d;color: #fff;outline:none;cursor: pointer;margin-top: 10px;margin-bottom: 10px;}
+	  	.active{background: #ff9400;color: #fff;}
+	  	#vip_click{width: 800px;height:30px;border:1px solid #ddd;display: inline-block;text-align: center;line-height: 30px;text-decoration:none;color: #fff;background: #ddd;cursor: pointer;}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+  <div class="vipbox">
+  	<iframe id="palybox"  allowtransparency="true" frameborder="0" scrolling="no"></iframe>
+  </div>
+  <input type="text"  value="https://v.qq.com/x/cover/lcpwn26degwm7t3/t00272rpchs.html?" placeholder="请输入视频网址">
+  <p>
+  <button style="margin-left: 0;" class="active" value="http://api.xyingyu.com/?url=">接口一</button>
+  <button value="https://jx.lache.me/cc/?url=">接口二</button>
+  <button value="http://api.visaok.net/?url=">接口三</button>
+  <button value="http://api.lvcha2017.cn/?url=">接口四</button>
+  <button style="margin-left: 0;" value="http://jiexi.92fz.cn/player/vip.php?url=">接口五</button>
+  <button value="http://jqaaa.com/jx.php?url=">接口六</button>
+  <button value="http://www.aktv.men/?url=">接口七</button>
+  <button value="http://aikan-tv.com/?url=">接口八</button>
+  </p>
+  <a  id="vip_click" >前往</a>
+</body>
+<script type="text/javascript">
+	jQuery(document).ready(function() {
+		$("button").click(function(){
+			$(this).addClass('active').slice().siblings().removeClass('active');
+		})
+		$("#vip_click").click(function() {
+			var website = $(".active").val();
+			var webadress = $("input").val();
+			$("#palybox").attr('src',website+webadress)
+		});
+	});
+</script>
+</html>
