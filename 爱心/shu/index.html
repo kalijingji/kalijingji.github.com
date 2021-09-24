@@ -15,7 +15,20 @@
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/garden.js"></script>
 <script type="text/javascript" src="js/functions.js"></script>
-
+<script>
+function getFormatDate(){
+    var nowDate = new Date();
+    var year = nowDate.getFullYear();
+    var month = nowDate.getMonth() + 1 < 10 ? "0" + (nowDate.getMonth() + 1) : nowDate.getMonth() + 1;
+    var date = nowDate.getDate() < 10 ? "0" + nowDate.getDate() : nowDate.getDate();
+    var hour = nowDate.getHours()< 10 ? "0" + nowDate.getHours() : nowDate.getHours();
+    var minute = nowDate.getMinutes()< 10 ? "0" + nowDate.getMinutes() : nowDate.getMinutes();
+    var second = nowDate.getSeconds()< 10 ? "0" + nowDate.getSeconds() : nowDate.getSeconds();
+    return year + "-" + month + "-" + date+" "+hour+":"+minute+":"+second;
+}
+var str = getFormatDate();
+$(".content_list_time").text('*'+str+'.');	
+</script>
 </head>
 
 <body>
@@ -25,7 +38,7 @@
 		<div id="code">
 			<span class="comments">/**</span><br />
 			<span class="space"/><span class="comments">*2017—02-06,</span><br />
-			<span class="space"/><span class="comments">*2018-08-17.</span><br />
+			<span class="space"/><span class="comments content_list_time">*2018-08-17.</span><br />
 			<span class="space"/><span class="comments">*/</span><br />
 			Boy name = <span class="keyword">Mr</span> 小贵子<br />
 			Girl name = <span class="keyword">Mrs</span> 小燕子<br />
