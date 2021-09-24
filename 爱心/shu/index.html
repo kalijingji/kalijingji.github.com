@@ -26,8 +26,10 @@ function getFormatDate(){
     var second = nowDate.getSeconds()< 10 ? "0" + nowDate.getSeconds() : nowDate.getSeconds();
     return year + "-" + month + "-" + date+" "+hour+":"+minute+":"+second;
 }
-var str = getFormatDate();
-$(".content_list_time").text('*'+str+'.');	
+$(function(){
+ var str = getFormatDate();
+ $(".content_list_time").text('*'+str+'.');
+})		
 </script>
 </head>
 
