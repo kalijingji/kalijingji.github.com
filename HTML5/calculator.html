@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>高级计算器</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      padding: 20px;
+    }
+
+    .calculator-container {
+      display: flex;
+      width: 950px;
+      height: 580px;
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+
+    .history-panel {
+      flex: 1;
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .history-panel h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      color: #ecf0f1;
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 10px;
+    }
+
+    #history-list {
+      list-style-type: none;
+      flex-grow: 1;
+      overflow-y: auto;
+    }
+
+    #history-list li {
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #34495e;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      word-break: break-all;
+    }
+
+    #history-list li:hover {
+      background-color: #3d566e;
+      transform: translateX(5px);
+    }
+
+    .history-controls {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+    }
+
+    .history-controls button {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      background-color: #3498db;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .history-controls button:hover {
+      background-color: #2980b9;
+    }
+
+    .calculator {
+      flex: 1.5;
+      display: flex;
+      flex-direction: column;
+      background-color: #f5f5f5;
+      padding: 20px;
+    }
+
+    .display-container {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .display {
+      width: 100%;
+      height: 80px;
+      background-color: #333;
+      color: white;
+      text-align: right;
+      padding: 15px 60px 15px 15px;
+      font-size: 2.2rem;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .memory-indicator {
+      position: absolute;
+      top: 5px;
+      left: 15px;
+      color: #3498db;
+      font-size: 0.9rem;
+    }
+
+    .gt-indicator {
+      position: absolute;
+      top: 5px;
+      right: 15px;
+      color: #2ecc71;
+      font-size: 0.9rem;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-gap: 10px;
+      height: 100%;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .memory-btn {
+      background-color: #7f8c8d;
+      color: white;
+    }
+
+    .memory-btn:hover {
+      background-color: #636e70;
+    }
+
+    .memory-btn.active {
+      background-color: #3498db;
+      box-shadow: 0 0 10px rgba(52, 152, 219, 0.7);
+    }
+
+    .digit-btn {
+      background-color: #ecf0f1;
+      color: #2c3e50;
+    }
+
+    .digit-btn:hover {
+      background-color: #d6dbdf;
+    }
+
+    .operator-btn {
+      background-color: #3498db;
+      color: white;
+    }
+
+    .operator-btn:hover {
+      background-color: #2980b9;
+    }
+
+    .function-btn {
+      background-color: #e74c3c;
+      color: white;
+    }
+
+    .function-btn:hover {
+      background-color: #c0392b;
+    }
+
+    .special-btn {
+      background-color: #9b59b6;
+      color: white;
+    }
+
+    .special-btn:hover {
+      background-color: #8e44ad;
+    }
+
+    .equals-btn {
+      background-color: #2ecc71;
+      color: white;
+    }
+
+    .equals-btn:hover {
+      background-color: #27ae60;
+    }
+
+    .zero-btn {
+      grid-column: span 2;
+    }
+
+    .clear-history {
+      margin-top: 10px;
+      padding: 8px;
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .clear-history:hover {
+      background-color: #c0392b;
+    }
+
+    .btn-hiden {
+      box-shadow: none;
+      background: #f5f5f5;
+    }
+
+    @media (max-width: 1000px) {
+      .calculator-container {
+        flex-direction: column;
+        width: 95%;
+        height: auto;
+      }
+
+      .history-panel {
+        max-height: 200px;
+      }
+
+      .calculator {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="calculator-container">
+    <div class="history-panel">
+      <h2>操作记录</h2>
+      <ul id="history-list"></ul>
+      <div class="history-controls">
+        <button id="save-history"><i class="fas fa-save"></i> 保存</button>
+        <button id="clear-history"><i class="fas fa-trash"></i> 清除</button>
+      </div>
+    </div>
+
+    <div class="calculator">
+      <div class="display-container">
+        <div class="memory-indicator" id="memory-indicator">M: 0</div>
+        <div class="gt-indicator" id="gt-indicator">GT: 0</div>
+        <div class="display" id="display">0</div>
+      </div>
+      <div class="buttons">
+        <button class="btn btn-hiden"></button>
+        <button class="btn btn-hiden"></button>
+        <button class="btn btn-hiden"></button>
+        <button class="btn btn-hiden"></button>
+        <button class="btn btn-hiden"></button>
+        <button class="btn function-btn" id="off-btn">OFF</button>
+
+        <button class="btn memory-btn" id="mu-btn">MU</button>
+        <button class="btn memory-btn" id="mc-btn">MC</button>
+        <button class="btn memory-btn" id="mr-btn">MR</button>
+        <button class="btn memory-btn" id="mplus-btn">M+</button>
+        <button class="btn memory-btn" id="mminus-btn">M-</button>
+        <button class="btn function-btn" id="gt-btn">GT</button>
+
+        <button class="btn special-btn" id="back-btn">→</button>
+        <button class="btn digit-btn">7</button>
+        <button class="btn digit-btn">8</button>
+        <button class="btn digit-btn">9</button>
+        <button class="btn operator-btn" id="percent-btn">%</button>
+        <button class="btn special-btn" id="sqrt-btn">√</button>
+
+        <button class="btn function-btn" id="ac-btn">AC</button>
+        <button class="btn digit-btn">4</button>
+        <button class="btn digit-btn">5</button>
+        <button class="btn digit-btn">6</button>
+        <button class="btn operator-btn">×</button>
+        <button class="btn operator-btn">÷</button>
+
+        <button class="btn function-btn" id="ce-btn">CE</button>
+        <button class="btn digit-btn">1</button>
+        <button class="btn digit-btn">2</button>
+        <button class="btn digit-btn">3</button>
+        <button class="btn operator-btn">+</button>
+        <button class="btn operator-btn">-</button>
+
+        <button class="btn function-btn" id="on-btn">ON</button>
+        <button class="btn digit-btn zero-btn">0</button>
+        <button class="btn digit-btn">00</button>
+        <button class="btn digit-btn" id="decimal-btn">•</button>
+        <button class="btn equals-btn" id="equals-btn">=</button>
+
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const display = document.getElementById('display');
+      const historyList = document.getElementById('history-list');
+      const memoryIndicator = document.getElementById('memory-indicator');
+      const gtIndicator = document.getElementById('gt-indicator');
+      const clearHistoryBtn = document.getElementById('clear-history');
+      const saveHistoryBtn = document.getElementById('save-history');
+
+      let currentInput = '0';
+      let previousInput = '';
+      let operation = null;
+      let shouldResetScreen = false;
+      let memory = 0;
+      let grandTotal = 0;
+      let isCalculatorOn = true;
+
+      // 更新显示屏
+      function updateDisplay () {
+        if (!isCalculatorOn) {
+          display.textContent = '';
+          return;
+        }
+
+        // 限制显示长度
+        if (currentInput.length > 12) {
+          display.textContent = parseFloat(currentInput).toExponential(6);
+        } else {
+          display.textContent = currentInput;
+        }
+
+        // 更新内存指示器
+        memoryIndicator.textContent = `M: ${memory}`;
+        gtIndicator.textContent = `GT: ${grandTotal}`;
+      }
+
+      // 添加操作记录
+      function addToHistory (operationText) {
+        const li = document.createElement('li');
+        li.textContent = operationText;
+        historyList.appendChild(li);
+        // 滚动到底部
+        historyList.scrollTop = historyList.scrollHeight;
+      }
+
+      // 数字按钮点击事件
+      document.querySelectorAll('.digit-btn').forEach(button => {
+        button.addEventListener('click', () => {
+          if (!isCalculatorOn) return;
+
+          const digit = button.textContent;
+
+          if (currentInput === '0' || shouldResetScreen) {
+            currentInput = digit;
+            shouldResetScreen = false;
+          } else {
+            // 防止输入过长
+            if (currentInput.length < 12) {
+              currentInput += digit;
+            }
+          }
+
+          updateDisplay();
+        });
+      });
+
+      // 运算符按钮点击事件
+      document.querySelectorAll('.operator-btn').forEach(button => {
+        button.addEventListener('click', () => {
+          if (!isCalculatorOn) return;
+
+          if (operation !== null) calculate();
+          previousInput = currentInput;
+          operation = button.textContent;
+          shouldResetScreen = true;
+        });
+      });
+
+      // 小数点按钮
+      document.getElementById('decimal-btn').addEventListener('click', () => {
+        if (!isCalculatorOn) return;
+
+        if (shouldResetScreen) {
+          currentInput = '0.';
+          shouldResetScreen = false;
+        } else if (!currentInput.includes('.')) {
+          currentInput += '.';
+        }
+        updateDisplay();
+      });
+
+      // 等号按钮
+      document.getElementById('equals-btn').addEventListener('click', () => {
+        if (!isCalculatorOn) return;
+
+        if (operation === null) return;
+        calculate();
+        operation = null;
+      });
+
+      // 计算函数
+      function calculate () {
+        let computation;
+        const prev = parseFloat(previousInput);
+        const current = parseFloat(currentInput);
+
+        if (isNaN(prev) || isNaN(current)) return;
+
+        switch (operation) {
+          case '+':
+            computation = prev + current;
+            break;
+          case '-':
+            computation = prev - current;
+            break;
+          case '×':
+            computation = prev * current;
+            break;
+          case '÷':
+            if (current === 0) {
+              computation = "错误";
+            } else {
+              computation = prev / current;
+            }
+            break;
+          case '%':
+            computation = prev % current;
+            break;
+          default:
+            return;
+        }
+
+        addToHistory(`${previousInput} ${operation} ${currentInput} = ${computation}`);
+
+        if (computation === "错误") {
+          currentInput = "错误";
+          setTimeout(() => {
+            currentInput = '0';
+            updateDisplay();
+          }, 1500);
+        } else {
+          currentInput = computation.toString();
+          // 添加到GT
+          grandTotal += computation;
+        }
+
+        updateDisplay();
+        shouldResetScreen = true;
+      }
+
+      // AC按钮（全部清除）
+      document.getElementById('ac-btn').addEventListener('click', () => {
+        currentInput = '0';
+        previousInput = '';
+        operation = null;
+        updateDisplay();
+        addToHistory("全部清除");
+      });
+
+      // CE按钮（清除当前输入）
+      document.getElementById('ce-btn').addEventListener('click', () => {
+        currentInput = '0';
+        updateDisplay();
+        addToHistory("清除输入");
+      });
+
+      // ON按钮
+      document.getElementById('on-btn').addEventListener('click', () => {
+        isCalculatorOn = true;
+        currentInput = '0';
+        previousInput = '';
+        operation = null;
+        updateDisplay();
+        addToHistory("计算器开启");
+      });
+
+      // OFF按钮
+      document.getElementById('off-btn').addEventListener('click', () => {
+        isCalculatorOn = false;
+        display.textContent = '';
+        addToHistory("计算器关闭");
+      });
+
+      // 平方根按钮
+      document.getElementById('sqrt-btn').addEventListener('click', () => {
+        if (!isCalculatorOn) return;
+
+        const value = Math.sqrt(parseFloat(currentInput));
+        addToHistory(`√(${currentInput}) = ${value}`);
+        currentInput = value.toString();
+        updateDisplay();
+      });
+
+      // 百分比按钮
+      document.getElementById('percent-btn').addEventListener('click', () => {
+        if (!isCalculatorOn) return;
+
+        const value = parseFloat(currentInput) / 100;
+        addToHistory(`${currentInput}% = ${value}`);
+        currentInput = value.toString();
+        updateDisplay();
+      });
+
+      // 退格按钮 (→)
+      document.getElementById('back-btn').addEventListener('click', () => {
+        if (!isCalculatorOn) return;
+
+        if (currentInput.length > 1) {
+          currentInput = currentInput.slice(0, -1);
+        } else {
+          currentInput = '0';
+        }
+        updateDisplay();
+        addToHistory("退格操作");
+      });
+
+      // 内存功能
+      document.getElementById('mc-btn').addEventListener('click', () => {
+        memory = 0;
+        updateDisplay();
+        addToHistory("内存清除");
+      });
+
+      document.getElementById('mr-btn').addEventListener('click', () => {
+        if (!isCalculatorOn) return;
+
+        currentInput = memory.toString();
+        updateDisplay();
+        addToHistory(`内存读取: ${memory}`);
+      });
+
+      document.getElementById('mplus-btn').addEventListener('click', () => {
+        if (!isCalculatorOn) return;
+
+        memory += parseFloat(currentInput);
+        updateDisplay();
+        addToHistory(`内存增加: ${currentInput}`);
+      });
+
+      document.getElementById('mminus-btn').addEventListener('click', () => {
+        if (!isCalculatorOn) return;
+
+        memory -= parseFloat(currentInput);
+        updateDisplay();
+        addToHistory(`内存减少: ${currentInput}`);
+      });
+
+      document.getElementById('mu-btn').addEventListener('click', () => {
+        if (!isCalculatorOn) return;
+
+        // MU功能：标记-向上（常用于价格计算）
+        const value = parseFloat(currentInput);
+        memory = value;
+        currentInput = (value * 1.1).toString(); // 增加10%作为示例
+        updateDisplay();
+        addToHistory(`标记-向上: ${value} -> ${currentInput}`);
+      });
+
+      // GT功能（总和）
+      document.getElementById('gt-btn').addEventListener('click', () => {
+        if (!isCalculatorOn) return;
+
+        currentInput = grandTotal.toString();
+        updateDisplay();
+        addToHistory(`显示总和: ${grandTotal}`);
+      });
+
+      // 清除历史记录
+      clearHistoryBtn.addEventListener('click', () => {
+        historyList.innerHTML = '';
+        addToHistory("历史记录已清除");
+      });
+
+      // 保存历史记录（模拟功能）
+      saveHistoryBtn.addEventListener('click', () => {
+        addToHistory("历史记录已保存（模拟）");
+      });
+
+      // 初始化
+      updateDisplay();
+      addToHistory("计算器就绪");
+    });
+  </script>
+</body>
+
+</html>
